@@ -976,7 +976,7 @@ orders (
 
 ### 10.4 Deliverables (3-Month MVP)
 
-#### Product (Denys)
+#### 10.4.1 Platform Development (Denys)
 
 | Deliverable | Description |
 |-------------|-------------|
@@ -987,21 +987,42 @@ orders (
 | APIs | Tracking endpoints |
 | Payment | Stripe integration |
 | CI/CD | Automated deployment |
-| Investor Deck | Basic pitch presentation |
-| Teaser | One-pager for investors |
-| Financial Model | Revenue/cost projections |
-| User Interviews | Conduct + analyze |
-| Business Plan | Market strategy document |
 | SLA Definition | Service level agreement |
 
-#### Design (Andrii Pavlov)
+#### 10.4.2 Business & Investor Materials (Denys)
 
 | Deliverable | Description |
 |-------------|-------------|
-| Landing Page | Marketing site design |
-| UI Kit (Users) | Customer portal components |
-| UI Kit (Admin) | Admin panel components |
-| Brand Identity | Logo, colors, typography |
+| **Investor Deck** | Basic pitch deck for seed/angel conversations |
+| **Teaser** | 1-page summary for initial investor outreach |
+| **Financial Model** | 3-year projections: revenue, costs, unit economics |
+| **Business Plan** | Market analysis, go-to-market strategy, competitive positioning |
+
+#### 10.4.3 User Research - 80 Hours (Denys)
+
+| Phase | Hours | Activities |
+|-------|-------|------------|
+| **Preparation** | 20 | Interview script design, recruitment criteria, scheduling, tool setup |
+| **Conducting** | 40 | 1-on-1 interviews (est. 15-20 interviews @ 45-60 min each) |
+| **Post-Analysis** | 20 | Transcription review, affinity mapping, insight synthesis, report |
+
+**Interview Distribution by Persona:**
+
+| Persona | Target Interviews | Focus Areas |
+|---------|-------------------|-------------|
+| Consignee (Buyer) | 8-10 | Pain points, willingness to pay, feature priorities |
+| Forwarder | 4-6 | Workflow integration, activation experience |
+| Logistics/Shipper | 2-3 | Industry validation, partnership potential |
+
+#### 10.4.4 Design Deliverables (Andrii Pavlov)
+
+| Deliverable | Description |
+|-------------|-------------|
+| **Brand Identity** | Logo, color palette, typography, brand guidelines |
+| **Landing Page** | Marketing site design with CTA (buy) |
+| **UI Kit (All Users)** | Customer portal components, tracking views, account screens |
+| **UI Kit (Admin)** | Admin panel components, data tables, management views |
+| **Label Design** | Physical label artwork, QR placement, quick-start guide |
 
 ---
 
