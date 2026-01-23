@@ -665,7 +665,7 @@
 
 <!-- Meta Bar -->
 <div class="meta-bar">
-    <div class="meta-item"><span>Last Updated:</span> January 15, 2026</div>
+    <div class="meta-item"><span>Last Updated:</span> January 23, 2026</div>
     <div class="meta-item"><span>Status:</span> MVP Definition</div>
     <div class="meta-item"><span>Owner:</span> Denys Chumak</div>
 </div>
@@ -857,12 +857,24 @@
                 <p>High-value: phones, laptops, components</p>
             </div>
             <div class="card">
-                <h4>2. Automotive Parts</h4>
-                <p>B2B shipments between manufacturers</p>
+                <h4>2. Manufacturing</h4>
+                <p>B2B parts shipments between manufacturers</p>
             </div>
             <div class="card">
                 <h4>3. E-commerce</h4>
                 <p>Luxury items, collectibles, high-value goods</p>
+            </div>
+            <div class="card">
+                <h4>4. Time Critical</h4>
+                <p>Urgent shipments requiring real-time visibility</p>
+            </div>
+            <div class="card">
+                <h4>5. Pharma</h4>
+                <p>Pharmaceutical shipments (non-cold chain)</p>
+            </div>
+            <div class="card">
+                <h4>6. Air Cargo 500kg+</h4>
+                <p>Large air freight shipments</p>
             </div>
         </div>
     </section>
@@ -879,12 +891,6 @@
             </div>
             <span class="flow-arrow">→</span>
             <div class="flow-step">
-                <div class="icon">📍</div>
-                <div class="name">Enter Destination</div>
-                <div style="font-size: 0.65rem; color: #64748b;">Consignee</div>
-            </div>
-            <span class="flow-arrow">→</span>
-            <div class="flow-step">
                 <div class="icon">🔗</div>
                 <div class="name">Share Link</div>
                 <div style="font-size: 0.65rem; color: #64748b;">Consignee</div>
@@ -893,30 +899,30 @@
             <div class="flow-step">
                 <div class="icon">📝</div>
                 <div class="name">Enter Origin</div>
-                <div style="font-size: 0.65rem; color: #64748b;">Forwarder</div>
+                <div style="font-size: 0.65rem; color: #64748b;">Shipper</div>
             </div>
             <span class="flow-arrow">→</span>
             <div class="flow-step">
                 <div class="icon">📬</div>
                 <div class="name">Receive Label</div>
-                <div style="font-size: 0.65rem; color: #64748b;">Forwarder</div>
-            </div>
-            <span class="flow-arrow">→</span>
-            <div class="flow-step">
-                <div class="icon">📱</div>
-                <div class="name">Scan & Attach</div>
-                <div style="font-size: 0.65rem; color: #64748b;">Forwarder</div>
-            </div>
-            <span class="flow-arrow">→</span>
-            <div class="flow-step">
-                <div class="icon">✈️</div>
-                <div class="name">Transit</div>
                 <div style="font-size: 0.65rem; color: #64748b;">Shipper</div>
             </div>
             <span class="flow-arrow">→</span>
             <div class="flow-step">
+                <div class="icon">📱</div>
+                <div class="name">Activate & Attach</div>
+                <div style="font-size: 0.65rem; color: #64748b;">Shipper</div>
+            </div>
+            <span class="flow-arrow">→</span>
+            <div class="flow-step">
+                <div class="icon">📍</div>
+                <div class="name">Track Cargo</div>
+                <div style="font-size: 0.65rem; color: #64748b;">Consignee</div>
+            </div>
+            <span class="flow-arrow">→</span>
+            <div class="flow-step">
                 <div class="icon">✅</div>
-                <div class="name">Delivered</div>
+                <div class="name">Get Cargo</div>
                 <div style="font-size: 0.65rem; color: #64748b;">Consignee</div>
             </div>
         </div>
@@ -933,56 +939,56 @@
             <div class="timeline-item">
                 <div class="timeline-marker">2</div>
                 <div class="timeline-content">
-                    <h4>Enter Final Destination <span class="status-tag status-mvp" style="margin-left: 10px;">Consignee</span></h4>
-                    <p>Consignee enters their own address (where cargo will be delivered)</p>
+                    <h4>Share Link with Shipper/Forwarder <span class="status-tag status-mvp" style="margin-left: 10px;">Consignee</span></h4>
+                    <p>Consignee sends link to shipper/forwarder • 1-3 email reminders until activated</p>
                 </div>
             </div>
             <div class="timeline-item">
                 <div class="timeline-marker">3</div>
                 <div class="timeline-content">
-                    <h4>Share Link with Forwarder <span class="status-tag status-mvp" style="margin-left: 10px;">Consignee</span></h4>
-                    <p>Consignee sends a link to the forwarder to complete origin address</p>
+                    <h4>Enter Origin Address <span class="status-tag" style="background: rgba(99, 102, 241, 0.2); color: #a5b4fc; margin-left: 10px;">Shipper</span></h4>
+                    <p>Shipper clicks link, enters their address (cargo origin) → label ships to them</p>
                 </div>
             </div>
             <div class="timeline-item">
                 <div class="timeline-marker">4</div>
                 <div class="timeline-content">
-                    <h4>Enter Origin Address <span class="status-tag status-future" style="margin-left: 10px;">Forwarder</span></h4>
-                    <p>Forwarder clicks link, enters their address (cargo origin) → label ships to them</p>
+                    <h4>Receive Label <span class="status-tag" style="background: rgba(99, 102, 241, 0.2); color: #a5b4fc; margin-left: 10px;">Shipper</span></h4>
+                    <p>Shipper receives physical label with quick-start guide</p>
                 </div>
             </div>
             <div class="timeline-item">
                 <div class="timeline-marker">5</div>
                 <div class="timeline-content">
-                    <h4>Receive Label <span class="status-tag status-future" style="margin-left: 10px;">Forwarder</span></h4>
-                    <p>Forwarder receives physical label with quick-start guide</p>
+                    <h4>Scan QR at Fulfillment Warehouse <span class="status-tag" style="background: rgba(99, 102, 241, 0.2); color: #a5b4fc; margin-left: 10px;">Shipper</span></h4>
+                    <p>QR scan triggers notification to consignee • API integration by SKU</p>
                 </div>
             </div>
             <div class="timeline-item">
                 <div class="timeline-marker">6</div>
                 <div class="timeline-content">
-                    <h4>Scan QR & Link to Cargo <span class="status-tag status-future" style="margin-left: 10px;">Forwarder</span></h4>
-                    <p>Forwarder scans QR → enters cargo details → attaches label to shipment</p>
+                    <h4>Activate & Attach <span class="status-tag" style="background: rgba(99, 102, 241, 0.2); color: #a5b4fc; margin-left: 10px;">Shipper</span></h4>
+                    <p>Activate battery • Enter destination (optional) • Add cargo photo(s) • Attach to cargo</p>
                 </div>
             </div>
             <div class="timeline-item">
                 <div class="timeline-marker">7</div>
                 <div class="timeline-content">
-                    <h4>Transit & Track <span class="status-tag" style="background: rgba(99, 102, 241, 0.2); color: #a5b4fc; margin-left: 10px;">Shipper</span></h4>
-                    <p>Cargo moves through carriers, label transmits location every 15-30 min</p>
+                    <h4>Transit & Track <span class="status-tag status-mvp" style="margin-left: 10px;">Consignee</span></h4>
+                    <p>Cargo moves, label transmits every 120 min • Consignee tracks in real-time</p>
                 </div>
             </div>
             <div class="timeline-item">
                 <div class="timeline-marker">8</div>
                 <div class="timeline-content">
-                    <h4>Delivered <span class="status-tag status-mvp" style="margin-left: 10px;">Consignee</span></h4>
+                    <h4>Get Your Cargo <span class="status-tag status-mvp" style="margin-left: 10px;">Consignee</span></h4>
                     <p>Cargo arrives at consignee, notification sent, tracking complete</p>
                 </div>
             </div>
         </div>
         
         <div class="value-prop">
-            <strong>Key Insight:</strong> The Consignee (buyer) may not know the forwarder's exact address. They share a link so the forwarder can enter their own origin address. This triggers label shipment to the forwarder.
+            <strong>Key Insight:</strong> The Consignee (buyer) may not know the shipper's exact address. They share a link so the shipper can enter their own origin address. This triggers label shipment to the shipper.
         </div>
     </section>
 
@@ -1084,6 +1090,7 @@
         <div class="questions-box" style="background: rgba(196, 245, 52, 0.1); border-color: var(--primary);">
             <h4 style="color: var(--primary);">🔧 Technical Spec for Hardware Team (Andrii)</h4>
             <p style="color: var(--text-light); margin: 0;">This section defines how the label device communicates with the backend.</p>
+            <p style="margin-top: 10px; margin-bottom: 0;"><strong>GPS Tracking API Documentation:</strong> <a href="https://label.utec.ua/api/docs" target="_blank" style="color: var(--primary);">https://label.utec.ua/api/docs</a></p>
         </div>
         
         <h3>Communication Method</h3>
@@ -1109,7 +1116,7 @@
                 </tr>
                 <tr>
                     <td>Frequency</td>
-                    <td>Every 15-30 minutes (configurable)</td>
+                    <td>Every 120 minutes (configurable)</td>
                 </tr>
             </tbody>
         </table>
@@ -1241,6 +1248,7 @@ X-API-Key: [device_api_key]
         <h3>What's Included</h3>
         <ul class="metrics-list">
             <li><span class="check">✓</span> Physical label device</li>
+            <li><span class="check">✓</span> Free delivery to shipper</li>
             <li><span class="check">✓</span> 60 days of tracking</li>
             <li><span class="check">✓</span> Platform access</li>
             <li><span class="check">✓</span> Email notifications</li>
@@ -1283,29 +1291,34 @@ X-API-Key: [device_api_key]
                 <tr>
                     <th>Event</th>
                     <th>Trigger</th>
-                    <th>Recipient</th>
+                    <th>Tier</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
                     <td>✅ Label Activated</td>
                     <td>Label begins transmitting</td>
-                    <td>Owner (Consignee)</td>
-                </tr>
-                <tr>
-                    <td>📦 Shipment Delivered</td>
-                    <td>Label detects final location</td>
-                    <td>Owner (Consignee)</td>
+                    <td><span class="status-tag status-mvp">Free</span></td>
                 </tr>
                 <tr>
                     <td>🔋 Low Battery</td>
                     <td>Battery drops below 20%, 10%</td>
-                    <td>Owner (Consignee)</td>
+                    <td><span class="status-tag status-mvp">Free</span></td>
                 </tr>
                 <tr>
                     <td>📡 No Signal</td>
                     <td>No transmission for >24 hours</td>
-                    <td>Owner (Consignee)</td>
+                    <td><span class="status-tag status-mvp">Free</span></td>
+                </tr>
+                <tr>
+                    <td>📦 Shipment Delivered</td>
+                    <td>Label detects final location</td>
+                    <td><span class="status-tag status-future">Premium</span></td>
+                </tr>
+                <tr>
+                    <td>⚠️ Shipment Stuck</td>
+                    <td>No movement for extended period</td>
+                    <td><span class="status-tag status-future">Premium</span></td>
                 </tr>
             </tbody>
         </table>
@@ -1378,24 +1391,29 @@ X-API-Key: [device_api_key]
                 <tr>
                     <th>Data</th>
                     <th>Retention</th>
-                    <th>Deletion</th>
+                    <th>Tier</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
                     <td>Location history</td>
-                    <td>90 days post-delivery</td>
-                    <td>Auto-purge after 90 days</td>
+                    <td>30 days post-delivery</td>
+                    <td><span class="status-tag status-mvp">Free</span></td>
+                </tr>
+                <tr>
+                    <td>Location history</td>
+                    <td>90+ days post-delivery</td>
+                    <td><span class="status-tag status-future">Premium</span></td>
                 </tr>
                 <tr>
                     <td>Account data</td>
                     <td>Until deletion request</td>
-                    <td>User can delete anytime (GDPR)</td>
+                    <td>All (GDPR compliant)</td>
                 </tr>
                 <tr>
-                    <td>Audit logs</td>
-                    <td>Immutable, append-only</td>
-                    <td>Available for export</td>
+                    <td>Exported data</td>
+                    <td>User responsibility</td>
+                    <td>All (CSV download)</td>
                 </tr>
             </tbody>
         </table>
@@ -1496,18 +1514,19 @@ X-API-Key: [device_api_key]
             </thead>
             <tbody>
                 <tr><td>Buy label</td><td>Consignee (buyer)</td><td>✅</td><td></td></tr>
-                <tr><td>Enter final destination</td><td>Consignee (buyer)</td><td>✅</td><td></td></tr>
-                <tr><td>Share link with forwarder</td><td>Consignee (buyer)</td><td>✅</td><td></td></tr>
-                <tr><td>Enter forwarder address (origin)</td><td>Forwarder</td><td>✅</td><td></td></tr>
-                <tr><td>Receive label</td><td>Forwarder</td><td>✅</td><td></td></tr>
-                <tr><td>Scan QR & link to cargo</td><td>Forwarder</td><td>✅</td><td></td></tr>
-                <tr><td>Activate & attach label</td><td>Forwarder</td><td>✅</td><td></td></tr>
-                <tr><td>Share tracking link</td><td>Consignee / Forwarder</td><td>✅</td><td></td></tr>
-                <tr><td>Track cargo location</td><td>Anyone with link</td><td>✅</td><td></td></tr>
+                <tr><td>Share link with shipper/forwarder</td><td>Consignee (buyer)</td><td>✅</td><td></td></tr>
+                <tr><td>Receive activation reminders</td><td>Consignee (buyer)</td><td>✅</td><td></td></tr>
+                <tr><td>Enter origin address</td><td>Shipper</td><td>✅</td><td></td></tr>
+                <tr><td>Receive label</td><td>Shipper</td><td>✅</td><td></td></tr>
+                <tr><td>Scan QR at fulfillment warehouse</td><td>Shipper</td><td>✅</td><td></td></tr>
+                <tr><td>Activate label (battery)</td><td>Shipper</td><td>✅</td><td></td></tr>
+                <tr><td>Enter final destination (optional)</td><td>Shipper</td><td>✅</td><td></td></tr>
+                <tr><td>Add cargo photo(s)</td><td>Shipper</td><td>✅</td><td></td></tr>
+                <tr><td>Attach label to cargo</td><td>Shipper</td><td>✅</td><td></td></tr>
+                <tr><td>Track cargo location</td><td>Consignee</td><td>✅</td><td></td></tr>
                 <tr><td>View location history</td><td>Anyone with link</td><td>✅</td><td></td></tr>
-                <tr><td>Live map view</td><td>Anyone with link</td><td>✅</td><td></td></tr>
                 <tr><td>Receive delivery notification</td><td>Consignee</td><td>✅</td><td></td></tr>
-                <tr><td>Track transport type</td><td>—</td><td></td><td>✅</td></tr>
+                <tr><td>Recognise flight/ship name</td><td>System</td><td></td><td>✅</td></tr>
                 <tr><td>Track delivery delays</td><td>—</td><td></td><td>✅</td></tr>
                 <tr><td>Track route deviations</td><td>—</td><td></td><td>✅</td></tr>
                 <tr><td>Expected delivery date</td><td>—</td><td></td><td>✅</td></tr>
@@ -1998,7 +2017,7 @@ X-API-Key: [device_api_key]
 
 <!-- Footer -->
 <footer class="footer">
-    <p>HyperLabel Product Specification v1.0 • Confidential • January 2026</p>
+    <p>HyperLabel Product Specification v1.0 • Confidential • January 23, 2026</p>
 </footer>
 
 </body>
