@@ -1189,7 +1189,326 @@ orders (
 | **Phase 4** | Month 10-12 | TMS integrations, enterprise features |
 | **Year 2** | 12+ months | Cold chain, white-label, international expansion |
 
-### 11.5 Future Hardware Evolution
+---
+
+### 11.5 Development Roadmap (3-Month MVP)
+
+**Timeline:** January - March 2026  
+**Developer:** Denys Chumak (100 hours / £5,000)  
+**Approach:** Vibe coding with AI assistance (Cursor + Claude/GPT)
+
+```
+┌─────────────────────────────────────────────────────────────────────────────────┐
+│                           3-MONTH MVP DEVELOPMENT PLAN                          │
+├─────────────────────────────────────────────────────────────────────────────────┤
+│                                                                                  │
+│  MONTH 1 (Jan)              MONTH 2 (Feb)              MONTH 3 (Mar)           │
+│  ════════════════           ════════════════           ════════════════         │
+│                                                                                  │
+│  ┌─────────────┐            ┌─────────────┐            ┌─────────────┐          │
+│  │ E1: Setup   │            │ E4: Portal  │            │ E7: Admin   │          │
+│  │ & Infra     │───────────▶│ & Dashboard │───────────▶│ Panel       │          │
+│  └─────────────┘            └─────────────┘            └─────────────┘          │
+│                                                                                  │
+│  ┌─────────────┐            ┌─────────────┐            ┌─────────────┐          │
+│  │ E2: Auth &  │            │ E5: Tracking│            │ E8: Notif-  │          │
+│  │ Users       │───────────▶│ Features    │───────────▶│ ications    │          │
+│  └─────────────┘            └─────────────┘            └─────────────┘          │
+│                                                                                  │
+│  ┌─────────────┐            ┌─────────────┐            ┌─────────────┐          │
+│  │ E3: Landing │            │ E6: Payment │            │ E9: Launch  │          │
+│  │ Page        │───────────▶│ & Orders    │───────────▶│ & Deploy    │          │
+│  └─────────────┘            └─────────────┘            └─────────────┘          │
+│                                                                                  │
+│  ~35 hours                  ~35 hours                  ~30 hours                │
+│                                                                                  │
+└─────────────────────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+#### MONTH 1: Foundation & Infrastructure (Weeks 1-4)
+
+---
+
+##### Epic 1: Project Setup & Infrastructure
+**Goal:** Set up development environment, CI/CD, and core architecture  
+**Estimate:** 10 hours
+
+| ID | Task | Description | Tools | Hours |
+|----|------|-------------|-------|-------|
+| E1-T1 | Initialize monorepo | Create Next.js project with TypeScript, ESLint, Prettier | Next.js, pnpm | 1 |
+| E1-T2 | Database setup | PostgreSQL + PostGIS on Supabase/Neon | Supabase, Prisma | 2 |
+| E1-T3 | Database schema | Design tables: users, shipments, labels, locations, orders | Prisma, dbdiagram.io | 2 |
+| E1-T4 | CI/CD pipeline | GitHub Actions for lint, test, deploy to Vercel | GitHub Actions, Vercel | 2 |
+| E1-T5 | Environment config | .env setup, secrets management, staging/prod split | Vercel, 1Password | 1 |
+| E1-T6 | Project structure | Folder structure, shared components, API routes | Next.js App Router | 2 |
+
+**Deliverables:**
+- [ ] Git repository with monorepo structure
+- [ ] Database running with initial schema
+- [ ] CI/CD pipeline deploying to staging
+- [ ] README with setup instructions
+
+---
+
+##### Epic 2: Authentication & User Management
+**Goal:** Implement user auth, profiles, and account management  
+**Estimate:** 12 hours
+
+| ID | Task | Description | Tools | Hours |
+|----|------|-------------|-------|-------|
+| E2-T1 | Clerk integration | Set up Clerk auth provider | Clerk | 2 |
+| E2-T2 | Sign up flow | Email/password + social (Google) sign up | Clerk, React | 2 |
+| E2-T3 | Sign in flow | Login page with error handling | Clerk, React | 1 |
+| E2-T4 | User profile page | View/edit profile, change password | Next.js, Clerk | 2 |
+| E2-T5 | User DB sync | Webhook to sync Clerk users to DB | Clerk Webhooks, API | 2 |
+| E2-T6 | Protected routes | Middleware for auth-required pages | Next.js Middleware | 1 |
+| E2-T7 | Session management | Handle tokens, refresh, logout | Clerk | 1 |
+| E2-T8 | Email verification | Verify email before full access | Clerk | 1 |
+
+**Deliverables:**
+- [ ] Working sign up/sign in flow
+- [ ] User profile page
+- [ ] Protected routes for authenticated users
+- [ ] User data synced to database
+
+---
+
+##### Epic 3: Landing Page
+**Goal:** Build marketing site with product info and purchase CTA  
+**Estimate:** 10 hours
+
+| ID | Task | Description | Tools | Hours |
+|----|------|-------------|-------|-------|
+| E3-T1 | Page layout | Responsive layout, navigation, footer | Next.js, Tailwind | 2 |
+| E3-T2 | Hero section | Value prop, product image, CTA button | Tailwind, Framer Motion | 2 |
+| E3-T3 | How it works | 3-step visual explanation | React, Icons | 1 |
+| E3-T4 | Features section | Key differentiators, benefits | Tailwind | 1 |
+| E3-T5 | Pricing section | Label pricing tiers (1, 5, 10-pack) | React | 1 |
+| E3-T6 | FAQ section | Accordion with common questions | Radix UI | 1 |
+| E3-T7 | Contact section | Email, support info | React | 0.5 |
+| E3-T8 | SEO & Meta | Meta tags, OG images, sitemap | Next.js, next-seo | 1 |
+| E3-T9 | Mobile optimization | Responsive design testing | Chrome DevTools | 0.5 |
+
+**Deliverables:**
+- [ ] Live landing page at hyperlabel.com
+- [ ] Responsive design (mobile + desktop)
+- [ ] CTA linking to purchase flow
+- [ ] SEO-optimized
+
+---
+
+#### MONTH 2: Core Features (Weeks 5-8)
+
+---
+
+##### Epic 4: Customer Portal & Dashboard
+**Goal:** Build main customer dashboard with shipment management  
+**Estimate:** 14 hours
+
+| ID | Task | Description | Tools | Hours |
+|----|------|-------------|-------|-------|
+| E4-T1 | Dashboard layout | Sidebar nav, header, main content area | Tailwind, shadcn/ui | 2 |
+| E4-T2 | Shipments overview | Cards showing active shipments summary | React, API | 2 |
+| E4-T3 | Shipments list | Table with filters (status, date) | TanStack Table | 2 |
+| E4-T4 | Create shipment | Form to create new shipment + link label | React Hook Form, Zod | 2 |
+| E4-T5 | Shipment detail page | Full shipment view with map + timeline | Next.js Dynamic Routes | 2 |
+| E4-T6 | Account settings | Notification prefs, profile edit | React, API | 2 |
+| E4-T7 | Billing history | List of past orders/invoices | Stripe API | 1 |
+| E4-T8 | Share link modal | Generate + copy public tracking URL | React, Clipboard API | 1 |
+
+**Deliverables:**
+- [ ] Working dashboard with shipment list
+- [ ] Create/edit shipment functionality
+- [ ] Account settings page
+- [ ] Share link generation
+
+---
+
+##### Epic 5: Tracking Features & Device Integration
+**Goal:** Implement live tracking, map view, and device API  
+**Estimate:** 14 hours
+
+| ID | Task | Description | Tools | Hours |
+|----|------|-------------|-------|-------|
+| E5-T1 | Device API endpoint | POST /api/v1/device/report | Next.js API Routes | 2 |
+| E5-T2 | Location storage | Store GPS data with PostGIS | Prisma, PostGIS | 2 |
+| E5-T3 | Data validation | Validate + clean incoming data (zero coords, etc.) | Zod | 1 |
+| E5-T4 | Map component | Google Maps integration | @react-google-maps/api | 2 |
+| E5-T5 | Live tracking view | Real-time location on map | React, SWR polling | 2 |
+| E5-T6 | Route history | Polyline showing travel path | Google Maps API | 1 |
+| E5-T7 | Timeline component | Chronological location events | React | 1 |
+| E5-T8 | Public tracking page | /track/{code} shareable view | Next.js | 2 |
+| E5-T9 | Label activation | QR scan → activate label API | API Routes | 1 |
+
+**Deliverables:**
+- [ ] Device API receiving location data
+- [ ] Map showing live location
+- [ ] Route history visualization
+- [ ] Public tracking page working
+
+---
+
+##### Epic 6: Payment & Order Processing
+**Goal:** Implement Stripe checkout and order management  
+**Estimate:** 10 hours
+
+| ID | Task | Description | Tools | Hours |
+|----|------|-------------|-------|-------|
+| E6-T1 | Stripe setup | Create Stripe account, API keys | Stripe Dashboard | 1 |
+| E6-T2 | Product catalog | Create label products in Stripe | Stripe Products | 1 |
+| E6-T3 | Checkout flow | Stripe Checkout session creation | Stripe, Next.js API | 2 |
+| E6-T4 | Success/cancel pages | Post-checkout redirect handling | Next.js | 1 |
+| E6-T5 | Webhook handler | Handle payment events (success, fail) | Stripe Webhooks | 2 |
+| E6-T6 | Order creation | Create order in DB on payment success | Prisma | 1 |
+| E6-T7 | Order confirmation email | Send confirmation after purchase | Resend | 1 |
+| E6-T8 | Order history API | Endpoint to fetch user's orders | Next.js API | 1 |
+
+**Deliverables:**
+- [ ] Working Stripe checkout
+- [ ] Order stored in database
+- [ ] Confirmation email sent
+- [ ] Order history visible in dashboard
+
+---
+
+#### MONTH 3: Admin, Notifications & Launch (Weeks 9-12)
+
+---
+
+##### Epic 7: Admin Panel
+**Goal:** Build internal operations panel for HyperLabel team  
+**Estimate:** 10 hours
+
+| ID | Task | Description | Tools | Hours |
+|----|------|-------------|-------|-------|
+| E7-T1 | Admin auth | Admin role check, protected routes | Clerk Roles | 1 |
+| E7-T2 | Admin layout | Separate admin UI layout | Next.js, Tailwind | 1 |
+| E7-T3 | User management | List/search/view users | TanStack Table | 2 |
+| E7-T4 | Label inventory | Track label stock, IMEI, status | React, API | 2 |
+| E7-T5 | Order management | View/filter orders, mark shipped | TanStack Table | 2 |
+| E7-T6 | Device health | View device status, last ping, battery | React, API | 1 |
+| E7-T7 | Support lookup | Search shipment by ID/email | API | 1 |
+
+**Deliverables:**
+- [ ] Admin panel at /admin
+- [ ] User management
+- [ ] Order management
+- [ ] Label inventory tracking
+
+---
+
+##### Epic 8: Notifications
+**Goal:** Implement email notifications for key events  
+**Estimate:** 8 hours
+
+| ID | Task | Description | Tools | Hours |
+|----|------|-------------|-------|-------|
+| E8-T1 | Email service setup | Configure Resend for transactional email | Resend | 1 |
+| E8-T2 | Email templates | Design email templates (React Email) | React Email | 2 |
+| E8-T3 | Label activated | Send email when label starts transmitting | Resend, Trigger | 1 |
+| E8-T4 | Low battery alert | Send email at 20% and 10% | Resend, Trigger | 1 |
+| E8-T5 | No signal alert | Send email after 24h no transmission | Cron job, Resend | 1 |
+| E8-T6 | Share link reminders | 1-3 emails if link not activated | Cron job, Resend | 1 |
+| E8-T7 | Notification prefs | User can toggle notifications | React, API | 1 |
+
+**Deliverables:**
+- [ ] Email notifications working
+- [ ] User can manage notification preferences
+- [ ] Activation reminders sending
+
+---
+
+##### Epic 9: Testing, QA & Launch
+**Goal:** Test, fix bugs, and deploy to production  
+**Estimate:** 10 hours
+
+| ID | Task | Description | Tools | Hours |
+|----|------|-------------|-------|-------|
+| E9-T1 | End-to-end testing | Test full user flows | Manual testing | 2 |
+| E9-T2 | Device integration test | Test with real hardware (Andrii) | Real device | 2 |
+| E9-T3 | Security review | Check auth, API security, HTTPS | Manual review | 1 |
+| E9-T4 | Performance check | Load testing, optimize slow queries | Vercel Analytics | 1 |
+| E9-T5 | Bug fixes | Fix issues found in testing | Various | 2 |
+| E9-T6 | Production deploy | Deploy to production, DNS setup | Vercel, Cloudflare | 1 |
+| E9-T7 | Documentation | API docs, user guide | Notion/README | 1 |
+
+**Deliverables:**
+- [ ] All critical flows tested
+- [ ] Production deployment live
+- [ ] Documentation published
+
+---
+
+#### Summary: Hours by Epic
+
+| Epic | Description | Hours | Month |
+|------|-------------|-------|-------|
+| **E1** | Project Setup & Infrastructure | 10 | 1 |
+| **E2** | Authentication & User Management | 12 | 1 |
+| **E3** | Landing Page | 10 | 1 |
+| **E4** | Customer Portal & Dashboard | 14 | 2 |
+| **E5** | Tracking Features & Device Integration | 14 | 2 |
+| **E6** | Payment & Order Processing | 10 | 2 |
+| **E7** | Admin Panel | 10 | 3 |
+| **E8** | Notifications | 8 | 3 |
+| **E9** | Testing, QA & Launch | 10 | 3 |
+| | **TOTAL** | **98** | |
+
+---
+
+#### Tech Stack Summary
+
+| Layer | Technology | Purpose |
+|-------|------------|---------|
+| **Framework** | Next.js 14 (App Router) | Full-stack React framework |
+| **Language** | TypeScript | Type safety |
+| **Styling** | Tailwind CSS + shadcn/ui | UI components |
+| **Database** | PostgreSQL + PostGIS | Data + geospatial |
+| **ORM** | Prisma | Database access |
+| **Auth** | Clerk | Authentication |
+| **Payments** | Stripe | Checkout, subscriptions |
+| **Email** | Resend + React Email | Transactional emails |
+| **Maps** | Google Maps API | Tracking visualization |
+| **Hosting** | Vercel | Frontend + API |
+| **Database Host** | Supabase or Neon | Managed Postgres |
+| **CI/CD** | GitHub Actions | Automated testing/deploy |
+| **Monitoring** | Vercel Analytics | Performance |
+
+---
+
+#### Task Tracking Structure (Linear)
+
+**Hierarchy:**
+```
+Project: HyperLabel MVP
+├── Cycle: Month 1 (Jan 2026)
+│   ├── Epic: E1 - Project Setup & Infrastructure
+│   │   ├── Task: E1-T1 - Initialize monorepo
+│   │   ├── Task: E1-T2 - Database setup
+│   │   └── ...
+│   ├── Epic: E2 - Authentication & User Management
+│   └── Epic: E3 - Landing Page
+├── Cycle: Month 2 (Feb 2026)
+│   ├── Epic: E4 - Customer Portal & Dashboard
+│   ├── Epic: E5 - Tracking Features & Device Integration
+│   └── Epic: E6 - Payment & Order Processing
+└── Cycle: Month 3 (Mar 2026)
+    ├── Epic: E7 - Admin Panel
+    ├── Epic: E8 - Notifications
+    └── Epic: E9 - Testing, QA & Launch
+```
+
+**Labels:**
+- `type:feature` - New functionality
+- `type:bug` - Bug fix
+- `type:infra` - Infrastructure/DevOps
+- `priority:high` - Must have for MVP
+- `priority:medium` - Should have
+- `priority:low` - Nice to have
+
+### 11.6 Future Hardware Evolution
 
 | Feature | Priority | Notes |
 |---------|----------|-------|
