@@ -125,23 +125,24 @@
 ### 3.1 Persona Overview
 
 ```
-┌───────────────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                                           USER JOURNEY                                                     │
-├───────────┬───────────┬───────────┬───────────┬───────────┬───────────┬───────────┬───────────┬───────────┤
-│   BUY     │  ENTER    │  SHARE    │  ENTER    │  RECEIVE  │  SCAN &   │  TRANSIT  │  DELIVER  │  ARCHIVE  │
-│  LABEL    │   DEST    │   LINK    │  ORIGIN   │  LABEL    │  ATTACH   │           │           │           │
-├───────────┼───────────┼───────────┼───────────┼───────────┼───────────┼───────────┼───────────┼───────────┤
-│★Consignee │★Consignee │★Consignee │ Forwarder │ Forwarder │ Forwarder │  Shipper  │★Consignee │  Service  │
-│  (buyer)  │  (buyer)  │  (buyer)  │ (origin)  │ (origin)  │ (origin)  │ (carrier) │ (receiver)│   Team    │
-└───────────┴───────────┴───────────┴───────────┴───────────┴───────────┴───────────┴───────────┴───────────┘
+┌──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                                              USER JOURNEY                                                              │
+├───────────┬───────────┬───────────┬───────────┬───────────┬───────────┬───────────┬───────────┬───────────┬──────────┤
+│   BUY     │  SHARE    │  ENTER    │  RECEIVE  │  SCAN QR  │ ACTIVATE  │  TRANSIT  │    GET    │  ARCHIVE  │          │
+│  LABEL    │   LINK    │  ORIGIN   │  LABEL    │FULFILLMENT│ & ATTACH  │  & TRACK  │YOUR CARGO │           │          │
+├───────────┼───────────┼───────────┼───────────┼───────────┼───────────┼───────────┼───────────┼───────────┼──────────┤
+│★Consignee │★Consignee │  Shipper  │  Shipper  │  Shipper  │  Shipper  │★Consignee │★Consignee │  Service  │          │
+│  (buyer)  │  (buyer)  │ (origin)  │ (origin)  │(warehouse)│ (origin)  │ (tracker) │ (receiver)│   Team    │          │
+└───────────┴───────────┴───────────┴───────────┴───────────┴───────────┴───────────┴───────────┴───────────┴──────────┘
 ```
 
 **Key Flow:** 
-1. Consignee buys label & enters their destination
-2. Consignee shares link with Forwarder  
-3. Forwarder enters origin address → Label ships to them
-4. Forwarder scans QR & attaches to cargo
-5. Cargo transits → Consignee receives
+1. Consignee buys label
+2. Consignee shares link with Shipper/Forwarder (email reminders until activated)
+3. Shipper enters origin address → Label ships to them
+4. Shipper scans QR at fulfillment warehouse (API integration by SKU)
+5. Shipper activates label, enters destination, adds cargo photo(s), attaches to cargo
+6. Consignee tracks cargo → gets their cargo
 
 ### 3.2 Primary Persona: Consignee (Buyer/Receiver)
 
@@ -188,11 +189,14 @@
 
 **MVP Focus:**
 1. High-value electronics (phones, laptops, components)
-2. Automotive parts (B2B shipments)
+2. Manufacturing parts (B2B shipments)
 3. E-commerce high-value goods (luxury items, collectibles)
+4. High value goods
+5. Time critical cargo
+6. Pharma
+7. Air cargo over 500kg
 
 **Future Expansion:**
-- Pharmaceuticals (requires cold chain sensors)
 - Perishables (requires temperature monitoring)
 - Art and collectibles
 
@@ -232,7 +236,7 @@
 **MVP Sensors:**
 | Sensor | Data | Update Frequency |
 |--------|------|-----------------|
-| GPS/GNSS | Latitude, Longitude | Every 15-30 min |
+| GPS/GNSS | Latitude, Longitude | Every 120 min (configurable) |
 | LTE Signal | Cell tower triangulation | Continuous |
 | Battery | Percentage, estimated days | Every transmission |
 
@@ -256,7 +260,7 @@
 
 | Scenario | Behavior |
 |----------|----------|
-| **In Coverage** | Transmit every 15-30 minutes |
+| **In Coverage** | Transmit every 120 minutes (configurable) |
 | **Out of Coverage** | Store locally, transmit when connectivity returns |
 | **Low Battery** | Alert at 20% and 10% |
 | **On-Demand** | Future: User-triggered ping |
@@ -273,32 +277,39 @@
 │  1. BUY LABEL (Consignee)                                       │
 │           │    Consignee purchases label on website              │
 │           ▼                                                      │
-│  2. ENTER DESTINATION (Consignee)                               │
-│           │    Consignee enters their own delivery address       │
+│  2. SHARE LINK (Consignee → Shipper or Forwarder)               │
+│           │    Consignee sends link to shipper/forwarder         │
+│           │    • 1-3 email reminders that link not activated yet │
+│           │    • Link to consignee showing where label is now    │
 │           ▼                                                      │
-│  3. SHARE LINK (Consignee → Forwarder)                          │
-│           │    Consignee sends link to forwarder                 │
+│  3. ENTER ORIGIN (Shipper)                                      │
+│           │    Shipper clicks link, enters their address         │
+│           │    → Label ships to shipper                          │
 │           ▼                                                      │
-│  4. ENTER ORIGIN (Forwarder)                                    │
-│           │    Forwarder clicks link, enters their address       │
-│           │    → Label ships to forwarder                        │
+│  4. RECEIVE LABEL (Shipper)                                     │
+│           │    Label arrives at shipper with quick-start guide   │
 │           ▼                                                      │
-│  5. RECEIVE LABEL (Forwarder)                                   │
-│           │    Label arrives at forwarder with quick-start guide │
+│  5. SCAN QR - FULFILLMENT WAREHOUSE                             │
+│           │    • Link notification sent to consignee             │
+│           │    • API integration by SKU                          │
 │           ▼                                                      │
-│  6. SCAN & LINK (Forwarder)                                     │
-│           │    Scan QR → enter cargo details → attach to cargo   │
+│  6. ACTIVATE & ATTACH (Shipper)                                 │
+│           │    • Activate label (battery)                        │
+│           │    • Enter final destination (where cargo is going)  │
+│           │    • Add photo(s) of cargo label (camera/attach)     │
+│           │    • Attach label to cargo                           │
 │           ▼                                                      │
-│  7. TRANSIT (Shipper)                                           │
-│           │    Cargo moves, label transmits every 15-30 min      │
+│  7. TRANSIT & TRACK (Consignee)                                 │
+│           │    Cargo moves, label transmits every 120 min        │
+│           │    Consignee tracks shipment in real-time            │
 │           ▼                                                      │
-│  8. DELIVERED (Consignee)                                       │
+│  8. GET YOUR CARGO (Consignee)                                  │
 │                Cargo arrives, notification sent, tracking ends   │
 │                                                                  │
 └─────────────────────────────────────────────────────────────────┘
 ```
 
-**Key Insight:** The Consignee (buyer) may not know the forwarder's exact address. They share a link so the forwarder can enter their own origin address. This triggers label shipment to the forwarder.
+**Key Insight:** The Consignee (buyer) may not know the shipper's exact address. They share a link so the shipper can enter their own origin address. This triggers label shipment to the shipper.
 
 ### 4.7 Label SKUs
 
@@ -461,28 +472,29 @@
 
 #### MVP Notification Events
 
-| Event | Trigger | Recipients |
-|-------|---------|------------|
-| Label Activated | Label begins transmitting | Owner |
-| Shipment Delivered | Label detects final location | Owner |
-| Low Battery | Battery drops below 20%, 10% | Owner |
-| Extended No-Signal | No transmission for >24 hours | Owner |
+| Event | Trigger | Recipients | Tier |
+|-------|---------|------------|------|
+| Label Activated | Label begins transmitting | Owner | Free |
+| Low Battery | Battery drops below 20%, 10% | Owner | Free |
+| Extended No-Signal | No transmission for >24 hours | Owner | Free |
+| Shipment Delivered | Label detects final location | Owner | Premium |
+| Shipment is Stuck | No movement detected for extended period | Owner | Premium |
 
 #### Post-MVP Notifications
 
 - SMS alerts
 - Mobile push notifications
 - Delay/deviation alerts (predictive)
+- Geofence alerts
 
 ### 5.6 Data Retention
 
-| Data Type | Retention Period | Notes |
-|-----------|------------------|-------|
-| Location history | 90 days post-delivery | Free tier |
-| Account data | Until account deletion | GDPR compliant |
-| Exported data | User responsibility | CSV download available |
-
-**Future:** Extended retention as premium feature
+| Data Type | Retention Period | Tier |
+|-----------|------------------|------|
+| Location history | 30 days post-delivery | Free |
+| Location history | 90+ days post-delivery | Premium Subscription |
+| Account data | Until account deletion | All (GDPR compliant) |
+| Exported data | User responsibility | All (CSV download available) |
 
 ---
 
@@ -574,7 +586,28 @@
 - **Hardware Team (Andrii):** Firmware that sends HTTPS requests
 - **Platform Team:** Backend API that receives and processes data
 
-### 6.4 API Design
+### 6.4 Data Quality & Cleaning
+
+To ensure users see accurate, clean tracking data, the platform applies the following data processing:
+
+| Issue | Detection | Resolution |
+|-------|-----------|------------|
+| **Zero coordinates** | lat=0, lon=0 | Filter out, do not display |
+| **Extreme coordinates** | Outside valid GPS range (lat: -90 to 90, lon: -180 to 180) | Filter out, do not display |
+| **Duplicate points** | Same location within short timeframe | Deduplicate, show single point |
+| **GPS drift/noise** | Small movements while stationary | Group nearby points, smooth path |
+| **Address grouping** | Multiple points at same address | Consolidate to single location with time range |
+| **Outlier detection** | Impossible speed between points | Flag for review, interpolate if needed |
+
+**Processing Pipeline:**
+1. **Ingest** — Receive raw location data from device
+2. **Validate** — Check for zero/extreme/invalid coordinates
+3. **Clean** — Remove invalid points, deduplicate
+4. **Enrich** — Reverse geocode to addresses, detect transport mode
+5. **Store** — Save cleaned data to database
+6. **Display** — Show user clean, accurate tracking history
+
+### 6.5 API Design
 
 #### Public API Endpoints (MVP)
 
@@ -596,13 +629,19 @@
 | `POST` | `/api/v1/device/report` | Receive location data from device |
 | `POST` | `/api/v1/device/heartbeat` | Device health check |
 
+#### GPS Tracking API (Hardware)
+
+**Documentation:** https://label.utec.ua/api/docs
+
+This is the GPS tracking API provided by the hardware team for device communication and location data.
+
 #### Public Tracking Endpoint
 
 | Method | Endpoint | Description |
 |--------|----------|-------------|
 | `GET` | `/api/v1/public/track/{code}` | Public tracking page data |
 
-### 6.5 Database Schema (Simplified)
+### 6.6 Database Schema (Simplified)
 
 ```sql
 -- Users (managed by Clerk, reference only)
@@ -666,7 +705,7 @@ orders (
 )
 ```
 
-### 6.6 Scalability
+### 6.7 Scalability
 
 | Metric | MVP Target | Design For |
 |--------|------------|------------|
@@ -680,7 +719,7 @@ orders (
 - TimescaleDB for location time-series (future)
 - CDN for static assets
 
-### 6.7 Data Residency
+### 6.8 Data Residency
 
 | Requirement | MVP Approach |
 |-------------|--------------|
@@ -688,7 +727,7 @@ orders (
 | GDPR Compliance | Required for EU customers |
 | Multi-region | Post-MVP for enterprise |
 
-### 6.8 Uptime & SLA
+### 6.9 Uptime & SLA
 
 | Tier | Target | Notes |
 |------|--------|-------|
@@ -726,6 +765,7 @@ orders (
 #### What's Included
 
 - Physical label device
+- Free delivery to shipper
 - 60 days of tracking
 - Platform access
 - Email notifications
@@ -1028,6 +1068,35 @@ orders (
 
 ## 11. Roadmap
 
+### 11.0 Immediate Priorities (January 2026)
+
+| Priority | Task | Owner | Deadline | Notes |
+|----------|------|-------|----------|-------|
+| **1** | Develop Customer Portal | Denys | Ongoing | Core platform development |
+| **2** | Apply for UK Innovation Grant | Denys | TBD | Via [Tatton Consulting](https://ukgrantfunding.co.uk/how-we-help/) using UTEC (Andrii's company). Manage negotiation & document preparation. |
+| **3** | Teaser, Financial Model & Business Plan | Denys | **06 Feb 2026** | 2-week deadline for investor materials |
+
+#### Grant Application Process (Tatton Consulting)
+
+**Agency:** Tatton Consulting - UK R&D Grant Experts  
+**URL:** https://ukgrantfunding.co.uk/how-we-help/  
+**Applicant Company:** UTEC (Andrii Tkachuk)
+
+**Their 5-Step Process:**
+1. Eligibility & Success Assessment
+2. Strategic Roadmap & Project Design
+3. Application Development & Submission
+4. Post-Award Support & Compliance
+5. Long-term Innovation Partner
+
+**Our Responsibilities:**
+- Provide technical documentation about HyperLabel
+- Supply business plan & financial projections
+- Coordinate with Tatton on application narrative
+- Manage communication between UTEC and Tatton
+
+**Target Schemes:** Innovate UK, potentially DASA (Defence) for logistics/supply chain
+
 ### 11.1 MVP Scope (3 Months)
 
 #### Included in MVP
@@ -1060,17 +1129,22 @@ orders (
 | User Job | Who | MVP | Post-MVP |
 |----------|-----|-----|----------|
 | Buy label | Consignee (buyer) | ✅ | |
-| Enter final destination | Consignee (buyer) | ✅ | |
-| Share link with forwarder | Consignee (buyer) | ✅ | |
-| Enter forwarder address (origin) | Forwarder | ✅ | |
-| Receive label | Forwarder | ✅ | |
-| Scan QR & link to cargo | Forwarder | ✅ | |
-| Activate & attach label | Forwarder | ✅ | |
+| Share link with shipper/forwarder | Consignee (buyer) | ✅ | |
+| Receive activation reminders (1-3 emails) | Consignee (buyer) | ✅ | |
+| Enter origin address | Shipper | ✅ | |
+| Receive label | Shipper | ✅ | |
+| Scan QR at fulfillment warehouse | Shipper | ✅ | |
+| API integration by SKU | Shipper | ✅ | |
+| Activate label (battery) | Shipper | ✅ | |
+| Enter final destination (optional) | Shipper | ✅ | |
+| Add cargo photo(s) | Shipper | ✅ | |
+| Attach label to cargo | Shipper | ✅ | |
 | Share tracking link | Consignee / Forwarder | ✅ | |
-| Track cargo location | Anyone with link | ✅ | |
+| Track cargo location | Consignee | ✅ | |
 | View location history | Anyone with link | ✅ | |
 | Live map view | Anyone with link | ✅ | |
 | Receive delivery notification | Consignee | ✅ | |
+| Recognise flight number + ship name | System | | ✅ |
 | Track transport type | — | | ✅ |
 | Track delivery delays | — | | ✅ |
 | Track route deviations | — | | ✅ |
@@ -1079,22 +1153,24 @@ orders (
 ### 11.3 Delivery Stages
 
 ```
-┌─────────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                                     CARGO DELIVERY STAGES                                            │
-├───────────┬───────────┬───────────┬───────────┬───────────┬───────────┬───────────┬─────────────────┤
-│   BUY &   │  SHARE    │  ENTER    │  RECEIVE  │  SCAN &   │  TRANSIT  │  DELIVER  │     ARCHIVE     │
-│   DEST    │   LINK    │  ORIGIN   │  LABEL    │  ATTACH   │           │           │                 │
-├───────────┼───────────┼───────────┼───────────┼───────────┼───────────┼───────────┼─────────────────┤
-│ Consignee │ Consignee │ Forwarder │ Forwarder │ Forwarder │ Cargo     │ Cargo     │ Data retained   │
-│ buys,     │ sends     │ enters    │ gets      │ scans QR, │ moves     │ arrives   │ 90 days         │
-│ enters    │ link to   │ their     │ label     │ attaches  │ through   │ at        │                 │
-│ dest addr │ forwarder │ address   │           │ to cargo  │ carriers  │ consignee │                 │
-├───────────┼───────────┼───────────┼───────────┼───────────┼───────────┼───────────┼─────────────────┤
-│ Platform: │ Platform: │ Platform: │           │ Platform: │ Platform: │ Platform: │ Platform:       │
-│ Checkout  │ Share     │ Address   │           │ Activation│ Live track│ Delivery  │ Export          │
-│ Order     │ flow      │ capture   │           │ Shipment  │ Map view  │ detection │ Delete          │
-│           │           │ → Ship    │           │ creation  │ Alerts    │ Complete  │                 │
-└───────────┴───────────┴───────────┴───────────┴───────────┴───────────┴───────────┴─────────────────┘
+┌──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                                          CARGO DELIVERY STAGES                                                         │
+├───────────┬───────────┬───────────┬───────────┬───────────┬───────────┬───────────┬───────────┬─────────────────────┤
+│   BUY     │  SHARE    │  ENTER    │  RECEIVE  │  SCAN QR  │ ACTIVATE  │  TRANSIT  │    GET    │       ARCHIVE       │
+│  LABEL    │   LINK    │  ORIGIN   │  LABEL    │FULFILLMENT│ & ATTACH  │  & TRACK  │YOUR CARGO │                     │
+├───────────┼───────────┼───────────┼───────────┼───────────┼───────────┼───────────┼───────────┼─────────────────────┤
+│ Consignee │ Consignee │ Shipper   │ Shipper   │ Shipper   │ Shipper   │ Consignee │ Cargo     │ Data retained       │
+│ buys      │ sends     │ enters    │ gets      │ scans at  │ activates │ tracks    │ arrives   │ 90 days             │
+│ label     │ link to   │ their     │ label     │ warehouse │ battery,  │ cargo     │ at        │                     │
+│           │ shipper/  │ address   │           │ (API/SKU) │ enters    │ real-time │ consignee │                     │
+│           │ forwarder │           │           │           │ dest,     │           │           │                     │
+│           │           │           │           │           │ adds photo│           │           │                     │
+├───────────┼───────────┼───────────┼───────────┼───────────┼───────────┼───────────┼───────────┼─────────────────────┤
+│ Platform: │ Platform: │ Platform: │           │ Platform: │ Platform: │ Platform: │ Platform: │ Platform:           │
+│ Checkout  │ Share     │ Address   │           │ QR scan   │ Activation│ Live track│ Delivery  │ Export              │
+│ Order     │ flow      │ capture   │           │ API integ │ Photo     │ Map view  │ detection │ Delete              │
+│           │ Reminders │ → Ship    │           │ SKU link  │ Dest entry│ Alerts    │ Complete  │                     │
+└───────────┴───────────┴───────────┴───────────┴───────────┴───────────┴───────────┴───────────┴─────────────────────┘
 ```
 
 ### 11.4 Post-MVP Roadmap
@@ -1162,6 +1238,9 @@ orders (
 - [Stripe (Payments)](https://stripe.com)
 - [Google Maps Platform](https://developers.google.com/maps)
 - [PostGIS](https://postgis.net)
+
+**Hardware & Device:**
+- [GPS Tracking API Documentation](https://label.utec.ua/api/docs)
 
 ### 12.4 Open Questions
 
