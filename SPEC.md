@@ -584,7 +584,7 @@
 
 **Responsibility Split:**
 - **Hardware Team (Andrii):** Firmware that sends HTTPS requests
-- **Platform Team:** Backend API that receives and processes data
+- **Platform (Denys):** Backend API that receives and processes data
 
 ### 6.4 Data Quality & Cleaning
 
@@ -959,13 +959,13 @@ orders (
 │                    │   (Hardware)    │                          │
 │                    └────────┬────────┘                          │
 │                             │                                    │
-│         ┌───────────────────┼───────────────────┐               │
-│         │                   │                   │                │
-│  ┌──────┴──────┐    ┌──────┴──────┐    ┌──────┴──────┐        │
-│  │Denys Chumak │    │Andrii Pavlov│    │ Development │        │
-│  │   Product   │    │   Design    │    │   Team      │        │
-│  │  (Part-time)│    │ (Part-time) │    │(Out of scope│        │
-│  └─────────────┘    └─────────────┘    └─────────────┘        │
+│              ┌──────────────┴──────────────┐                    │
+│              │                             │                     │
+│       ┌──────┴──────┐              ┌──────┴──────┐             │
+│       │Denys Chumak │              │Andrii Pavlov│             │
+│       │Product + Dev│              │   Design    │             │
+│       │ (Part-time) │              │ (Part-time) │             │
+│       └─────────────┘              └─────────────┘             │
 │                                                                  │
 └─────────────────────────────────────────────────────────────────┘
 ```
@@ -978,16 +978,26 @@ orders (
 - Business strategy
 - Funding/investors
 
-#### Denys Chumak - Product Manager (Part-time, 3 months)
+#### Denys Chumak - Product Manager + Developer (Part-time, 3 months)
+
+**Product Management:**
 - Product specification
 - Feature prioritization
 - User interviews
 - Business plan
 - Investor materials
-- Platform oversight
+
+**Platform Development (100 hours / £5,000):**
+- Full-stack development (vibe coding approach)
+- Frontend: React/Next.js
+- Backend: API development
+- Database setup & integration
+- Deployment & DevOps
 
 **Arrangement:**
 - Part-time engagement (3 months)
+- Product: Existing scope
+- Development: Additional 100 hours (£5,000 GBP)
 - Post-MVP: Consider full-time role (20% equity, 2-year vest, 6-month cliff)
 
 #### Andrii Pavlov - Designer (Part-time)
@@ -999,20 +1009,16 @@ orders (
 **Arrangement:**
 - Part-time engagement
 
-#### Development Team
-- Out of scope for this document
-- Separate budget allocation
-
 ### 10.3 Team Allocation
 
-| Category | Owner |
-|----------|-------|
-| **Product** | Denys Chumak |
-| **Design** | Andrii Pavlov |
-| **Services** | Website hosting, domain, etc. |
-| **Research** | User interviews (recruitment, gifts) |
-
-*Note: Development & QA costs tracked separately*
+| Category | Owner | Budget |
+|----------|-------|--------|
+| **Product** | Denys Chumak | £11,450 |
+| **Development** | Denys Chumak | £5,000 (100 hours) |
+| **Design** | Andrii Pavlov | £3,500 |
+| **Services** | Website hosting, domain, etc. | £300 |
+| **Research** | User interviews (recruitment, gifts) | £2,000 |
+| **TOTAL** | | **£22,250** |
 
 ### 10.4 Deliverables (3-Month MVP)
 
