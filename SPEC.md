@@ -157,7 +157,7 @@
 **User Story:**
 > As a Consignee, I want to know exactly where my cargo is at all times, so I can plan operations and catch problems before they escalate.
 
-### 3.3 Secondary Persona: Forwarder (Sender)
+### 3.3 Secondary Persona: Shipper (Forwarder)
 
 | Attribute | Description |
 |-----------|-------------|
