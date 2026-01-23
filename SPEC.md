@@ -1686,11 +1686,614 @@ orders (
 
 **Focus:** 80% on investor materials (market research, start financial model)
 
-**Deliverables:**
+**Sprint 1 Deliverables:**
 - [ ] Market research complete (TAM/SAM/SOM)
 - [ ] Competitive analysis done
 - [ ] Financial model structure started
 - [ ] Teaser draft started
+
+---
+
+## SPRINT 1: DETAILED TASK SPECIFICATIONS
+
+**Sprint:** 1 of 10  
+**Dates:** January 26-31, 2026 (5 working days)  
+**Capacity:** 35 hours  
+**Sprint Goal:** Complete market research and competitive analysis; begin financial model and teaser document to meet Feb 6 investor materials deadline.
+
+---
+
+### P2-T1: Market Research (TAM/SAM/SOM)
+
+**Type:** Research  
+**Epic:** P2 - Investor Materials  
+**Priority:** 🔴 Critical  
+**Estimate:** 8 hours  
+**Assignee:** Denys Chumak
+
+#### Summary
+Conduct comprehensive market research to quantify the Total Addressable Market (TAM), Serviceable Addressable Market (SAM), and Serviceable Obtainable Market (SOM) for the cargo tracking label industry. This data is essential for the investor pitch and financial projections.
+
+#### User Story
+**As an** investor reviewing HyperLabel,  
+**I want to** understand the market size and opportunity,  
+**So that** I can assess the potential return on investment and growth ceiling.
+
+#### Why This Matters
+- Investors need market size to evaluate opportunity scale
+- TAM/SAM/SOM demonstrates we understand our market
+- Data feeds directly into financial model revenue projections
+- Differentiates us from competitors who may not have rigorous analysis
+
+#### What We Will Implement
+
+**1. Total Addressable Market (TAM)**
+- Global cargo tracking market size (2024-2030)
+- IoT asset tracking market
+- Smart label / disposable tracker segment
+- Geographic breakdown (US, EU, APAC)
+
+**2. Serviceable Addressable Market (SAM)**
+- B2B cargo tracking (excluding consumer parcels)
+- Target cargo types: electronics, manufacturing, pharma, air cargo
+- Companies shipping internationally
+- Price point alignment ($20-30 labels)
+
+**3. Serviceable Obtainable Market (SOM)**
+- Realistic Year 1-3 capture rate
+- Based on comparable startup growth rates
+- Geographic focus (US, UK initially)
+
+**4. Market Trends**
+- Growth drivers (e-commerce, supply chain visibility)
+- Regulatory factors (EU supply chain due diligence)
+- Technology enablers (LTE Cat-1, eSIM)
+
+#### Research Sources
+- Statista, Grand View Research, MarketsandMarkets
+- McKinsey / Bain logistics reports (free summaries)
+- Competitor funding announcements (Tive, Roambee)
+- Industry associations (IATA, IMO for shipping volumes)
+- Government trade data (US Census, Eurostat)
+
+#### Acceptance Criteria
+
+- [ ] **TAM documented** with source citations and methodology
+  - Global market size with CAGR
+  - Minimum 3 credible sources
+  
+- [ ] **SAM calculated** with clear segmentation logic
+  - Target segments quantified
+  - Geographic scope defined
+  
+- [ ] **SOM projected** for Years 1-3
+  - Assumptions clearly stated
+  - Conservative, base, optimistic scenarios
+  
+- [ ] **Data formatted** for investor deck
+  - Single-page summary chart
+  - Supporting detail document
+  
+- [ ] **Competitive market context** included
+  - How big are competitors (if known)
+  - Market share estimates
+
+#### Output Format
+
+```
+📊 Market Research Document (Google Docs)
+├── Executive Summary (1 page)
+├── TAM Analysis
+│   ├── Global cargo tracking market: $X.XB (2024) → $X.XB (2030)
+│   ├── CAGR: X.X%
+│   └── Sources: [list]
+├── SAM Analysis  
+│   ├── B2B international cargo: $X.XB
+│   ├── Target segments: [breakdown]
+│   └── Methodology
+├── SOM Projection
+│   ├── Year 1: $XXk (X labels)
+│   ├── Year 2: $XXXk (X labels)
+│   ├── Year 3: $X.XM (X labels)
+│   └── Assumptions
+└── Market Trends (bullet points)
+```
+
+#### Definition of Done
+- [ ] Document reviewed by Andrii (founder) for alignment
+- [ ] Numbers cross-validated with at least 2 sources
+- [ ] Ready to copy into investor deck and financial model
+
+---
+
+### P2-T2: Competitive Analysis
+
+**Type:** Research  
+**Epic:** P2 - Investor Materials  
+**Priority:** 🔴 Critical  
+**Estimate:** 4 hours  
+**Assignee:** Denys Chumak
+
+#### Summary
+Create detailed competitive landscape analysis showing how HyperLabel differentiates from existing cargo tracking solutions. This analysis will support the investor pitch by demonstrating market understanding and competitive positioning.
+
+#### User Story
+**As an** investor evaluating HyperLabel,  
+**I want to** understand the competitive landscape and HyperLabel's differentiation,  
+**So that** I can assess whether the company can win market share.
+
+#### Why This Matters
+- Investors always ask "Who are your competitors?"
+- Shows we understand the market deeply
+- Highlights our unique value proposition
+- Identifies potential threats and barriers
+
+#### What We Will Implement
+
+**1. Direct Competitor Profiles**
+For each competitor document:
+- Company overview (founded, HQ, funding)
+- Product offering (device specs, features)
+- Pricing model
+- Target market
+- Strengths and weaknesses
+- Recent news/funding
+
+**Competitors to Analyze:**
+| Competitor | Type | Priority |
+|------------|------|----------|
+| Tive | Reusable tracker | 🔴 High |
+| Roambee | Reusable tracker | 🔴 High |
+| Sensos | Smart label | 🔴 High |
+| SODAQ | Smart label | 🟡 Medium |
+| G+D Smart Label | Smart label | 🟡 Medium |
+| Reelables | Disposable | 🔴 High |
+| Controlant | Cold chain | 🟡 Medium |
+
+**2. Competitive Positioning Matrix**
+- X-axis: Price (Low → High)
+- Y-axis: Complexity (Simple → Enterprise)
+- Plot all competitors + HyperLabel
+
+**3. Feature Comparison Table**
+| Feature | HyperLabel | Tive | Roambee | Sensos | Reelables |
+|---------|------------|------|---------|--------|-----------|
+| Price | $20-25 | $150+ | $200+ | €50+ | $15-25 |
+| Form Factor | 3.5mm | Bulky | Bulky | Thin | Thin |
+| Battery | 60 days | 90+ days | 90+ days | 30 days | 45 days |
+| Reusable | No | Yes | Yes | Yes | No |
+| Setup | QR scan | Complex | Complex | Medium | QR scan |
+
+**4. HyperLabel Differentiation**
+- Price advantage (vs reusable trackers)
+- Simplicity advantage (vs enterprise solutions)
+- Coverage advantage (180+ countries, eSIM)
+- UX advantage (consumer-grade)
+
+#### Research Sources
+- Competitor websites
+- G2, Capterra reviews
+- Crunchbase, PitchBook (funding data)
+- LinkedIn (team size estimates)
+- Press releases, blog posts
+- YouTube demos
+
+#### Acceptance Criteria
+
+- [ ] **7+ competitors profiled** with key data points
+  - Funding, pricing, features, target market
+  
+- [ ] **Positioning matrix created** (visual)
+  - Clear quadrant showing HyperLabel position
+  
+- [ ] **Feature comparison table** completed
+  - Minimum 8 comparison dimensions
+  
+- [ ] **Competitive advantages articulated**
+  - 3-5 clear differentiators with evidence
+  
+- [ ] **Threats identified**
+  - What could competitors do to counter us?
+
+#### Output Format
+
+```
+📊 Competitive Analysis Document (Google Docs)
+├── Executive Summary
+├── Competitor Profiles (1 page each)
+│   ├── Tive
+│   ├── Roambee
+│   ├── Sensos
+│   └── [others]
+├── Positioning Matrix (visual)
+├── Feature Comparison Table
+├── HyperLabel Differentiation
+│   ├── Price: "50-80% cheaper than reusable trackers"
+│   ├── Simplicity: "Consumer-grade UX, no training"
+│   └── Coverage: "Works in 180+ countries"
+└── Competitive Risks & Mitigation
+```
+
+#### Definition of Done
+- [ ] All major competitors covered
+- [ ] Visuals ready for investor deck
+- [ ] Andrii reviewed for accuracy
+
+---
+
+### P2-T3: Teaser Document (1-Pager)
+
+**Type:** Document Creation  
+**Epic:** P2 - Investor Materials  
+**Priority:** 🔴 Critical  
+**Estimate:** 4 hours (START in Sprint 1, finish in Sprint 2)  
+**Assignee:** Denys Chumak
+
+#### Summary
+Create a compelling 1-page teaser document that serves as the initial outreach material for investors. This document should capture attention, communicate the opportunity, and prompt investors to request more information.
+
+#### User Story
+**As an** angel investor or VC receiving cold outreach,  
+**I want to** quickly understand what HyperLabel does and why it's interesting,  
+**So that** I can decide whether to take a meeting in under 60 seconds.
+
+#### Why This Matters
+- First impression with investors
+- Gets sent via email before meetings
+- Must be scannable and compelling
+- Differentiates from hundreds of other pitches
+
+#### What We Will Implement
+
+**Teaser Structure (1 page, PDF):**
+
+```
+┌─────────────────────────────────────────┐
+│ [LOGO] HyperLabel                       │
+│ "Track Any Cargo, Anywhere"             │
+├─────────────────────────────────────────┤
+│ THE PROBLEM                             │
+│ • $X billion lost annually to...        │
+│ • Cargo goes dark during transit        │
+│ • Existing solutions cost $150+         │
+├─────────────────────────────────────────┤
+│ THE SOLUTION                            │
+│ [Product image]                         │
+│ $20 disposable LTE tracking label       │
+│ • 60-day battery                        │
+│ • 180+ countries                        │
+│ • Scan, peel, stick                     │
+├─────────────────────────────────────────┤
+│ MARKET OPPORTUNITY                      │
+│ TAM: $XXB | SAM: $XXB | SOM: $XXM       │
+├─────────────────────────────────────────┤
+│ TRACTION / MILESTONES                   │
+│ ✓ Hardware prototype complete           │
+│ ✓ Platform MVP in development           │
+│ ○ First pilot shipments Q1 2026         │
+├─────────────────────────────────────────┤
+│ TEAM                                    │
+│ [Photo] Andrii T. - Founder (Hardware)  │
+│ [Photo] Denys C. - Product              │
+├─────────────────────────────────────────┤
+│ THE ASK                                 │
+│ Raising £XXXk seed for...               │
+│ Contact: andrii@hyperlabel.com          │
+└─────────────────────────────────────────┘
+```
+
+#### Design Requirements
+- Clean, professional design (not cluttered)
+- Brand colors: Dark (#0f172a), Green accent (#c4f534)
+- High-quality product image
+- Scannable with clear hierarchy
+- PDF format, < 2MB
+
+#### Acceptance Criteria
+
+- [ ] **Single page** (no scrolling)
+  - A4 or US Letter format
+  
+- [ ] **All key sections included**
+  - Problem, Solution, Market, Traction, Team, Ask
+  
+- [ ] **Numbers from market research** used
+  - TAM/SAM/SOM figures
+  
+- [ ] **Compelling hook** in first 3 seconds
+  - Strong headline and problem statement
+  
+- [ ] **Clear call to action**
+  - Contact info, next step
+  
+- [ ] **Proofread** - zero typos
+
+#### Output Format
+- Google Doc (editable version)
+- PDF (shareable version)
+- PNG (for email embedding)
+
+#### Definition of Done
+- [ ] Andrii approved content and positioning
+- [ ] Designer (Andrii P.) reviewed layout (if available)
+- [ ] Sent to 1 test recipient for feedback
+
+---
+
+### P2-T4: Financial Model - Revenue Projections
+
+**Type:** Financial Modeling  
+**Epic:** P2 - Investor Materials  
+**Priority:** 🔴 Critical  
+**Estimate:** 8 hours (START in Sprint 1: 4h, finish Sprint 2: 4h)  
+**Assignee:** Denys Chumak
+
+#### Summary
+Build the revenue projection section of the financial model, including pricing scenarios, sales forecasts, and growth assumptions for Years 1-5.
+
+#### User Story
+**As an** investor reviewing the financial model,  
+**I want to** see realistic revenue projections with clear assumptions,  
+**So that** I can evaluate the growth potential and path to profitability.
+
+#### Why This Matters
+- Core of investor due diligence
+- Shows we understand our business model
+- Basis for valuation discussions
+- Demonstrates market opportunity capture
+
+#### What We Will Implement
+
+**1. Pricing Model**
+| Product | Price | Margin | Notes |
+|---------|-------|--------|-------|
+| Single label | $25 | ~50% | Entry point |
+| 5-pack | $110 ($22 ea) | ~55% | Volume discount |
+| 10-pack | $200 ($20 ea) | ~60% | Best value |
+| Enterprise | Custom | TBD | Post-MVP |
+
+**2. Revenue Streams**
+- MVP: Label sales only
+- Future: Premium subscriptions, API access
+
+**3. Sales Forecast (Monthly)**
+
+Year 1 (MVP Launch):
+| Month | Labels Sold | Revenue | Cumulative |
+|-------|-------------|---------|------------|
+| M1 | 10 | $250 | $250 |
+| M2 | 20 | $480 | $730 |
+| M3 | 35 | $800 | $1,530 |
+| ... | ... | ... | ... |
+| M12 | 200 | $4,400 | $25,000 |
+
+**4. Growth Assumptions**
+- Month-over-month growth rate: X%
+- Customer acquisition channels
+- Conversion rates
+- Repeat purchase rate (B2B reorders)
+
+**5. Scenario Analysis**
+- Conservative: 50% of base
+- Base case: Primary forecast
+- Optimistic: 150% of base
+
+#### Acceptance Criteria
+
+- [ ] **5-year revenue projection** completed
+  - Monthly for Year 1, quarterly for Years 2-3, annual for Years 4-5
+  
+- [ ] **Assumptions documented** and adjustable
+  - Each assumption in separate cell
+  - Sensitivity analysis possible
+  
+- [ ] **3 scenarios** modeled
+  - Conservative, Base, Optimistic
+  
+- [ ] **Charts created** for deck
+  - Revenue growth chart
+  - MRR/ARR chart (if subscription added)
+  
+- [ ] **Unit economics preview**
+  - Revenue per label
+  - Average order value
+
+#### Output Format
+
+```
+📊 Financial Model (Google Sheets)
+├── Tab: Assumptions
+│   ├── Pricing
+│   ├── Growth rates
+│   └── Conversion rates
+├── Tab: Revenue Model
+│   ├── Monthly forecast (Y1)
+│   ├── Quarterly forecast (Y2-3)
+│   └── Annual forecast (Y4-5)
+├── Tab: Scenarios
+│   ├── Conservative
+│   ├── Base
+│   └── Optimistic
+└── Tab: Charts
+    ├── Revenue growth
+    └── Labels sold
+```
+
+#### Definition of Done
+- [ ] Model is formula-driven (no hardcoded numbers)
+- [ ] Assumptions are realistic and documented
+- [ ] Charts ready to paste into investor deck
+
+---
+
+### P6-T1: Weekly Sync with Andrii (Founder)
+
+**Type:** Meeting  
+**Epic:** P6 - Product Management  
+**Priority:** 🟡 Medium  
+**Estimate:** 2 hours (1h meeting + 1h prep/notes)  
+**Assignee:** Denys Chumak
+
+#### Summary
+Conduct weekly alignment meeting with Andrii (founder) to review progress, make decisions, and ensure hardware/software alignment.
+
+#### User Story
+**As the** founder of HyperLabel,  
+**I want to** have regular updates on product and investor material progress,  
+**So that** I can provide input, remove blockers, and stay aligned.
+
+#### Meeting Agenda (Week 1)
+
+1. **Progress Review** (15 min)
+   - Market research status
+   - Competitive analysis findings
+   - Financial model structure
+
+2. **Decisions Needed** (20 min)
+   - Validate TAM/SAM/SOM numbers
+   - Confirm pricing strategy for model
+   - Teaser content approval
+
+3. **Hardware Update** (10 min)
+   - Device development status
+   - API readiness timeline
+   - First samples availability
+
+4. **Blockers & Risks** (10 min)
+   - Any issues discovered
+   - Resource needs
+
+5. **Next Week Priorities** (5 min)
+   - Align on Sprint 2 focus
+
+#### Acceptance Criteria
+
+- [ ] **Meeting scheduled** for Week 1
+- [ ] **Agenda sent** 24h in advance
+- [ ] **Notes documented** within 24h
+- [ ] **Action items** tracked with owners
+- [ ] **Key decisions** recorded
+
+#### Output
+- Meeting notes (Google Doc)
+- Updated task priorities if needed
+
+---
+
+### P6-T2: Spec Document Updates
+
+**Type:** Documentation  
+**Epic:** P6 - Product Management  
+**Priority:** 🟡 Medium  
+**Estimate:** 3 hours  
+**Assignee:** Denys Chumak
+
+#### Summary
+Keep the SPEC.md document updated with any new information, decisions, or changes discovered during Sprint 1 research.
+
+#### User Story
+**As a** team member or future developer,  
+**I want to** have an up-to-date specification document,  
+**So that** I can understand the current state of product decisions.
+
+#### Updates Expected This Sprint
+- [ ] Market size data (from P2-T1)
+- [ ] Updated competitor information (from P2-T2)
+- [ ] Any pricing changes
+- [ ] Hardware specs updates (from Andrii sync)
+- [ ] Timeline adjustments
+
+#### Acceptance Criteria
+
+- [ ] **SPEC.md updated** with Sprint 1 findings
+- [ ] **Version number** incremented
+- [ ] **Last Updated date** current
+- [ ] **Changes committed** to GitHub
+- [ ] **HTML version deployed** to GitHub Pages
+
+---
+
+### P6-T3: Linear Project Setup
+
+**Type:** Infrastructure  
+**Epic:** P6 - Product Management  
+**Priority:** 🟡 Medium  
+**Estimate:** 2 hours  
+**Assignee:** Denys Chumak
+
+#### Summary
+Set up Linear project with proper structure, cycles, and labels to track all MVP work.
+
+#### User Story
+**As the** product manager and developer,  
+**I want to** have a structured task tracking system,  
+**So that** I can manage work efficiently and report progress.
+
+#### What We Will Implement
+
+**1. Project Structure**
+```
+Workspace: HyperLabel
+└── Project: MVP Launch
+    ├── Cycle: Sprint 1 (Jan 26-31)
+    ├── Cycle: Sprint 2 (Feb 1-14)
+    ├── ...
+    └── Backlog
+```
+
+**2. Labels**
+- `type:feature` - New functionality
+- `type:research` - Research tasks
+- `type:docs` - Documentation
+- `type:infra` - Infrastructure
+- `type:bug` - Bug fixes
+- `priority:critical` - Must do
+- `priority:high` - Should do
+- `priority:medium` - Could do
+- `epic:P1` through `epic:P6` - Product epics
+- `epic:E1` through `epic:E9` - Technical epics
+
+**3. Custom Fields**
+- Hours Estimate
+- Hours Actual
+- Sprint (cycle)
+
+**4. Views**
+- Board view (Kanban)
+- Sprint view (current cycle)
+- My Tasks
+
+#### Acceptance Criteria
+
+- [ ] **Linear workspace created**
+- [ ] **All Sprint 1 tasks entered** with descriptions
+- [ ] **Labels configured**
+- [ ] **Sprint 1 cycle created** and active
+- [ ] **Workflow configured** (Backlog → Todo → In Progress → Done)
+
+---
+
+## SPRINT 1 SUMMARY
+
+| Task ID | Task Name | Hours | Day(s) | Dependency |
+|---------|-----------|-------|--------|------------|
+| P2-T1 | Market Research (TAM/SAM/SOM) | 8 | Mon-Tue | None |
+| P2-T2 | Competitive Analysis | 4 | Tue-Wed | None |
+| P2-T3 | Teaser (1-Pager) - START | 2 | Wed | P2-T1, P2-T2 |
+| P2-T4 | Financial Model - Revenue - START | 4 | Thu-Fri | P2-T1 |
+| P6-T1 | Weekly Sync with Andrii | 2 | Wed or Thu | None |
+| P6-T2 | Spec Document Updates | 3 | Ongoing | P2-T1, P2-T2 |
+| P6-T3 | Linear Project Setup | 2 | Mon | None |
+| | **TOTAL** | **25** | | |
+| | **Buffer** | **10** | | |
+| | **Sprint Capacity** | **35** | | |
+
+**Sprint 1 Success Criteria:**
+1. ✅ TAM/SAM/SOM numbers validated and documented
+2. ✅ 7+ competitors analyzed with positioning matrix
+3. ✅ Teaser document drafted (may need polish in Sprint 2)
+4. ✅ Financial model revenue section started
+5. ✅ Linear set up and all tasks tracked
 
 ---
 
