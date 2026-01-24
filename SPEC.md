@@ -1432,8 +1432,8 @@ orders (
 | E1-T1 | Initialize monorepo | Create Next.js project with TypeScript, ESLint, Prettier | Next.js, pnpm | 1 |
 | E1-T2 | Database setup | PostgreSQL + PostGIS on Supabase/Neon | Supabase, Prisma | 2 |
 | E1-T3 | Database schema | Design tables: users, shipments, labels, locations, orders | Prisma, dbdiagram.io | 2 |
-| E1-T4 | CI/CD pipeline | GitHub Actions for lint, test, deploy to Vercel | GitHub Actions, Vercel | 2 |
-| E1-T5 | Environment config | .env setup, secrets management, staging/prod split | Vercel, 1Password | 1 |
+| E1-T4 | CI/CD pipeline | GitHub Actions for lint, test, deploy to Firebase/Cloud Run | GitHub Actions, Firebase | 2 |
+| E1-T5 | Environment config | .env setup, secrets management, staging/prod split | GCP Secret Manager, 1Password | 1 |
 | E1-T6 | Project structure | Folder structure, shared components, API routes | Next.js App Router | 2 |
 
 **Deliverables:**
@@ -1621,9 +1621,9 @@ orders (
 | E9-T1 | End-to-end testing | Test full user flows | Manual testing | 2 |
 | E9-T2 | Device integration test | Test with real hardware (Andrii) | Real device | 2 |
 | E9-T3 | Security review | Check auth, API security, HTTPS | Manual review | 1 |
-| E9-T4 | Performance check | Load testing, optimize slow queries | Vercel Analytics | 1 |
+| E9-T4 | Performance check | Load testing, optimize slow queries | Cloud Monitoring, PostHog | 1 |
 | E9-T5 | Bug fixes | Fix issues found in testing | Various | 2 |
-| E9-T6 | Production deploy | Deploy to production, DNS setup | Vercel, Cloudflare | 1 |
+| E9-T6 | Production deploy | Deploy to production, DNS setup | Firebase Hosting, Cloud Run, Cloudflare | 1 |
 | E9-T7 | Documentation | API docs, user guide | Notion/README | 1 |
 
 **Deliverables:**
@@ -3154,7 +3154,7 @@ pnpm dlx shadcn-ui@latest init
 - [ ] **ESLint** configured
 - [ ] **All dependencies** installed
 - [ ] **Git repository** initialized
-- [ ] **Deployed to Vercel** (preview)
+- [ ] **Deployed to Firebase Hosting** (preview)
 
 ---
 
@@ -3267,7 +3267,7 @@ Weekly alignment meetings with Andrii during Sprint 2 (2 meetings).
 2. ✅ Interview scripts ready for all personas
 3. ✅ 15-20 interview candidates sourced and scheduled
 4. ✅ Grant consultation completed
-5. ✅ Dev environment set up and deployed to Vercel
+5. ✅ Dev environment set up and deployed to Firebase
 
 ---
 
@@ -4913,9 +4913,9 @@ Configure production environment and verify all services.
 
 #### Checklist
 
-**1. Vercel Production**
-- [ ] Production domain configured
-- [ ] Environment variables set
+**1. Firebase + Cloud Run Production**
+- [ ] Production domain configured (Firebase Hosting)
+- [ ] Environment variables set (GCP Secret Manager)
 - [ ] Custom domain DNS configured
 - [ ] SSL working
 
@@ -4956,7 +4956,7 @@ Deploy to production and run smoke tests.
 
 #### Deployment Steps
 1. Merge to main branch
-2. Vercel auto-deploys
+2. GitHub Actions triggers Firebase/Cloud Run deploy
 3. Verify deployment successful
 4. Run smoke tests on production URL
 
@@ -5246,16 +5246,19 @@ Final sync before launch to align on go-live.
 | **Framework** | Next.js 14 (App Router) | Full-stack React framework |
 | **Language** | TypeScript | Type safety |
 | **Styling** | Tailwind CSS + shadcn/ui | UI components |
-| **Database** | PostgreSQL + PostGIS | Data + geospatial |
+| **Database** | Cloud SQL (PostgreSQL 15) + PostGIS | Data + geospatial |
 | **ORM** | Prisma | Database access |
 | **Auth** | Clerk | Authentication |
 | **Payments** | Stripe | Checkout, subscriptions |
 | **Email** | Resend + React Email | Transactional emails |
 | **Maps** | Google Maps API | Tracking visualization |
-| **Hosting** | Vercel | Frontend + API |
-| **Database Host** | Supabase or Neon | Managed Postgres |
+| **Geocoding** | LocationIQ (primary) + Google (fallback) | Address lookup |
+| **Hosting** | Firebase Hosting + Cloud Run | Frontend + API |
+| **Storage** | Google Cloud Storage | File uploads, exports |
 | **CI/CD** | GitHub Actions | Automated testing/deploy |
-| **Monitoring** | Vercel Analytics | Performance |
+| **Monitoring** | Google Cloud Monitoring | Alerts, dashboards |
+| **Logging** | Google Cloud Logging | Centralized logs |
+| **Analytics** | PostHog | Product analytics |
 
 ---
 
@@ -5305,20 +5308,40 @@ Project: HyperLabel MVP
 
 | Layer | Choice | Rationale |
 |-------|--------|-----------|
-| **Framework** | Next.js 14 (App Router) | SSR, API routes, Google-friendly |
+| **Framework** | Next.js 14 (App Router) | SSR, API routes, Google Cloud compatible |
 | **Language** | TypeScript (strict mode) | Type safety, better AI assistance |
 | **Styling** | Tailwind CSS + shadcn/ui | Rapid development, consistent UI |
-| **Database** | Cloud SQL (PostgreSQL 15) + PostGIS | Google Cloud, geospatial native |
+| **Database** | Cloud SQL (PostgreSQL 15) + PostGIS | Google Cloud native, geospatial support |
 | **ORM** | Prisma | Type-safe, great DX |
 | **Auth** | Clerk | Fast setup, social login, webhooks |
 | **Payments** | Stripe | Industry standard |
-| **Email** | Resend | Modern, React Email templates |
+| **Email** | Resend + React Email | Modern, developer-friendly templates |
 | **Maps** | Google Maps JavaScript API | Best global coverage, your expertise |
-| **Geocoding** | **LocationIQ** (primary) + Google (fallback) | Cost-effective, see analysis below |
-| **Hosting** | Vercel (frontend) + Cloud Run (API if needed) | Edge functions, easy deploy |
-| **Storage** | Google Cloud Storage | Images, exports |
-| **Monitoring** | Google Cloud Logging + Vercel Analytics | Integrated monitoring |
-| **CI/CD** | GitHub Actions → Vercel | Auto-deploy on push |
+| **Geocoding** | LocationIQ (primary) + Google (fallback) | Cost-effective with quality fallback |
+| **Hosting** | Firebase Hosting (frontend) + Cloud Run (API) | Google Cloud unified, scalable |
+| **Storage** | Google Cloud Storage | Images, exports, unified billing |
+| **Logging** | Google Cloud Logging | Centralized, integrated with GCP |
+| **Monitoring** | Google Cloud Monitoring | Alerts, dashboards, SLOs |
+| **Analytics** | PostHog | Open-source, privacy-friendly, powerful |
+| **CI/CD** | GitHub Actions → Firebase/Cloud Run | Auto-deploy on push |
+
+##### Why This Stack
+
+**Google Cloud Products (7):**
+- Cloud SQL — Managed PostgreSQL with PostGIS
+- Cloud Run — Serverless API hosting
+- Firebase Hosting — Fast static/SSR hosting
+- Google Maps — Tracking visualization
+- Google Geocoding — Fallback for edge cases
+- Cloud Storage — File uploads
+- Cloud Logging + Monitoring — Observability
+
+**Non-Google (justified):**
+- Clerk — Saves 10+ hours vs Firebase Auth, beautiful pre-built UI
+- Stripe — Industry standard, no Google alternative
+- Resend — Best developer experience for transactional email
+- PostHog — Open-source, more features than GA, privacy-friendly
+- GitHub Actions — Better integration with GitHub repos
 
 ##### Geocoding API Comparison
 
@@ -5854,7 +5877,8 @@ OUTPUT: Complete webhook handler with all event processing
 
 | Service | Free Tier | Est. MVP Cost | Scale Cost |
 |---------|-----------|---------------|------------|
-| Vercel | 100GB bandwidth | $0 | $20/mo |
+| Firebase Hosting | 10GB storage, 360MB/day | $0 | $25/mo |
+| Cloud Run | 2M requests/mo | $0 | $20/mo |
 | Cloud SQL | - | $30/mo | $100/mo |
 | Clerk | 10k MAU | $0 | $25/mo |
 | Stripe | - | 2.9% + 30¢/txn | Same |
@@ -5885,9 +5909,9 @@ OUTPUT: Complete webhook handler with all event processing
   - [ ] Lazy loading for heavy components
 
 - [ ] **Monitoring**
-  - [ ] Error tracking (Sentry or Vercel)
-  - [ ] Uptime monitoring (BetterStack)
-  - [ ] Database connection monitoring
+  - [ ] Error tracking (Cloud Error Reporting)
+  - [ ] Uptime monitoring (Cloud Monitoring)
+  - [ ] Database connection monitoring (Cloud SQL Insights)
   - [ ] API latency tracking
 
 - [ ] **Data**
