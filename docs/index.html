@@ -665,7 +665,7 @@
 
 <!-- Meta Bar -->
 <div class="meta-bar">
-    <div class="meta-item"><span>Last Updated:</span> January 23, 2026</div>
+    <div class="meta-item"><span>Last Updated:</span> January 24, 2026</div>
     <div class="meta-item"><span>Status:</span> MVP Definition</div>
     <div class="meta-item"><span>Owner:</span> Denys Chumak</div>
 </div>
@@ -1019,7 +1019,7 @@
             </div>
         </div>
         
-        <h3>Technology Stack</h3>
+        <h3>Technology Stack (Google-Maximized)</h3>
         <table>
             <thead>
                 <tr>
@@ -1030,24 +1030,24 @@
             </thead>
             <tbody>
                 <tr>
-                    <td>Frontend</td>
-                    <td>React / Next.js</td>
-                    <td>Modern, SEO-friendly</td>
-                </tr>
-                <tr>
-                    <td>Backend</td>
-                    <td>FastAPI or NestJS</td>
-                    <td>API-first, async</td>
+                    <td>Framework</td>
+                    <td>Next.js 14 (App Router)</td>
+                    <td>Full-stack, TypeScript</td>
                 </tr>
                 <tr>
                     <td>Database</td>
-                    <td>PostgreSQL + PostGIS</td>
-                    <td>Geospatial queries</td>
+                    <td><strong>Cloud SQL</strong> + PostGIS</td>
+                    <td>Google Cloud native</td>
+                </tr>
+                <tr>
+                    <td>Hosting</td>
+                    <td><strong>Firebase Hosting + Cloud Run</strong></td>
+                    <td>Google Cloud unified</td>
                 </tr>
                 <tr>
                     <td>Auth</td>
                     <td>Clerk</td>
-                    <td>Managed, fast setup</td>
+                    <td>Fast setup, beautiful UI</td>
                 </tr>
                 <tr>
                     <td>Payments</td>
@@ -1055,12 +1055,46 @@
                     <td>Industry standard</td>
                 </tr>
                 <tr>
-                    <td>Cloud</td>
-                    <td>GCP</td>
-                    <td>Google Credits goal</td>
+                    <td>Maps</td>
+                    <td><strong>Google Maps API</strong></td>
+                    <td>Best global coverage</td>
+                </tr>
+                <tr>
+                    <td>Geocoding</td>
+                    <td>LocationIQ + <strong>Google</strong></td>
+                    <td>Cost-effective + fallback</td>
+                </tr>
+                <tr>
+                    <td>Storage</td>
+                    <td><strong>Cloud Storage</strong></td>
+                    <td>Unified billing</td>
+                </tr>
+                <tr>
+                    <td>Email</td>
+                    <td>Resend + React Email</td>
+                    <td>Modern, developer-friendly</td>
+                </tr>
+                <tr>
+                    <td>Monitoring</td>
+                    <td><strong>Cloud Monitoring + Logging</strong></td>
+                    <td>GCP integrated</td>
+                </tr>
+                <tr>
+                    <td>Analytics</td>
+                    <td>PostHog</td>
+                    <td>Privacy-friendly</td>
+                </tr>
+                <tr>
+                    <td>CI/CD</td>
+                    <td>GitHub Actions</td>
+                    <td>Secrets in GitHub</td>
                 </tr>
             </tbody>
         </table>
+        
+        <div class="value-prop" style="margin-top: 20px;">
+            <strong>Google Cloud Products (8):</strong> Cloud SQL, Firebase Hosting, Cloud Run, Google Maps, Google Geocoding (fallback), Cloud Storage, Cloud Logging, Cloud Monitoring
+        </div>
         
         <h3>Scalability & Infrastructure</h3>
         <div class="cards-grid">
@@ -1209,9 +1243,43 @@ X-API-Key: [device_api_key]
             </div>
             <div class="card">
                 <h4>Responsibility: Platform (Denys)</h4>
-                <p>• Backend API that receives data<br>• Data validation & storage<br>• Real-time dashboard updates<br>• Notification triggers</p>
+                <p>• Backend API (Cloud Run)<br>• Data validation & storage (Cloud SQL)<br>• Real-time dashboard updates<br>• Notification triggers (Resend)</p>
             </div>
         </div>
+        
+        <h3>CI/CD Pipeline</h3>
+        <div class="specs-box">
+            <div class="specs-grid" style="grid-template-columns: repeat(3, 1fr);">
+                <div class="spec-item">
+                    <div class="value" style="font-size: 1.25rem;">GitHub Actions</div>
+                    <div class="label">CI/CD Platform</div>
+                </div>
+                <div class="spec-item">
+                    <div class="value" style="font-size: 1.25rem;">GitHub Secrets</div>
+                    <div class="label">API Keys Storage</div>
+                </div>
+                <div class="spec-item">
+                    <div class="value" style="font-size: 1.25rem;">Auto-Deploy</div>
+                    <div class="label">On Push to Main</div>
+                </div>
+            </div>
+        </div>
+        <table style="margin-top: 15px;">
+            <thead>
+                <tr>
+                    <th>Secret</th>
+                    <th>Service</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td><code>GCP_SA_KEY</code></td><td>Google Cloud service account</td></tr>
+                <tr><td><code>DATABASE_URL</code></td><td>Cloud SQL connection</td></tr>
+                <tr><td><code>CLERK_SECRET_KEY</code></td><td>Authentication</td></tr>
+                <tr><td><code>STRIPE_SECRET_KEY</code></td><td>Payments</td></tr>
+                <tr><td><code>RESEND_API_KEY</code></td><td>Email notifications</td></tr>
+                <tr><td><code>GOOGLE_MAPS_API_KEY</code></td><td>Maps & geocoding</td></tr>
+            </tbody>
+        </table>
     </section>
 
     <!-- Pricing -->
@@ -1975,7 +2043,7 @@ X-API-Key: [device_api_key]
                     <th>Epic</th>
                     <th>Description</th>
                     <th>Hours</th>
-                    <th>Month</th>
+                    <th>Tech Stack</th>
                 </tr>
             </thead>
             <tbody>
@@ -1983,55 +2051,55 @@ X-API-Key: [device_api_key]
                     <td><span class="status-tag status-mvp">E1</span></td>
                     <td>Project Setup & Infrastructure</td>
                     <td>10h</td>
-                    <td>Feb</td>
+                    <td>Next.js, Cloud SQL, Firebase</td>
                 </tr>
                 <tr>
                     <td><span class="status-tag status-mvp">E2</span></td>
                     <td>Authentication & User Management</td>
                     <td>12h</td>
-                    <td>Feb</td>
+                    <td>Clerk, Webhooks</td>
                 </tr>
                 <tr>
                     <td><span class="status-tag status-mvp">E3</span></td>
                     <td>Landing Page</td>
                     <td>10h</td>
-                    <td>Feb</td>
+                    <td>Tailwind, shadcn/ui</td>
                 </tr>
                 <tr>
                     <td><span class="status-tag status-mvp">E4</span></td>
                     <td>Customer Portal & Dashboard</td>
                     <td>14h</td>
-                    <td>Mar</td>
+                    <td>React, TanStack Table</td>
                 </tr>
                 <tr>
                     <td><span class="status-tag status-mvp">E5</span></td>
-                    <td>Tracking Features & Device Integration</td>
+                    <td>Tracking Features & Device API</td>
                     <td>14h</td>
-                    <td>Mar</td>
+                    <td>Google Maps, PostGIS</td>
                 </tr>
                 <tr>
                     <td><span class="status-tag status-mvp">E6</span></td>
                     <td>Payment & Order Processing</td>
                     <td>10h</td>
-                    <td>Mar</td>
+                    <td>Stripe Checkout</td>
                 </tr>
                 <tr>
                     <td><span class="status-tag status-mvp">E7</span></td>
                     <td>Admin Panel</td>
                     <td>10h</td>
-                    <td>Mar</td>
+                    <td>Role-based access</td>
                 </tr>
                 <tr>
                     <td><span class="status-tag status-mvp">E8</span></td>
                     <td>Notifications</td>
                     <td>8h</td>
-                    <td>Mar</td>
+                    <td>Resend, React Email</td>
                 </tr>
                 <tr>
                     <td><span class="status-tag status-mvp">E9</span></td>
                     <td>Testing, QA & Launch</td>
                     <td>10h</td>
-                    <td>Mar</td>
+                    <td>Vitest, E2E</td>
                 </tr>
             </tbody>
             <tfoot>
@@ -2042,6 +2110,40 @@ X-API-Key: [device_api_key]
                 </tr>
             </tfoot>
         </table>
+        
+        <h3>Sprint Structure (6 Sprints)</h3>
+        <div class="cards-grid">
+            <div class="card">
+                <h4>Sprint 1 (Jan 26-31)</h4>
+                <p>Market research, competitive analysis, TAM/SAM/SOM, investor materials START</p>
+                <span class="status-tag status-mvp">35h</span>
+            </div>
+            <div class="card" style="border-color: #ef4444;">
+                <h4>Sprint 2 (Feb 1-14) ⚠️</h4>
+                <p><strong>Feb 6 DEADLINE:</strong> Teaser, Financial Model, Business Plan, Investor Deck</p>
+                <span class="status-tag status-tbd">70h</span>
+            </div>
+            <div class="card">
+                <h4>Sprint 3 (Feb 15-28)</h4>
+                <p>User interviews (6-8), Auth system (Clerk), Landing page, Grant writing</p>
+                <span class="status-tag status-mvp">70h</span>
+            </div>
+            <div class="card">
+                <h4>Sprint 4 (Mar 1-14)</h4>
+                <p>Finish interviews, Grant SUBMIT, Portal dashboard, Device API, Stripe</p>
+                <span class="status-tag status-mvp">70h</span>
+            </div>
+            <div class="card">
+                <h4>Sprint 5 (Mar 15-28)</h4>
+                <p>Research report, Admin panel, Notifications, Payments, Testing</p>
+                <span class="status-tag status-mvp">52h</span>
+            </div>
+            <div class="card" style="border-color: var(--primary); background: linear-gradient(to right, rgba(196, 245, 52, 0.1), var(--bg-card));">
+                <h4>Sprint 6 (Mar 29-31) 🚀</h4>
+                <p><strong>QA, Production deploy, MVP LAUNCH!</strong></p>
+                <span class="status-tag status-mvp">14h</span>
+            </div>
+        </div>
         
         <h3>Post-MVP Phases</h3>
         <table>
@@ -2245,7 +2347,7 @@ X-API-Key: [device_api_key]
 
 <!-- Footer -->
 <footer class="footer">
-    <p>HyperLabel Product Specification v1.0 • Confidential • January 23, 2026</p>
+    <p>HyperLabel Product Specification v1.0 • Confidential • January 24, 2026</p>
 </footer>
 
 </body>
