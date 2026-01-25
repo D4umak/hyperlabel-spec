@@ -6021,7 +6021,482 @@ OUTPUT: Complete webhook handler with all event processing
 | LocationIQ | 5k/day | $0 | $50/mo |
 | Google Maps | $200 credit | $0 | $50/mo |
 | Domain | - | $15/yr | Same |
-| **Total** | | **~$30/mo** | **~$265/mo** |
+| Gemini 1.5 Flash | - | ~$75/mo | ~$150/mo |
+| **Total** | | **~$105/mo** | **~$415/mo** |
+
+---
+
+#### AI FEATURES
+
+HyperLabel uses AI to improve UX, reduce errors, and provide intelligent insights.
+
+##### AI Technology Stack
+
+| Feature | Technology | Cost | Priority |
+|---------|------------|------|----------|
+| Cargo Photo Analysis | **Gemini 1.5 Flash** | $0.075/image | MVP ✅ |
+| Address Normalization | **Gemini 1.5 Flash** | $0.001/request | MVP ✅ |
+| Anomaly Detection | Rule-based + ML | $0 (compute) | MVP ✅ |
+| Natural Language Search | OpenAI/Gemini | $0.01/query | Post-MVP |
+| ETA Prediction | Custom ML | $0 (compute) | Post-MVP |
+
+---
+
+##### AI-1: Cargo Photo Analysis (Gemini 1.5 Flash)
+
+**Purpose:** When shipper uploads cargo photo, AI extracts information and verifies label attachment.
+
+**Why Gemini (not OCR):**
+- Understands context ("this is a shipping label, not a menu")
+- Handles messy real-world photos (warehouse lighting, angles)
+- Can verify label is properly attached
+- Single API for multiple tasks
+- Better reasoning for partial/damaged text
+
+**Implementation:**
+
+```typescript
+// /lib/ai/cargo-analysis.ts
+
+import { GoogleGenerativeAI } from '@google/generative-ai'
+
+const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY!)
+
+interface CargoAnalysis {
+  labelVisible: boolean
+  labelAttachedProperly: boolean
+  trackingCode: string | null
+  cargoType: string
+  estimatedPackages: number
+  existingLabels: string[]
+  hazardWarnings: string[]
+  condition: 'good' | 'damaged' | 'unknown'
+  confidence: number
+}
+
+export async function analyzeCargoPhoto(
+  imageBase64: string
+): Promise<CargoAnalysis> {
+  const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' })
+  
+  const prompt = `
+    Analyze this cargo photo for a shipping tracking system.
+    
+    Extract the following information and return as JSON:
+    {
+      "labelVisible": boolean,        // Is a HyperLabel tracking label visible?
+      "labelAttachedProperly": boolean, // Is it flat, not peeling, readable?
+      "trackingCode": string | null,  // Any tracking code visible (HL-XXXXX format)
+      "cargoType": string,            // e.g., "cardboard boxes", "wooden pallet"
+      "estimatedPackages": number,    // How many packages/boxes visible
+      "existingLabels": string[],     // Other labels visible (e.g., "FedEx", "FRAGILE")
+      "hazardWarnings": string[],     // Any hazmat symbols or warnings
+      "condition": "good" | "damaged" | "unknown",
+      "confidence": number            // 0-1 confidence in analysis
+    }
+    
+    If you can't determine something, use null or "unknown".
+    Only return valid JSON, no other text.
+  `
+  
+  const result = await model.generateContent([
+    prompt,
+    {
+      inlineData: {
+        mimeType: 'image/jpeg',
+        data: imageBase64,
+      },
+    },
+  ])
+  
+  const text = result.response.text()
+  const jsonMatch = text.match(/\{[\s\S]*\}/)
+  if (!jsonMatch) throw new Error('Failed to parse cargo analysis')
+  
+  return JSON.parse(jsonMatch[0]) as CargoAnalysis
+}
+```
+
+**API Endpoint:**
+
+```typescript
+// /app/api/shipments/[id]/photo/route.ts
+
+export async function POST(req: Request, { params }: { params: { id: string } }) {
+  const { userId } = auth()
+  if (!userId) return unauthorized()
+  
+  const formData = await req.formData()
+  const photo = formData.get('photo') as File
+  
+  // 1. Upload to Cloud Storage
+  const photoUrl = await uploadToStorage(photo, `shipments/${params.id}`)
+  
+  // 2. Analyze with Gemini
+  const base64 = await fileToBase64(photo)
+  const analysis = await analyzeCargoPhoto(base64)
+  
+  // 3. Validate label is attached
+  if (!analysis.labelVisible) {
+    return Response.json({
+      success: false,
+      error: 'HyperLabel not visible in photo',
+      suggestion: 'Please retake photo with tracking label clearly visible',
+    }, { status: 400 })
+  }
+  
+  if (!analysis.labelAttachedProperly) {
+    // Warning, not error - let them proceed but warn
+    console.warn(`Label attachment issue for shipment ${params.id}`)
+  }
+  
+  // 4. Auto-fill shipment details from analysis
+  await prisma.shipment.update({
+    where: { id: params.id },
+    data: {
+      cargoPhotoUrl: photoUrl,
+      cargoType: analysis.cargoType,
+      packageCount: analysis.estimatedPackages,
+      hasHazmat: analysis.hazardWarnings.length > 0,
+      photoAnalysis: analysis as any, // Store full analysis
+    },
+  })
+  
+  return Response.json({ 
+    success: true, 
+    analysis,
+    warnings: !analysis.labelAttachedProperly 
+      ? ['Label may not be attached properly. Ensure edges are sealed.']
+      : [],
+  })
+}
+```
+
+**UX Flow:**
+1. Shipper takes photo of cargo with label attached
+2. Photo uploads to Cloud Storage
+3. Gemini analyzes in ~1-2 seconds
+4. If label not visible → **Error**: "Please retake photo"
+5. If label not attached properly → **Warning**: "Check label attachment"
+6. Auto-fill cargo type, package count, hazmat warnings
+7. Show success with extracted information
+
+**Acceptance Criteria:**
+- [ ] Photo upload to Cloud Storage working
+- [ ] Gemini analysis returns structured JSON
+- [ ] Label visibility validation working
+- [ ] Auto-fill updates shipment record
+- [ ] Warning/error messages shown to user
+- [ ] Analysis stored for audit trail
+
+---
+
+##### AI-2: Smart Address Normalization
+
+**Purpose:** Clean and normalize addresses entered by users for better geocoding.
+
+**Problem:** Users enter addresses inconsistently:
+- "123 Main St, NYC" vs "123 Main Street, New York, NY 10001"
+- Typos, abbreviations, missing postal codes
+
+**Implementation:**
+
+```typescript
+// /lib/ai/address-normalization.ts
+
+export async function normalizeAddress(rawAddress: string): Promise<{
+  normalized: string
+  components: {
+    street: string
+    city: string
+    state: string
+    country: string
+    postalCode: string
+  }
+  confidence: number
+}> {
+  const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' })
+  
+  const prompt = `
+    Normalize this shipping address to standard format.
+    Input: "${rawAddress}"
+    
+    Return JSON:
+    {
+      "normalized": "full formatted address string",
+      "components": {
+        "street": "street address",
+        "city": "city name",
+        "state": "state/province (use abbreviation for US)",
+        "country": "country name",
+        "postalCode": "postal/zip code"
+      },
+      "confidence": 0.0-1.0
+    }
+    
+    Handle:
+    - Typos and misspellings
+    - Abbreviations (St → Street, NYC → New York)
+    - Missing components (infer if possible)
+    - International formats
+    
+    Only return valid JSON.
+  `
+  
+  const result = await model.generateContent(prompt)
+  return JSON.parse(result.response.text())
+}
+```
+
+**Usage:**
+```typescript
+// Before geocoding
+const normalized = await normalizeAddress("123 main st NYC")
+// Result: { normalized: "123 Main Street, New York, NY 10001, USA", ... }
+
+// Then geocode the normalized address
+const coords = await geocodeAddress(normalized.normalized)
+```
+
+**Cost:** ~$0.001 per address (very cheap)
+
+---
+
+##### AI-3: Anomaly Detection (Rule-Based + ML Ready)
+
+**Purpose:** Detect unusual shipment patterns and alert users proactively.
+
+**Anomaly Types:**
+
+| Type | Detection Method | Alert |
+|------|-----------------|-------|
+| **Stuck** | No movement >12h | Warning at 12h, Critical at 24h |
+| **Route Deviation** | Moving away from destination | Warning |
+| **Speed Anomaly** | >1000 km/h (GPS error) | Data quality flag |
+| **Backtracking** | Significant backward movement | Warning |
+| **Signal Lost** | No transmission >6h | Warning |
+
+**Implementation:**
+
+```typescript
+// /lib/anomaly-detection.ts
+
+interface Anomaly {
+  type: 'STUCK' | 'DEVIATION' | 'SPEED' | 'BACKTRACK' | 'SIGNAL_LOST'
+  severity: 'warning' | 'critical'
+  message: string
+  detectedAt: Date
+  data: Record<string, any>
+}
+
+export async function detectAnomalies(shipmentId: string): Promise<Anomaly[]> {
+  const anomalies: Anomaly[] = []
+  
+  const locations = await prisma.location.findMany({
+    where: { shipmentId },
+    orderBy: { recordedAt: 'desc' },
+    take: 10, // Last 10 data points
+  })
+  
+  if (locations.length < 2) return anomalies
+  
+  const [latest, previous] = locations
+  const hoursSinceLastUpdate = 
+    (Date.now() - latest.receivedAt.getTime()) / 3600000
+  
+  // 1. SIGNAL LOST - No data for >6 hours
+  if (hoursSinceLastUpdate > 6) {
+    anomalies.push({
+      type: 'SIGNAL_LOST',
+      severity: hoursSinceLastUpdate > 24 ? 'critical' : 'warning',
+      message: `No signal for ${Math.round(hoursSinceLastUpdate)} hours`,
+      detectedAt: new Date(),
+      data: { hoursSinceLastUpdate },
+    })
+  }
+  
+  // 2. STUCK - No movement for extended period
+  const distance = calculateDistance(
+    { lat: latest.latitude, lng: latest.longitude },
+    { lat: previous.latitude, lng: previous.longitude }
+  )
+  const hoursBetweenPoints = 
+    (latest.recordedAt.getTime() - previous.recordedAt.getTime()) / 3600000
+  
+  if (distance < 1 && hoursBetweenPoints > 12) { // <1km in 12+ hours
+    anomalies.push({
+      type: 'STUCK',
+      severity: hoursBetweenPoints > 24 ? 'critical' : 'warning',
+      message: `Shipment stationary for ${Math.round(hoursBetweenPoints)} hours`,
+      detectedAt: new Date(),
+      data: { distance, hours: hoursBetweenPoints },
+    })
+  }
+  
+  // 3. SPEED ANOMALY - Impossible speed (GPS error)
+  const speed = distance / hoursBetweenPoints // km/h
+  if (speed > 1000) { // Faster than commercial aircraft
+    anomalies.push({
+      type: 'SPEED',
+      severity: 'warning',
+      message: 'Unusual location jump detected (possible GPS error)',
+      detectedAt: new Date(),
+      data: { speed, distance },
+    })
+  }
+  
+  // 4. ROUTE DEVIATION - Moving away from destination
+  const shipment = await prisma.shipment.findUnique({
+    where: { id: shipmentId },
+    select: { destinationAddress: true },
+  })
+  
+  if (shipment?.destinationAddress) {
+    const destination = await geocodeAddress(shipment.destinationAddress)
+    
+    const currentDistToDestination = calculateDistance(
+      { lat: latest.latitude, lng: latest.longitude },
+      destination
+    )
+    const previousDistToDestination = calculateDistance(
+      { lat: previous.latitude, lng: previous.longitude },
+      destination
+    )
+    
+    // Moving 20% further away from destination
+    if (currentDistToDestination > previousDistToDestination * 1.2) {
+      anomalies.push({
+        type: 'DEVIATION',
+        severity: 'warning',
+        message: 'Shipment moving away from destination',
+        detectedAt: new Date(),
+        data: { currentDistToDestination, previousDistToDestination },
+      })
+    }
+  }
+  
+  return anomalies
+}
+
+// Helper function
+function calculateDistance(
+  point1: { lat: number; lng: number },
+  point2: { lat: number; lng: number }
+): number {
+  const R = 6371 // Earth's radius in km
+  const dLat = toRad(point2.lat - point1.lat)
+  const dLon = toRad(point2.lng - point1.lng)
+  const a =
+    Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+    Math.cos(toRad(point1.lat)) * Math.cos(toRad(point2.lat)) *
+    Math.sin(dLon / 2) * Math.sin(dLon / 2)
+  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a))
+  return R * c
+}
+
+function toRad(deg: number): number {
+  return deg * (Math.PI / 180)
+}
+```
+
+**Trigger:** Run after every new location report
+
+```typescript
+// /app/api/v1/device/report/route.ts (add to existing)
+
+// After storing location...
+const anomalies = await detectAnomalies(shipment.id)
+
+if (anomalies.length > 0) {
+  // Store anomalies
+  await prisma.anomaly.createMany({
+    data: anomalies.map(a => ({
+      shipmentId: shipment.id,
+      ...a,
+    })),
+  })
+  
+  // Send notification for critical anomalies
+  const criticalAnomalies = anomalies.filter(a => a.severity === 'critical')
+  if (criticalAnomalies.length > 0) {
+    await sendAnomalyNotification(shipment.userId, shipment.id, criticalAnomalies)
+  }
+}
+```
+
+---
+
+##### AI Feature Costs (Monthly Estimate)
+
+| Feature | Usage (MVP) | Cost |
+|---------|-------------|------|
+| Cargo Photo Analysis | 1,000 photos | $75 |
+| Address Normalization | 2,000 addresses | $2 |
+| Anomaly Detection | CPU only | $0 |
+| **Total AI Costs** | | **~$77/mo** |
+
+---
+
+##### Pre-Sprint Preparation Checklist
+
+Complete before Sprint 1 for smoother development:
+
+| Task | Time | Impact | Status |
+|------|------|--------|--------|
+| shadcn/ui components setup | 2h | High | ⬜ |
+| Database seed scripts | 2h | High | ⬜ |
+| Error handling patterns | 1h | Medium | ⬜ |
+| API types (Zod schemas) | 2h | High | ⬜ |
+| PostHog events list | 1h | Medium | ⬜ |
+| Figma → Code design tokens | 1h | Medium | ⬜ |
+| Environment setup (dev/staging) | 2h | High | ⬜ |
+| **Total Prep Time** | **11h** | | |
+
+**Component Library (shadcn/ui + Custom):**
+```
+/components/ui
+├── Button (primary, secondary, ghost, destructive)
+├── Input (with validation states)
+├── Card (shipment card, stats card)
+├── Badge (status: active, delivered, etc.)
+├── Table (sorting, filtering)
+├── Map (Google Maps wrapper)
+├── LoadingState (skeletons)
+├── EmptyState (for empty lists)
+└── ErrorState (error boundaries)
+```
+
+**Database Seed Script:**
+```typescript
+// /prisma/seed.ts
+// Creates realistic test data:
+- 10 test users (customer, admin roles)
+- 50 shipments (all statuses)
+- 500 location points (realistic routes)
+- 10 orders (paid, pending, etc.)
+- 20 labels (inventory, active, depleted)
+```
+
+**Error Handling Pattern:**
+```typescript
+// /lib/errors.ts
+export class AppError extends Error {
+  constructor(
+    public code: string,
+    public message: string,
+    public statusCode: number = 400
+  ) { super(message) }
+}
+
+export const ErrorCodes = {
+  LABEL_NOT_FOUND: 'LABEL_NOT_FOUND',
+  LABEL_ALREADY_ACTIVE: 'LABEL_ALREADY_ACTIVE',
+  INVALID_COORDINATES: 'INVALID_COORDINATES',
+  SHIPMENT_NOT_FOUND: 'SHIPMENT_NOT_FOUND',
+  UNAUTHORIZED: 'UNAUTHORIZED',
+  // ...
+}
+```
 
 ---
 
