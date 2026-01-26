@@ -832,7 +832,7 @@
             <div class="persona-header">
                 <div class="persona-icon">🚚</div>
                 <div>
-                    <div class="persona-name">Forwarder (Sender)</div>
+                    <div class="persona-name">Forwarder</div>
                     <div class="persona-role">Logistics Company</div>
                 </div>
                 <span class="status-tag status-mvp">Secondary</span>
@@ -848,12 +848,28 @@
                 <p>High-value: phones, laptops, components</p>
             </div>
             <div class="card">
-                <h4>2. Automotive Parts</h4>
+                <h4>2. Manufacturing</h4>
                 <p>B2B shipments between manufacturers</p>
             </div>
             <div class="card">
                 <h4>3. E-commerce</h4>
                 <p>Luxury items, collectibles, high-value goods</p>
+            </div>
+            <div class="card">
+                <h4>4. High Value</h4>
+                <p>Premium goods requiring tracking visibility</p>
+            </div>
+            <div class="card">
+                <h4>5. Time Critical</h4>
+                <p>Urgent shipments with delivery deadlines</p>
+            </div>
+            <div class="card">
+                <h4>6. Pharma</h4>
+                <p>Pharmaceutical and medical supplies</p>
+            </div>
+            <div class="card">
+                <h4>7. Air Cargo 500kg+</h4>
+                <p>Large air freight shipments</p>
             </div>
         </div>
     </section>
@@ -924,15 +940,15 @@
             <div class="timeline-item">
                 <div class="timeline-marker">2</div>
                 <div class="timeline-content">
-                    <h4>Enter Final Destination <span class="status-tag status-mvp" style="margin-left: 10px;">Consignee</span></h4>
-                    <p>Consignee enters their own address (where cargo will be delivered)</p>
+                    <h4>Enter Final Destination <span class="status-tag status-future" style="margin-left: 10px;">Optional</span></h4>
+                    <p>After forwarder activates label, consignee can specify where cargo should go</p>
                 </div>
             </div>
             <div class="timeline-item">
                 <div class="timeline-marker">3</div>
                 <div class="timeline-content">
-                    <h4>Share Link with Shipper <span class="status-tag status-mvp" style="margin-left: 10px;">Consignee</span></h4>
-                    <p>Consignee sends a link to the shipper/forwarder to complete origin address</p>
+                    <h4>Share Link with Shipper/Forwarder <span class="status-tag status-mvp" style="margin-left: 10px;">Consignee</span></h4>
+                    <p>Consignee sends a link to shipper/forwarder • 1-3 email reminders until activated • Link shows current label location</p>
                 </div>
             </div>
             <div class="timeline-item">
@@ -953,20 +969,20 @@
                 <div class="timeline-marker">6</div>
                 <div class="timeline-content">
                     <h4>Scan QR & Link to Cargo <span class="status-tag status-future" style="margin-left: 10px;">Shipper</span></h4>
-                    <p>Shipper scans QR → enters cargo details → attaches label to shipment</p>
+                    <p>Scan QR at fulfillment warehouse • API integration by SKU • Add cargo photo(s) • Attach label to shipment</p>
                 </div>
             </div>
             <div class="timeline-item">
                 <div class="timeline-marker">7</div>
                 <div class="timeline-content">
-                    <h4>Transit & Track <span class="status-tag" style="background: rgba(99, 102, 241, 0.2); color: #a5b4fc; margin-left: 10px;">Shipper</span></h4>
-                    <p>Cargo moves through carriers, label transmits location every 15-30 min</p>
+                    <h4>Transit & Track <span class="status-tag status-mvp" style="margin-left: 10px;">Consignee</span></h4>
+                    <p>Cargo moves through carriers, label transmits location every 120 min (configurable)</p>
                 </div>
             </div>
             <div class="timeline-item">
                 <div class="timeline-marker">8</div>
                 <div class="timeline-content">
-                    <h4>Delivered <span class="status-tag status-mvp" style="margin-left: 10px;">Consignee</span></h4>
+                    <h4>Get Cargo <span class="status-tag status-mvp" style="margin-left: 10px;">Consignee</span></h4>
                     <p>Cargo arrives at consignee, notification sent, tracking complete</p>
                 </div>
             </div>
@@ -1056,7 +1072,7 @@
         <div class="cards-grid">
             <div class="card">
                 <h4>MVP Scale</h4>
-                <p>• Hundreds of active labels<br>• ~10,000 location events/day<br>• ~100 concurrent users</p>
+                <p>• Hundreds of active labels<br>• ~10,000 location events/day<br>• ~100 concurrent users<br>• Subscription from day 1</p>
             </div>
             <div class="card">
                 <h4>Design For</h4>
@@ -1064,7 +1080,7 @@
             </div>
             <div class="card">
                 <h4>Data Residency</h4>
-                <p>• Primary: US (GCP us-central1)<br>• GDPR compliant for EU<br>• Multi-region: Post-MVP</p>
+                <p>• Primary: GB<br>• GDPR compliant for EU<br>• Multi-region: Post-MVP</p>
             </div>
             <div class="card">
                 <h4>Uptime SLA</h4>
@@ -1080,6 +1096,7 @@
         <div class="questions-box" style="background: rgba(196, 245, 52, 0.1); border-color: var(--primary);">
             <h4 style="color: var(--primary);">🔧 Technical Spec for Hardware Team (Andrii)</h4>
             <p style="color: var(--text-light); margin: 0;">This section defines how the label device communicates with the backend.</p>
+            <p style="color: var(--text-light); margin: 10px 0 0 0;"><strong>API Docs:</strong> <a href="https://label.utec.ua/api/docs" target="_blank" style="color: var(--primary);">label.utec.ua/api/docs</a></p>
         </div>
         
         <h3>Communication Method</h3>
@@ -1105,7 +1122,7 @@
                 </tr>
                 <tr>
                     <td>Frequency</td>
-                    <td>Every 15-30 minutes (configurable)</td>
+                    <td>Every 120 minutes (configurable)</td>
                 </tr>
             </tbody>
         </table>
@@ -1208,6 +1225,7 @@ X-API-Key: [device_api_key]
         <h2>What's Included</h2>
         <ul class="metrics-list">
             <li><span class="check">✓</span> Physical label device</li>
+            <li><span class="check">✓</span> Free delivery to shipper</li>
             <li><span class="check">✓</span> 60 days of tracking</li>
             <li><span class="check">✓</span> Platform access</li>
             <li><span class="check">✓</span> Email notifications</li>
@@ -1273,6 +1291,11 @@ X-API-Key: [device_api_key]
                     <td>📡 No Signal</td>
                     <td>No transmission for >24 hours</td>
                     <td>Owner (Consignee)</td>
+                </tr>
+                <tr>
+                    <td>⏸️ Shipment Stuck</td>
+                    <td>No movement detected for extended period</td>
+                    <td>Owner (Consignee) <span class="status-tag status-future">Premium</span></td>
                 </tr>
             </tbody>
         </table>
@@ -1351,8 +1374,8 @@ X-API-Key: [device_api_key]
             <tbody>
                 <tr>
                     <td>Location history</td>
-                    <td>90 days post-delivery</td>
-                    <td>Auto-purge after 90 days</td>
+                    <td>90 days (90+ for Premium)</td>
+                    <td>Auto-purge after retention period</td>
                 </tr>
                 <tr>
                     <td>Account data</td>
@@ -1479,6 +1502,7 @@ X-API-Key: [device_api_key]
                 <tr><td>Live map view</td><td>Anyone with link</td><td>✅</td><td></td></tr>
                 <tr><td>Receive delivery notification</td><td>Consignee</td><td>✅</td><td></td></tr>
                 <tr><td>Recognise flight number + ship name</td><td>System</td><td></td><td>✅</td></tr>
+                <tr><td>Data cleaning (zero/extreme coordinates)</td><td>System</td><td>✅</td><td></td></tr>
                 <tr><td>Track transport type</td><td>—</td><td></td><td>✅</td></tr>
                 <tr><td>Track delivery delays</td><td>—</td><td></td><td>✅</td></tr>
                 <tr><td>Track route deviations</td><td>—</td><td></td><td>✅</td></tr>
@@ -1808,6 +1832,35 @@ X-API-Key: [device_api_key]
         </div>
     </section>
 
+    <!-- Current Priorities -->
+    <section>
+        <h2>Current Priorities</h2>
+        
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-marker" style="background: var(--primary);">1</div>
+                <div class="timeline-content">
+                    <h4>Customer Portal</h4>
+                    <p>Core platform for tracking shipments and managing labels</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-marker" style="background: var(--primary);">2</div>
+                <div class="timeline-content">
+                    <h4>Grant Application (UTEC)</h4>
+                    <p>Funding application for development support</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-marker" style="background: var(--primary);">3</div>
+                <div class="timeline-content">
+                    <h4>Teaser, Financial Model + Business Plan</h4>
+                    <p>Investor materials — deadline: 2 weeks</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Questions for Andrii -->
     <section>
         <h2>Open Questions</h2>
@@ -1837,7 +1890,7 @@ X-API-Key: [device_api_key]
             </div>
             <div class="card">
                 <h4>Geography</h4>
-                <p>• Manufacturing: China<br>• Primary market: US<br>• Secondary: UK/EU<br>• Label works: 180+ countries</p>
+                <p>• Manufacturing: China<br>• Primary market: GB<br>• Secondary: UK/EU<br>• Label works: 180+ countries</p>
             </div>
         </div>
     </section>
