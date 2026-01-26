@@ -114,7 +114,7 @@
 | **TAM** | TBD | Global cargo tracking market |
 | **SAM** | TBD | Addressable with disposable labels |
 | **SOM** | TBD | Realistic first-year capture |
-| **Initial Geography** | China → US, UK, EU | Andrii's network + manufacturing base |
+| **Initial Geography** | China → GB, US, EU | Andrii's network + manufacturing base |
 
 *Note: Market sizing to be calculated for investor deck*
 
@@ -793,7 +793,7 @@ orders (
 
 | Requirement | MVP Approach |
 |-------------|--------------|
-| Primary Region | US (GCP us-central1) |
+| Primary Region | GB (GCP europe-west2) |
 | GDPR Compliance | Required for EU customers |
 | Multi-region | Post-MVP for enterprise |
 
@@ -938,9 +938,9 @@ orders (
 
 | Region | Priority | Notes |
 |--------|----------|-------|
-| **China** | MVP | Manufacturing base, local customers |
-| **US** | MVP | Primary sales market |
-| **UK** | MVP | Secondary market |
+| **China** | MVP | Manufacturing base |
+| **GB** | MVP | Primary sales market |
+| **US** | MVP | Secondary market |
 | **EU** | MVP | Secondary market |
 
 *Labels are physically shipped to customers in these regions.*
