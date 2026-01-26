@@ -1082,7 +1082,7 @@ orders (
 - Business plan
 - Investor materials
 
-**Platform Development (100 hours / £5,000):**
+**Platform Development (100 hours):**
 - Full-stack development (vibe coding approach)
 - Frontend: React/Next.js
 - Backend: API development
@@ -1092,7 +1092,7 @@ orders (
 **Arrangement:**
 - Part-time engagement (3 months)
 - Product: Existing scope
-- Development: Additional 100 hours (£5,000 GBP)
+- Development: Additional 100 hours
 - Post-MVP: Consider full-time role (20% equity, 2-year vest, 6-month cliff)
 
 #### Andrii Pavlov - Designer (Part-time)
@@ -1290,7 +1290,7 @@ orders (
 **Start Date:** January 26, 2026  
 **End Date:** March 31, 2026  
 **Owner:** Denys Chumak  
-**Total Budget:** £16,450 (329 hours)
+**Total Hours:** 329
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────────┐
@@ -1300,13 +1300,13 @@ orders (
 │                                                                                  │
 │  HOURS BREAKDOWN                                                                │
 │  ════════════════                                                               │
-│  Platform Development      100 hours   (£5,000)                                 │
+│  Platform Development      100 hours                                            │
 │  User Research              80 hours   (included in PM)                         │
 │  Investor Materials         50 hours   (⚠️ deadline: 06 Feb)                    │
 │  Grant Application          30 hours   (ongoing)                                │
 │  Product Management         69 hours   (spec, coordination, oversight)          │
 │  ─────────────────────────────────────                                          │
-│  TOTAL                     329 hours   (£16,450)                                │
+│  TOTAL                     329 hours                                            │
 │                                                                                  │
 ├─────────────────────────────────────────────────────────────────────────────────┤
 │                                                                                  │
@@ -1359,14 +1359,14 @@ orders (
 
 #### SUMMARY: Hours by Category
 
-| Category | Hours | Budget | Notes |
-|----------|-------|--------|-------|
-| **Platform Development** | 100 | £5,000 | 9 technical epics |
-| **User Research** | 80 | — | 15-20 interviews |
-| **Investor Materials** | 50 | — | ⚠️ Deadline: 06 Feb 2026 |
-| **Grant Application** | 30 | — | Tatton Consulting |
-| **Product Management** | 69 | — | Spec, coordination |
-| **TOTAL** | **329** | **£16,450** | |
+| Category | Hours | Notes |
+|----------|-------|-------|
+| **Platform Development** | 100 | 9 technical epics |
+| **User Research** | 80 | 15-20 interviews |
+| **Investor Materials** | 50 | ⚠️ Deadline: 06 Feb 2026 |
+| **Grant Application** | 30 | Tatton Consulting |
+| **Product Management** | 69 | Spec, coordination |
+| **TOTAL** | **329** | |
 
 ---
 
@@ -2497,32 +2497,23 @@ Build the cost structure section of the financial model, including COGS (Cost of
 #### What We Will Implement
 
 **1. Cost of Goods Sold (COGS)**
-| Cost Component | Per Unit | Notes |
-|----------------|----------|-------|
-| Hardware (label) | $8-10 | From Andrii |
-| eSIM/data | $2-3 | 60 days LTE |
-| Packaging | $0.50 | Box, quick-start guide |
-| Shipping to warehouse | $0.50 | China to fulfillment |
-| **Total COGS** | **$11-14** | |
-| **Gross Margin** | **45-55%** | At $25 price |
+- Hardware (label)
+- eSIM/data (60 days LTE)
+- Packaging (box, quick-start guide)
+- Shipping to warehouse
 
 **2. Operating Expenses (Monthly)**
-| Category | MVP | Month 6 | Month 12 |
-|----------|-----|---------|----------|
-| Cloud infrastructure | $50 | $200 | $500 |
-| SaaS tools | $100 | $300 | $500 |
-| Marketing | $0 | $500 | $2,000 |
-| Legal/accounting | $200 | $300 | $500 |
-| **Total OpEx** | **$350** | **$1,300** | **$3,500** |
+- Cloud infrastructure
+- SaaS tools
+- Marketing
+- Legal/accounting
 
-**3. Team Costs**
-| Role | Start | Monthly Cost | When |
-|------|-------|--------------|------|
-| Andrii (Founder) | M1 | £0 (equity) | Ongoing |
-| Denys (PM/Dev) | M1 | £5,500 | M1-M3 (contract) |
-| Designer | M1 | £1,200 | M1-M3 (contract) |
-| Full-time dev | M6 | £5,000 | Post-MVP |
-| Support | M9 | £2,500 | Scale phase |
+**3. Team Structure**
+- Andrii (Founder) - Hardware & Business
+- Denys (PM/Dev) - Product & Platform (M1-M3)
+- Designer - Brand & UI (M1-M3)
+- Full-time dev - Post-MVP
+- Support - Scale phase
 
 **4. Profitability Analysis**
 - Breakeven point (units)
@@ -2805,22 +2796,19 @@ Write the operations section covering team, milestones, risks, and use of funds.
 | Team | Low | High | Equity incentives, clear roles |
 
 **4. Use of Funds**
-If raising £250k seed:
-| Category | Amount | % |
-|----------|--------|---|
-| Product & Engineering | £100k | 40% |
-| Hardware inventory | £50k | 20% |
-| Marketing & Sales | £40k | 16% |
-| Operations | £30k | 12% |
-| Legal & Admin | £15k | 6% |
-| Buffer | £15k | 6% |
+- Product & Engineering (40%)
+- Hardware inventory (20%)
+- Marketing & Sales (16%)
+- Operations (12%)
+- Legal & Admin (6%)
+- Buffer (6%)
 
 #### Acceptance Criteria
 
 - [ ] **Team section** complete with bios
 - [ ] **Milestone timeline** with dates
 - [ ] **Risk matrix** with mitigations
-- [ ] **Use of funds** breakdown
+- [ ] **Use of funds** breakdown defined
 - [ ] **Funding ask** confirmed with Andrii
 
 ---
@@ -6101,22 +6089,6 @@ OUTPUT: Complete webhook handler with all event processing
 | **EORI Number** | 🟡 MEDIUM | For customs (importing labels from China) |
 | **Unit Economics Model** | 🔴 HIGH | Part of investor materials |
 
-##### Cost Projections (Monthly)
-
-| Service | Free Tier | Est. MVP Cost | Scale Cost |
-|---------|-----------|---------------|------------|
-| Firebase Hosting | 10GB storage, 360MB/day | $0 | $25/mo |
-| Cloud Run | 2M requests/mo | $0 | $20/mo |
-| Cloud SQL | - | $30/mo | $100/mo |
-| Clerk | 10k MAU | $0 | $25/mo |
-| Stripe | - | 2.9% + 30¢/txn | Same |
-| Resend | 3k emails | $0 | $20/mo |
-| LocationIQ | 5k/day | $0 | $50/mo |
-| Google Maps | $200 credit | $0 | $50/mo |
-| Domain | - | $15/yr | Same |
-| Gemini 1.5 Flash | - | ~$75/mo | ~$150/mo |
-| **Total** | | **~$105/mo** | **~$415/mo** |
-
 ---
 
 #### AI FEATURES
@@ -6125,13 +6097,13 @@ HyperLabel uses AI to improve UX, reduce errors, and provide intelligent insight
 
 ##### AI Technology Stack
 
-| Feature | Technology | Cost | Priority |
-|---------|------------|------|----------|
-| Cargo Photo Analysis | **Gemini 1.5 Flash** | $0.075/image | MVP ✅ |
-| Address Normalization | **Gemini 1.5 Flash** | $0.001/request | MVP ✅ |
-| Anomaly Detection | Rule-based + ML | $0 (compute) | MVP ✅ |
-| Natural Language Search | OpenAI/Gemini | $0.01/query | Post-MVP |
-| ETA Prediction | Custom ML | $0 (compute) | Post-MVP |
+| Feature | Technology | Priority |
+|---------|------------|----------|
+| Cargo Photo Analysis | **Gemini 1.5 Flash** | MVP ✅ |
+| Address Normalization | **Gemini 1.5 Flash** | MVP ✅ |
+| Anomaly Detection | Rule-based + ML | MVP ✅ |
+| Natural Language Search | OpenAI/Gemini | Post-MVP |
+| ETA Prediction | Custom ML | Post-MVP |
 
 ---
 
@@ -6518,15 +6490,6 @@ if (anomalies.length > 0) {
 ```
 
 ---
-
-##### AI Feature Costs (Monthly Estimate)
-
-| Feature | Usage (MVP) | Cost |
-|---------|-------------|------|
-| Cargo Photo Analysis | 1,000 photos | $75 |
-| Address Normalization | 2,000 addresses | $2 |
-| Anomaly Detection | CPU only | $0 |
-| **Total AI Costs** | | **~$77/mo** |
 
 ---
 
