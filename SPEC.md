@@ -1,6 +1,6 @@
 # HyperLabel Product Specification
 
-**Version:** 1.3  
+**Version:** 1.4  
 **Last Updated:** January 26, 2026  
 **Status:** MVP Definition  
 **Document Owner:** Denys Chumak (Product Manager)
@@ -318,7 +318,7 @@ Onomondo provides the eSIM connectivity layer with the following capabilities:
 │           ▼                                                      │
 │  6. ACTIVATE & ATTACH (Shipper)                                 │
 │           │    • Activate label (battery)                        │
-│           │    • Enter final destination (where cargo is going)  │
+│           │    • Enter final destination (MANDATORY for shipper) │
 │           │    • Add photo(s) of cargo label (camera/attach)     │
 │           │    • Attach label to cargo                           │
 │           ▼                                                      │
@@ -500,8 +500,8 @@ Onomondo provides the eSIM connectivity layer with the following capabilities:
 | Label Activated | Label begins transmitting | Owner | Free |
 | Low Battery | Battery drops below 20%, 10% | Owner | Free |
 | Extended No-Signal | No transmission for >24 hours | Owner | Free |
-| Shipment Delivered | Label detects final location | Owner | Premium |
-| Shipment is Stuck | No movement detected for extended period | Owner | Premium |
+| Shipment Delivered | Geofence detection: location within 100m of destination for 30+ min | Owner | Premium |
+| Shipment is Stuck | No location change >500m for 24+ hours (configurable) | Owner | Premium |
 
 #### Post-MVP Notifications
 
@@ -841,7 +841,7 @@ orders (
 - Platform access
 - Email notifications
 - Shareable tracking link
-- 90 days data retention
+- 30 days data retention (90+ days with Premium)
 
 *Note: Label delivery shipping costs are included in the price for MVP markets (CN/UK/EU/US).*
 
@@ -851,7 +851,7 @@ orders (
 |-----------|---------------|
 | Provider | Stripe |
 | Methods | Credit/Debit card |
-| Currencies | USD (MVP), multi-currency (future) |
+| Currencies | USD + GBP (MVP), multi-currency (future) |
 | Invoicing | Post-MVP for enterprise |
 
 ### 7.4 Refund Policy
@@ -970,8 +970,9 @@ orders (
 | Manufacturing | Andrii / Hardware team (China) |
 | Inventory | China warehouse |
 | Order processing | Platform (Stripe integration) |
-| Shipping | 3PL partner (TBD) |
+| Shipping | 3PL partner (TBD) — UK/China warehouse |
 | Customer delivery | DHL/FedEx international |
+| **Shipping SLA** | 3-5 business days (UK/EU), 5-7 days (US) |
 
 ### 9.3 Pilot Customers
 
@@ -1236,7 +1237,7 @@ orders (
 | Scan QR at fulfillment warehouse | Shipper | ✅ | |
 | API integration by SKU | Shipper | ✅ | |
 | Activate label (battery) | Shipper | ✅ | |
-| Enter final destination (optional) | Shipper | ✅ | |
+| Enter final destination (mandatory for shipper) | Shipper | ✅ | |
 | Add cargo photo(s) | Shipper | ✅ | |
 | Attach label to cargo | Shipper | ✅ | |
 | Share tracking link | Consignee / Forwarder | ✅ | |
@@ -6661,10 +6662,15 @@ export const ErrorCodes = {
 |----------|-------|--------|--------------|
 | Label reuse scenario? | Andrii T. | ✅ Resolved | **MVP: Single-use only.** Post-MVP: Reusable via battery charging or battery replacement |
 | Hardware activation mechanism? | Andrii T. | ✅ Resolved | **Pull-out tab mechanic** — user pulls tab to activate the label |
-| Offline storage capacity? | Andrii T. | ✅ Confirmed | **Yes, offline storage supported.** Exact capacity (number of data points) TBD. |
-| 3PL fulfillment partner? | Andrii T. | 🔶 TBD | Who will handle label shipping to customers in CN/UK/EU/US? |
+| Offline storage capacity? | Andrii T. | 🔶 TBD | **Yes, offline storage supported.** Exact capacity (number of data points) TBD. |
+| 3PL fulfillment partner? | Andrii T. | 🔶 TBD | Using UTEC logistics or external partner (DHL Supply Chain)? |
 | TAM/SAM/SOM calculation | Denys | 🔶 Pending | Sprint 1 task (P2-T1) |
 | Pilot customer identification | Denys | 🔶 Pending | To be identified through user interviews |
+| Delivery detection logic | Denys | ✅ Resolved | **Geofence-based**: Location within 100m of destination for 30+ min triggers "Delivered" |
+| Destination entry - mandatory? | Denys | ✅ Resolved | **Optional for Consignee, Mandatory for Shipper** at activation |
+| "Stuck" detection algorithm | Denys | ✅ Resolved | **No location change >500m for 24+ hours** (configurable). Excludes expected stops. |
+| API integration by SKU with fulfillment? | Andrii T. | 🔶 TBD | Do we need API integration with fulfillment warehouse by SKU? |
+| QR scan at fulfillment mandatory? | Denys | ✅ Resolved | **Mandatory for all users.** Links label ID to consignee (buyer). |
 
 ### 12.5 Document History
 
@@ -6674,6 +6680,7 @@ export const ErrorCodes = {
 | 1.1 | 2026-01-26 | Denys Chumak | Clarified geography (Label Delivery vs Tracking Coverage); Updated open questions with answers |
 | 1.2 | 2026-01-26 | Denys Chumak | Added Onomondo as eSIM provider; Cell tower location as backup; Free shipping included for MVP |
 | 1.3 | 2026-01-26 | Denys Chumak | **Hybrid architecture decision**: Use existing label.utec.ua for device data, new backend for business logic; Documented existing API endpoints and DeviceDataOut schema |
+| 1.4 | 2026-01-26 | Denys Chumak | **Clarified flows**: Delivery detection (geofence 100m/30min), Stuck detection (500m/24h), Destination mandatory for shipper, QR scan mandatory, Shipping SLA added, Currency USD+GBP, Data retention fixed (30 days free) |
 
 ---
 
