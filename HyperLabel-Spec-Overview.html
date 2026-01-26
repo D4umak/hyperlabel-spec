@@ -656,7 +656,7 @@
     <h1>HyperLabel</h1>
     <p class="subtitle">Smart Tracking Label - Product Specification</p>
     <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 20px;">
-        <span class="badge">MVP Definition v1.0</span>
+        <span class="badge">MVP Definition v1.1</span>
         <a href="https://github.com/D4umak/hyperlabel-spec/blob/main/SPEC.md" target="_blank" class="badge" style="background: var(--primary); color: var(--bg-dark); text-decoration: none; font-weight: 700;">
             📄 SPEC.md (Tech Requirements)
         </a>
@@ -665,7 +665,7 @@
 
 <!-- Meta Bar -->
 <div class="meta-bar">
-    <div class="meta-item"><span>Last Updated:</span> January 15, 2026</div>
+    <div class="meta-item"><span>Last Updated:</span> January 26, 2026</div>
     <div class="meta-item"><span>Status:</span> MVP Definition</div>
     <div class="meta-item"><span>Owner:</span> Denys Chumak</div>
 </div>
@@ -1863,14 +1863,21 @@ X-API-Key: [device_api_key]
     <section>
         <h2>Open Questions</h2>
         
-        <div class="questions-box">
-            <h4>⚠️ Questions for Andrii (Hardware)</h4>
+        <div class="questions-box" style="background: rgba(196, 245, 52, 0.1); border-color: var(--primary);">
+            <h4 style="color: var(--primary);">✅ Resolved Questions (Hardware)</h4>
             <ul class="questions-list">
-                <li><strong>Label Reuse:</strong> Is there any reuse scenario, or strictly single-use disposable?</li>
-                <li><strong>Activation Mechanism:</strong> QR scan + button press, or sticker peel triggers activation?</li>
-                <li><strong>Offline Storage:</strong> How many location data points can be stored when offline?</li>
-                <li><strong>3PL Partner:</strong> Who will handle label fulfillment and shipping to customers?</li>
-                <li><strong>Device Protocol:</strong> Confirm HTTPS REST API for device → backend communication</li>
+                <li style="color: var(--text); border-color: rgba(196, 245, 52, 0.3);"><strong>Label Reuse:</strong> ✅ MVP: Single-use only. Post-MVP: Reusable via battery charging or replacement.</li>
+                <li style="color: var(--text); border-color: rgba(196, 245, 52, 0.3);"><strong>Activation Mechanism:</strong> ✅ Pull-out tab mechanic — user pulls tab to activate the label.</li>
+                <li style="color: var(--text); border-color: rgba(196, 245, 52, 0.3);"><strong>Offline Storage:</strong> ✅ Confirmed supported. Exact capacity (number of data points) TBD.</li>
+                <li style="color: var(--text); border-color: rgba(196, 245, 52, 0.3);"><strong>Device Protocol:</strong> ✅ HTTPS REST API for device → backend communication.</li>
+            </ul>
+        </div>
+        
+        <div class="questions-box">
+            <h4>⚠️ Open Questions (Still TBD)</h4>
+            <ul class="questions-list">
+                <li><strong>3PL Partner:</strong> Who will handle label fulfillment and shipping to customers in CN/UK/EU/US?</li>
+                <li><strong>Offline Storage Capacity:</strong> Exact number of GPS data points that can be stored when offline?</li>
             </ul>
         </div>
         
@@ -1998,7 +2005,7 @@ X-API-Key: [device_api_key]
 
 <!-- Footer -->
 <footer class="footer">
-    <p>HyperLabel Product Specification v1.0 • Confidential • January 2026</p>
+    <p>HyperLabel Product Specification v1.1 • Confidential • January 2026</p>
 </footer>
 
 </body>

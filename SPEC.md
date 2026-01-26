@@ -1,7 +1,7 @@
 # HyperLabel Product Specification
 
-**Version:** 1.0  
-**Last Updated:** January 15, 2026  
+**Version:** 1.1  
+**Last Updated:** January 26, 2026  
 **Status:** MVP Definition  
 **Document Owner:** Denys Chumak (Product Manager)
 
@@ -859,14 +859,36 @@ orders (
 
 ## 9. Operations & Launch
 
-### 9.1 MVP Geography
+### 9.1 Geography & Coverage
 
-| Region | Role |
-|--------|------|
-| **China** | Manufacturing, initial shipments origin |
-| **US** | Primary sales market |
-| **UK/EU** | Secondary sales market |
-| **Global** | Label works in 180+ countries |
+#### Label Delivery Regions (Where We Ship Labels TO)
+
+| Region | Priority | Notes |
+|--------|----------|-------|
+| **China** | MVP | Manufacturing base, local customers |
+| **US** | MVP | Primary sales market |
+| **UK** | MVP | Secondary market |
+| **EU** | MVP | Secondary market |
+
+*Labels are physically shipped to customers in these regions.*
+
+#### Label Tracking Coverage (Where Labels Work)
+
+| Coverage | Scope |
+|----------|-------|
+| **Worldwide** | 180+ countries via global eSIM |
+| **All transport modes** | Air, ocean, road, rail |
+| **Offline capable** | Stores data during flights/ocean transit |
+
+*Once attached to cargo, labels track globally regardless of destination.*
+
+#### Manufacturing & Origin
+
+| Attribute | Location |
+|-----------|----------|
+| **Manufacturing** | China |
+| **Inventory warehouse** | China |
+| **Typical cargo origin** | China (initial focus) |
 
 ### 9.2 Label Fulfillment
 
@@ -3778,8 +3800,7 @@ Group insights by theme using affinity mapping.
 #### Content
 1. Order Labels → 2. Peel & Stick → 3. Track Anywhere
 
-#### Acceptance Criteria
-- [ ] **3-step visual** created
+#### Acceptance CriteriaФаф 
 - [ ] **Responsive** design
 
 ---
@@ -6598,20 +6619,21 @@ export const ErrorCodes = {
 
 ### 12.4 Open Questions
 
-| Question | Owner | Status |
-|----------|-------|--------|
-| Label reuse scenario? | Andrii T. | TBD |
-| Hardware activation mechanism? | Andrii T. | TBD |
-| Offline storage capacity? | Andrii T. | TBD |
-| 3PL fulfillment partner? | Andrii T. | TBD |
-| TAM/SAM/SOM calculation | Denys | Pending |
-| Pilot customer identification | Denys | Pending |
+| Question | Owner | Status | Answer/Notes |
+|----------|-------|--------|--------------|
+| Label reuse scenario? | Andrii T. | ✅ Resolved | **MVP: Single-use only.** Post-MVP: Reusable via battery charging or battery replacement |
+| Hardware activation mechanism? | Andrii T. | ✅ Resolved | **Pull-out tab mechanic** — user pulls tab to activate the label |
+| Offline storage capacity? | Andrii T. | ✅ Confirmed | **Yes, offline storage supported.** Exact capacity (number of data points) TBD. |
+| 3PL fulfillment partner? | Andrii T. | 🔶 TBD | Who will handle label shipping to customers in CN/UK/EU/US? |
+| TAM/SAM/SOM calculation | Denys | 🔶 Pending | Sprint 1 task (P2-T1) |
+| Pilot customer identification | Denys | 🔶 Pending | To be identified through user interviews |
 
 ### 12.5 Document History
 
 | Version | Date | Author | Changes |
 |---------|------|--------|---------|
 | 1.0 | 2026-01-15 | Denys Chumak | Initial specification |
+| 1.1 | 2026-01-26 | Denys Chumak | Clarified geography (Label Delivery vs Tracking Coverage); Updated open questions with answers |
 
 ---
 
