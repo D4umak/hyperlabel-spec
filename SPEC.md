@@ -1106,14 +1106,13 @@ orders (
 
 ### 10.3 Team Allocation
 
-| Category | Owner | Budget |
-|----------|-------|--------|
-| **Product** | Denys Chumak | £11,450 |
-| **Development** | Denys Chumak | £5,000 (100 hours) |
-| **Design** | Andrii Pavlov | £3,500 |
-| **Services** | Website hosting, domain, etc. | £300 |
-| **Research** | User interviews (recruitment, gifts) | £2,000 |
-| **TOTAL** | | **£22,250** |
+| Category | Owner |
+|----------|-------|
+| **Product** | Denys Chumak |
+| **Development** | Denys Chumak |
+| **Design** | Andrii Pavlov |
+| **Services** | Website hosting, domain, etc. |
+| **Research** | User interviews (recruitment, gifts) |
 
 ### 10.4 Deliverables (3-Month MVP)
 
