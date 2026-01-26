@@ -886,12 +886,6 @@
             </div>
             <span class="flow-arrow">→</span>
             <div class="flow-step">
-                <div class="icon">📍</div>
-                <div class="name">Enter Destination</div>
-                <div style="font-size: 0.65rem; color: #64748b;">Consignee (Optional)</div>
-            </div>
-            <span class="flow-arrow">→</span>
-            <div class="flow-step">
                 <div class="icon">🔗</div>
                 <div class="name">Share Link</div>
                 <div style="font-size: 0.65rem; color: #64748b;">Consignee</div>
@@ -911,6 +905,12 @@
             <span class="flow-arrow">→</span>
             <div class="flow-step">
                 <div class="icon">📱</div>
+                <div class="name">Scan QR</div>
+                <div style="font-size: 0.65rem; color: #64748b;">Shipper</div>
+            </div>
+            <span class="flow-arrow">→</span>
+            <div class="flow-step">
+                <div class="icon">⚡</div>
                 <div class="name">Activate & Attach</div>
                 <div style="font-size: 0.65rem; color: #64748b;">Shipper</div>
             </div>
@@ -940,43 +940,43 @@
             <div class="timeline-item">
                 <div class="timeline-marker">2</div>
                 <div class="timeline-content">
-                    <h4>Enter Final Destination <span class="status-tag status-future" style="margin-left: 10px;">Optional</span></h4>
-                    <p>After forwarder activates label, consignee can specify where cargo should go</p>
+                    <h4>Share Link <span class="status-tag status-mvp" style="margin-left: 10px;">Consignee</span></h4>
+                    <p>Consignee sends link to shipper/forwarder • 1-3 email reminders until activated • Link shows current label location</p>
                 </div>
             </div>
             <div class="timeline-item">
                 <div class="timeline-marker">3</div>
                 <div class="timeline-content">
-                    <h4>Share Link with Shipper/Forwarder <span class="status-tag status-mvp" style="margin-left: 10px;">Consignee</span></h4>
-                    <p>Consignee sends a link to shipper/forwarder • 1-3 email reminders until activated • Link shows current label location</p>
-                </div>
-            </div>
-            <div class="timeline-item">
-                <div class="timeline-marker">4</div>
-                <div class="timeline-content">
-                    <h4>Enter Origin Address <span class="status-tag status-future" style="margin-left: 10px;">Shipper</span></h4>
+                    <h4>Enter Origin <span class="status-tag status-future" style="margin-left: 10px;">Shipper</span></h4>
                     <p>Shipper clicks link, enters their address (cargo origin) → label ships to them</p>
                 </div>
             </div>
             <div class="timeline-item">
-                <div class="timeline-marker">5</div>
+                <div class="timeline-marker">4</div>
                 <div class="timeline-content">
                     <h4>Receive Label <span class="status-tag status-future" style="margin-left: 10px;">Shipper</span></h4>
                     <p>Shipper receives physical label with quick-start guide</p>
                 </div>
             </div>
             <div class="timeline-item">
+                <div class="timeline-marker">5</div>
+                <div class="timeline-content">
+                    <h4>Scan QR - Fulfillment <span class="status-tag status-future" style="margin-left: 10px;">Shipper</span></h4>
+                    <p>Scan QR at fulfillment warehouse • Link notification sent to consignee • API integration by SKU</p>
+                </div>
+            </div>
+            <div class="timeline-item">
                 <div class="timeline-marker">6</div>
                 <div class="timeline-content">
-                    <h4>Scan QR & Link to Cargo <span class="status-tag status-future" style="margin-left: 10px;">Shipper</span></h4>
-                    <p>Scan QR at fulfillment warehouse • API integration by SKU • Add cargo photo(s) • Attach label to shipment</p>
+                    <h4>Activate & Attach <span class="status-tag status-future" style="margin-left: 10px;">Shipper</span></h4>
+                    <p>Activate label (battery) • Enter final destination • Add cargo photo(s) • Attach label to cargo</p>
                 </div>
             </div>
             <div class="timeline-item">
                 <div class="timeline-marker">7</div>
                 <div class="timeline-content">
                     <h4>Transit & Track <span class="status-tag status-mvp" style="margin-left: 10px;">Consignee</span></h4>
-                    <p>Cargo moves through carriers, label transmits location every 120 min (configurable)</p>
+                    <p>Cargo moves through carriers, label transmits every 120 min • Consignee tracks in real-time</p>
                 </div>
             </div>
             <div class="timeline-item">
