@@ -6721,7 +6721,7 @@ export const ErrorCodes = {
 | Label tracked before activation? | Andrii T. | ✅ Resolved | **No** — label is OFF until tab pulled. Use carrier tracking (DHL/FedEx) |
 | Battery dies mid-transit? | Andrii T. | ✅ Resolved | Alert at 20%, 10%, then "depleted". **Last known location shown.** |
 | Can label sleep after activation? | Andrii T. | ✅ Resolved | **No** — once activated, always on until battery dies |
-| Lost label detection? | Denys | 🔶 Needs thought | 48h no signal → "Lost"? But cargo could be on ocean ship or in warehouse with no signal. **Needs smarter logic.** |
+| Lost label detection? | Denys | ⏭️ Post-MVP | Skip for MVP. Complex edge cases (ocean transit, no-signal warehouses). Revisit post-launch. |
 | When stop transmitting after delivery? | Denys | 🔶 Needs thought | Auto-stop? Manual? Keep transmitting? **Needs decision.** |
 | E-waste disposal? | Denys | ✅ Resolved | Include e-waste note in quick-start guide. Consider frontend deactivation button. Battery = hazardous, needs disposal guidance. |
 | TAM/SAM/SOM calculation | Denys | 🔶 Pending | Sprint 1 task (P2-T1) |
