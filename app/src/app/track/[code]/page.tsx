@@ -5,10 +5,11 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Separator } from '@/components/ui/separator'
-import { Package, MapPin, Battery, Truck } from 'lucide-react'
+import { Package, MapPin, Battery, Truck, CheckCircle } from 'lucide-react'
 import { formatDistanceToNow, format } from 'date-fns'
 import { PublicTrackingMap } from '@/components/maps/public-tracking-map'
 import { PublicTimeline } from '@/components/tracking/public-timeline'
+import { ConfirmDeliveryDialog } from '@/components/tracking/confirm-delivery-dialog'
 import type { Metadata } from 'next'
 
 export const dynamic = 'force-dynamic'
@@ -196,6 +197,28 @@ export default async function PublicTrackingPage({ params }: PageProps) {
                 </div>
               </CardContent>
             </Card>
+
+            {/* Consignee Delivery Confirmation */}
+            {(shipment.status === 'IN_TRANSIT' || shipment.status === 'PENDING') && (
+              <Card className="border-2 border-dashed border-primary/50 bg-primary/5">
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2 text-lg">
+                    <CheckCircle className="h-5 w-5 text-primary" />
+                    Received your shipment?
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-3">
+                  <p className="text-sm text-muted-foreground">
+                    If you are the recipient, confirm delivery to notify the shipper 
+                    and stop tracking.
+                  </p>
+                  <ConfirmDeliveryDialog
+                    shareCode={code}
+                    shipmentName={shipment.name}
+                  />
+                </CardContent>
+              </Card>
+            )}
 
             {/* Destination */}
             <Card>
