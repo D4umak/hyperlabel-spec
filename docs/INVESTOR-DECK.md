@@ -65,19 +65,19 @@ Buy → Peel & Stick → Track Anywhere → Confirm Delivery
 
 ## Slide 5: Market Opportunity
 
-### $20B+ Market, Underserved Segment
+### $18B Market, Underserved SMB Segment
 
-| Metric | Value |
-|--------|-------|
-| **TAM** | $20B (global cargo visibility) |
-| **SAM** | $2B (disposable labels for SMB) |
-| **SOM Year 1** | $500K (China → EU/US) |
-| **SOM Year 3** | $5M |
+| Metric | Value | Source |
+|--------|-------|--------|
+| **TAM** | $18B | MarketsandMarkets 2024 |
+| **SAM** | $1.8B | SMB segment (10% of TAM) |
+| **SOM Year 1** | $125K | 5,500 labels sold |
+| **SOM Year 3** | $2.55M | 100,000 labels |
 
 **Why Now:**
-- eSIM costs down 70% since 2022
-- LTE-M coverage expanding globally
-- Supply chain visibility is CEO priority
+- eSIM costs down 60-70% since 2020 (GSMA)
+- LTE-M coverage: 180+ countries
+- 47% of supply chain leaders prioritize visibility (Gartner 2023)
 
 ---
 
@@ -85,18 +85,21 @@ Buy → Peel & Stick → Track Anywhere → Confirm Delivery
 
 ### Hardware Sales with Expanding Margins
 
-| Pack | Price | Gross Margin |
-|------|-------|--------------|
-| 1 label | $25 | 47% |
-| 5-pack | $110 | 55% |
-| 10-pack | $200 | 62% |
-| Enterprise | Custom | 70%+ |
+| Metric | Year 1 | Year 3 |
+|--------|--------|--------|
+| ASP | $22.73 | $25.54 |
+| COGS/label | $12.00 | $7.80 |
+| **Gross Margin** | **47%** | **69%** |
 
-**Unit Economics:**
-- COGS: $12 → $8 at scale
-- CAC: $100
-- LTV: $750+ (repeat customers)
-- LTV:CAC: 7.5x
+**Margin improvement drivers:**
+- Manufacturing volume: 5.5K → 100K labels
+- eSIM tiered pricing
+- Shipping negotiation
+
+**Unit Economics (Year 3):**
+- CAC: $88
+- LTV: $750+ (with repeat purchases)
+- LTV:CAC: **8.5x**
 
 ---
 
@@ -131,13 +134,19 @@ Buy → Peel & Stick → Track Anywhere → Confirm Delivery
     ────────────────────┼────────────────────
     COMPLEX             │            SIMPLE
                         │
-                        │        ★ HyperLabel
-                        │            $22
-                        │
+     Sensos ●           │        ★ HyperLabel
+       €50              │            $22
+                        │        ● Reelables
+                        │            $20
                     LOW PRICE
 ```
 
-**Our Edge:** Only player at <$25 with true global coverage
+**Direct Competitor: Reelables** — same price, but:
+- We have 180+ country coverage vs ~100
+- We have 60-day battery vs 30-45 days
+- We focus on China→EU/US (different market)
+
+**Our Edge:** Best coverage + battery for international shipments
 
 ---
 
@@ -181,20 +190,22 @@ Buy → Peel & Stick → Track Anywhere → Confirm Delivery
 
 ### Hardware + Software Founders
 
-**Andrii Tkachuk — CEO & Hardware**
-- 10+ years electronics manufacturing (China)
-- Founded UTEC (hardware company)
-- Designed HyperLabel device
+**Andrii Tkachuk — CEO & Hardware** (Full-time, Shenzhen)
+- 12 years electronics manufacturing in China
+- Founded UTEC (2018): hardware dev company, 8 employees, profitable
+- 15+ IoT products shipped to production
+- **Key asset:** 10+ year supplier relationships, lives in Shenzhen
 
-**Denys Chumak — Product & Platform**
-- Product management + full-stack dev
-- Built tracking platform end-to-end
-- Business plan, investor materials
+**Denys Chumak — Product & Platform** (Part-time → Full-time)
+- 6 years product management + engineering
+- Previous: Product Lead at fintech startup ($2M ARR)
+- Built HyperLabel platform (Next.js, PostgreSQL)
+- MBA candidate; leads business development
 
-**Why Us:**
-- Hardware + software in-house
-- China manufacturing relationships
-- Move fast, ship quality
+**Why This Team:**
+- Hardware + software in-house (no outsourcing risk)
+- CEO on the ground in manufacturing hub
+- Proven ability to ship: prototype → platform in 8 months
 
 ---
 
@@ -316,10 +327,32 @@ Buy → Peel & Stick → Track Anywhere → Confirm Delivery
 |---------|------------|------|---------|-----------|
 | Price | $20-25 | $150+ | $200+ | $15-25 |
 | Form factor | 3.5mm | Bulky | Bulky | Thin |
-| Battery | 60 days | 30-90 | 90+ | 30-60 |
-| Coverage | 180+ | 150+ | 150+ | 100+ |
+| Battery | 60+ days | 30-90 | 90+ | 30-45 |
+| Coverage | 180+ countries | 150+ | 150+ | ~100 |
 | Setup | QR scan | Enterprise | Enterprise | QR scan |
-| Target | SMB | Enterprise | Enterprise | SMB |
+| Target | SMB (international) | Enterprise | Enterprise | SMB (US domestic) |
+
+---
+
+## A4b: Why We Win vs Reelables (The #1 Investor Question)
+
+**Reelables** is our most direct competitor. Here's our honest take:
+
+| Factor | Reelables | HyperLabel | Winner |
+|--------|-----------|------------|--------|
+| Price | $15-25 | $20-25 | Tie (comparable) |
+| Battery | 30-45 days | 60+ days | **HyperLabel** |
+| Coverage | ~100 countries | 180+ countries | **HyperLabel** |
+| Focus | US domestic | China→EU/US international | **Different markets** |
+| Funding | Seed stage | Seed stage | Tie |
+
+**Our Strategy:**
+1. **Don't compete head-on:** Focus on China export corridor (they focus US domestic)
+2. **Win on specs:** 60-day battery and 180+ coverage matter for international
+3. **Founder advantage:** CEO lives in Shenzhen, direct access to shippers
+4. **If they enter our market:** Compete on support, relationships, and COGS efficiency
+
+**Bottom line:** We're not claiming to be better than Reelables everywhere. We're claiming to be better for *international shipments from China*.
 
 ---
 

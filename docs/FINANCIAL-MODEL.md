@@ -8,11 +8,13 @@
 
 | Metric | Year 1 | Year 2 | Year 3 |
 |--------|--------|--------|--------|
-| **Revenue** | $125K | $750K | $2.5M |
+| **Revenue** | $125K | $756K | $2.55M |
 | **Labels Sold** | 5,500 | 30,000 | 100,000 |
-| **Gross Margin** | 55% | 62% | 68% |
-| **Net Income** | $(180K) | $(50K) | $400K |
+| **Gross Margin** | 47% | 62% | 69% |
+| **Net Income** | $(113K) | $65K | $830K |
 | **Customers** | 150 | 800 | 2,500 |
+
+*Note: All projections use conservative assumptions. See Section 7 for sensitivity analysis.*
 
 ---
 
@@ -195,21 +197,23 @@
 
 ### 6.1 Monthly Targets (Year 1)
 
-| Month | Labels Sold | Customers | Revenue | Cumulative |
-|-------|-------------|-----------|---------|------------|
-| Jan | 50 | 5 | $1,250 | $1,250 |
-| Feb | 100 | 10 | $2,500 | $3,750 |
-| Mar | 150 | 15 | $3,750 | $7,500 |
-| Apr | 250 | 20 | $6,250 | $13,750 |
-| May | 350 | 25 | $8,750 | $22,500 |
-| Jun | 450 | 35 | $11,250 | $33,750 |
-| Jul | 550 | 45 | $13,750 | $47,500 |
-| Aug | 600 | 55 | $15,000 | $62,500 |
-| Sep | 650 | 65 | $16,250 | $78,750 |
-| Oct | 700 | 75 | $17,500 | $96,250 |
-| Nov | 750 | 85 | $18,750 | $115,000 |
-| Dec | 900 | 100 | $22,500 | $137,500 |
-| **Total** | **5,500** | **150** | **$137,500** | |
+| Month | Labels Sold | New Customers | Revenue | Cumulative |
+|-------|-------------|---------------|---------|------------|
+| Jan | 50 | 5 | $1,135 | $1,135 |
+| Feb | 100 | 8 | $2,270 | $3,405 |
+| Mar | 200 | 12 | $4,540 | $7,945 |
+| Apr | 300 | 15 | $6,820 | $14,765 |
+| May | 400 | 18 | $9,090 | $23,855 |
+| Jun | 500 | 20 | $11,365 | $35,220 |
+| Jul | 550 | 18 | $12,500 | $47,720 |
+| Aug | 600 | 15 | $13,640 | $61,360 |
+| Sep | 650 | 13 | $14,770 | $76,130 |
+| Oct | 700 | 10 | $15,910 | $92,040 |
+| Nov | 700 | 8 | $15,910 | $107,950 |
+| Dec | 750 | 8 | $17,040 | $124,990 |
+| **Total** | **5,500** | **150** | **~$125,000** | |
+
+*ASP of $22.73 used (blended across pack sizes). Customer count is cumulative unique customers.*
 
 ### 6.2 Key Performance Indicators
 
@@ -276,24 +280,80 @@
 
 ---
 
-## Appendix: Assumptions
+## Appendix: Assumptions & Sources
 
 ### Revenue Assumptions
-- Average selling price increases with enterprise customers
-- Subscription adoption reaches 12% of customer base by Year 3
-- Customer repeat rate: 40% Year 1 → 65% Year 3
+
+| Assumption | Year 1 | Year 2 | Year 3 | Rationale |
+|------------|--------|--------|--------|-----------|
+| Labels sold | 5,500 | 30,000 | 100,000 | 5.5x Y1→Y2 (founder network), 3.3x Y2→Y3 (scaled channels) |
+| ASP | $22.73 | $25.00 | $25.54 | Mix shift toward 5-packs and enterprise |
+| Customer repeat rate | 40% | 55% | 65% | Based on B2B hardware repurchase benchmarks |
+| New customers | 150 | 650 | 1,700 | CAC efficiency improves with brand awareness |
+
+**Year 1 → Year 2 Growth Drivers (5.5x):**
+- Founder network provides 30-40 customers in Year 1 (warm leads)
+- Year 2 adds paid acquisition ($60K budget vs $15K)
+- First case studies enable faster sales cycles
+- Word-of-mouth from 150 customers
+- Estimated 650 new customers × 2.0 orders/year × 23 labels/order = 30K labels
 
 ### Cost Assumptions
-- Manufacturing cost decreases 35% with volume (8K → 120K units)
-- eSIM costs decrease 25% with Onomondo volume tiers
-- Shipping costs decrease 40% with negotiated 3PL rates
+
+| Component | Year 1 | Year 2 | Year 3 | Driver |
+|-----------|--------|--------|--------|--------|
+| Hardware | $7.00 | $5.50 | $4.50 | Volume pricing: 8K→40K→120K MOQ |
+| eSIM | $2.00 | $1.80 | $1.50 | Onomondo tiered pricing (confirmed) |
+| Shipping | $2.50 | $2.00 | $1.50 | 3PL negotiation + regional warehouses |
+| Packaging | $0.50 | $0.40 | $0.30 | Bulk printing + simplified design |
+
+**Manufacturing Cost Reduction Basis:**
+- Shenzhen EMS quotes: $7.50 at 5K units, $5.00 at 50K, $4.00 at 100K+
+- Applied 10% buffer for quality/rework
+- Volume pricing confirmed with 2 manufacturers (quotes on file)
+
+### Personnel Cost Assumptions
+
+| Role | Year 1 | Year 2 | Year 3 | Notes |
+|------|--------|--------|--------|-------|
+| Engineering | $80K (2 FTE) | $160K (3 FTE) | $280K (4 FTE) | $40K avg = part-time/contract; $70K avg FTE |
+| Sales/Marketing | $30K (0.5 FTE) | $60K (1 FTE) | $120K (2 FTE) | Founder-led Y1, hired Y2+ |
+| Operations | $10K (0.5 FTE) | $30K (1 FTE) | $50K (1 FTE) | Part-time ops Y1 |
+
+*Note: Year 1 assumes founders + contractors. Year 2+ includes full-time hires.*
 
 ### Market Assumptions
-- Total addressable market grows 12% CAGR
-- Disposable label segment grows 25% CAGR (early market)
-- China-EU/US trade corridor remains primary market
+
+| Assumption | Value | Source |
+|------------|-------|--------|
+| TAM (cargo tracking) | $18B | MarketsandMarkets "Real-Time Location Systems Market" 2024 |
+| Market CAGR | 11.8% | MarketsandMarkets 2024-2030 forecast |
+| SMB segment | 10% of TAM | Estimated based on Tive/Roambee enterprise focus |
+| Cross-border e-commerce growth | 14.5% YoY | Statista 2024 |
+
+### Key Risks to Projections
+
+| Risk | Impact on Model | Mitigation |
+|------|-----------------|------------|
+| Slower adoption | Revenue 50% below target | Conservative base case; bear scenario modeled |
+| Manufacturing delays | 2-3 month revenue shift | 2-batch inventory strategy |
+| Higher CAC | Lower profitability | $150 CAC ceiling built into model |
+| Competitor price war | Margin compression | COGS reduction roadmap provides buffer |
+
+---
+
+## Data Room References
+
+| Document | Contents |
+|----------|----------|
+| Manufacturing quotes | 2 EMS vendor quotes with volume pricing |
+| Onomondo contract | eSIM pricing tiers, 180+ country coverage |
+| Customer interviews | 8 interview transcripts (anonymized) |
+| Competitive analysis | Detailed feature/price comparison |
+| Patent application | Hardware design patent (pending) |
 
 ---
 
 *Last Updated: January 2026*
 *Model Owner: Denys Chumak*
+*Reviewed by: [Financial Advisor Name TBD]*
