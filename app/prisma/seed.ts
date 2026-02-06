@@ -1,17 +1,24 @@
+import 'dotenv/config'
 import { PrismaClient } from '@prisma/client'
+import { PrismaPg } from '@prisma/adapter-pg'
+import { Pool } from 'pg'
 
-const prisma = new PrismaClient()
+const pool = new Pool({
+  connectionString: process.env.DATABASE_URL,
+})
+const adapter = new PrismaPg(pool)
+const prisma = new PrismaClient({ adapter })
 
 async function main() {
   console.log('🌱 Starting seed...')
 
   // Create demo user
   const demoUser = await prisma.user.upsert({
-    where: { email: 'demo@hyperlabel.io' },
+    where: { email: 'demo@tip.live' },
     update: {},
     create: {
       clerkId: 'demo_user_001',
-      email: 'demo@hyperlabel.io',
+      email: 'demo@tip.live',
       firstName: 'Demo',
       lastName: 'User',
       role: 'user',
@@ -21,11 +28,11 @@ async function main() {
 
   // Create admin user
   const adminUser = await prisma.user.upsert({
-    where: { email: 'admin@hyperlabel.io' },
+    where: { email: 'admin@tip.live' },
     update: {},
     create: {
       clerkId: 'admin_user_001',
-      email: 'admin@hyperlabel.io',
+      email: 'admin@tip.live',
       firstName: 'Admin',
       lastName: 'User',
       role: 'admin',
@@ -190,8 +197,8 @@ async function main() {
   console.log('🎉 Seed completed!')
   console.log('')
   console.log('Demo accounts:')
-  console.log('  - User: demo@hyperlabel.io')
-  console.log('  - Admin: admin@hyperlabel.io')
+  console.log('  - User: demo@tip.live')
+  console.log('  - Admin: admin@tip.live')
   console.log('')
   console.log('Public tracking URLs:')
   console.log('  - /track/DEMO001 (in transit)')
