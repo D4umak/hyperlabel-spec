@@ -2,16 +2,8 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "crons": [
     {
-      "path": "/api/cron/check-signals",
-      "schedule": "0 */6 * * *"
-    },
-    {
-      "path": "/api/cron/check-battery",
-      "schedule": "0 */12 * * *"
-    },
-    {
       "path": "/api/cron/check-delivery",
-      "schedule": "0 */2 * * *"
+      "schedule": "0 0 * * *"
     }
   ]
 }

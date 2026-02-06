@@ -44,13 +44,14 @@ export default async function AdminDevicesPage() {
   const referenceTime = new Date().getTime()
 
   // Categorize by health status
+  type ActiveLabel = (typeof activeLabels)[number]
   const healthy = activeLabels.filter(
-    (l) => l.batteryPct !== null && l.batteryPct >= 20
+    (l: ActiveLabel) => l.batteryPct !== null && l.batteryPct >= 20
   )
   const lowBattery = activeLabels.filter(
-    (l) => l.batteryPct !== null && l.batteryPct < 20 && l.batteryPct > 0
+    (l: ActiveLabel) => l.batteryPct !== null && l.batteryPct < 20 && l.batteryPct > 0
   )
-  const noSignal = activeLabels.filter((l) => checkNoSignal(l.locations, referenceTime))
+  const noSignal = activeLabels.filter((l: ActiveLabel) => checkNoSignal(l.locations, referenceTime))
 
   return (
     <div className="space-y-6">
@@ -107,7 +108,7 @@ export default async function AdminDevicesPage() {
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-800">
-                {activeLabels.map((label) => {
+                {activeLabels.map((label: ActiveLabel) => {
                   const lastLocation = label.locations[0]
                   const isLowBattery = label.batteryPct !== null && label.batteryPct < 20
                   const isNoSignal = checkNoSignal(
