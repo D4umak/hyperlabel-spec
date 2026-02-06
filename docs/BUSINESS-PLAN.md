@@ -1,4 +1,4 @@
-# HyperLabel — Business Plan
+# TIP — Business Plan
 
 **Track Any Cargo, Anywhere**
 
@@ -6,9 +6,9 @@
 
 ## Executive Summary
 
-**HyperLabel** is a disposable GPS tracking label that provides real-time cargo visibility for $20-25 per shipment. Unlike traditional trackers costing $100-500, HyperLabel is thin (3.5mm), works in 180+ countries, and requires no technical setup—just scan, peel, and stick.
+**TIP** is a disposable GPS tracking label that provides real-time cargo visibility for $20-25 per shipment. Unlike traditional trackers costing $100-500, TIP is thin (3.5mm), works in 180+ countries, and requires no technical setup—just scan, peel, and stick.
 
-**Market Opportunity:** The global cargo tracking market exceeds $20B, with a growing segment of small-to-medium businesses underserved by expensive enterprise solutions.
+**Market Opportunity:** The global cargo tracking market is valued at $18B (MarketsandMarkets 2024), with a growing segment of small-to-medium businesses underserved by expensive enterprise solutions.
 
 **Business Model:** Direct-to-business label sales with expanding margins at scale (47% → 69% gross margin over 3 years).
 
@@ -53,7 +53,7 @@ Businesses shipping high-value goods face three critical challenges:
 
 ### 2.1 Product Overview
 
-**HyperLabel** is a credit-card-thin GPS tracking label that:
+**TIP** is a credit-card-thin GPS tracking label that:
 
 - **Costs $20-25** (vs. $100-500 for competitors)
 - **Works everywhere** (180+ countries, including flights & ocean)
@@ -171,7 +171,7 @@ Businesses shipping high-value goods face three critical challenges:
 
 ### 4.1 Competitive Landscape
 
-| Competitor | Type | Price | Target | Weakness vs. HyperLabel |
+| Competitor | Type | Price | Target | Weakness vs. TIP |
 |------------|------|-------|--------|-------------------------|
 | **Tive** | Reusable | $150-300 | Enterprise | Too expensive for SMB |
 | **Roambee** | Reusable | $200-400 | Enterprise | Complex setup, long contracts |
@@ -196,7 +196,7 @@ Businesses shipping high-value goods face three critical challenges:
     (Complex)           │           (Simple)
                         │
      SODAQ ●            │        
-       €75              │        ★ HyperLabel
+       €75              │        ★ TIP
                         │            $22
      Sensos ●           │        ● Reelables
        €50              │            $20
@@ -208,14 +208,14 @@ Businesses shipping high-value goods face three critical challenges:
 
 Reelables is our most direct competitor. Here's our honest assessment:
 
-| Dimension | Reelables | HyperLabel | Advantage |
+| Dimension | Reelables | TIP | Advantage |
 |-----------|-----------|------------|-----------|
 | **Price** | $15-25 | $20-25 | Reelables (slightly cheaper) |
-| **Battery** | 30-45 days | 60+ days | **HyperLabel** |
-| **Coverage** | ~100 countries | 180+ countries | **HyperLabel** |
+| **Battery** | 30-45 days | 60+ days | **TIP** |
+| **Coverage** | ~100 countries | 180+ countries | **TIP** |
 | **Form factor** | Thin | 3.5mm thin | Comparable |
 | **Funding** | Seed stage | Seed stage | Comparable |
-| **Geography focus** | US domestic | China → EU/US exports | **HyperLabel** (less overlap) |
+| **Geography focus** | US domestic | China → EU/US exports | **TIP** (less overlap) |
 
 **Why We Can Win Despite Reelables:**
 1. **Geographic focus:** Reelables targets US domestic; we target China export corridor (different customer base)
@@ -362,7 +362,7 @@ Awareness → Interest → Trial → Adoption → Expansion
 |------|-------------|---------|--------------|
 | **2026** | 5,500 | $125K | 47% |
 | **2027** | 30,000 | $750K | 62% |
-| **2028** | 100,000 | $2.5M | 69% |
+| **2028** | 100,000 | $2.55M | 69% |
 
 ### 7.2 Path to Profitability
 
@@ -371,7 +371,7 @@ Awareness → Interest → Trial → Adoption → Expansion
 | First sale | Q1 2026 | - | ✅ Ready |
 | Break-even (monthly) | Q4 2026 | $14K/mo | 🎯 Target |
 | Cash flow positive | Q3 2027 | $60K/mo | 🎯 Target |
-| Profitable (annual) | 2028 | $2.5M | 🎯 Target |
+| Profitable (annual) | 2028 | $2.55M | 🎯 Target |
 
 ### 7.3 Funding Requirements
 
@@ -390,7 +390,7 @@ Awareness → Interest → Trial → Adoption → Expansion
 - **Experience:** 12 years in electronics manufacturing and product development
 - **UTEC (Founded 2018):** Hardware development company, 8 employees, profitable since 2020
 - **Track Record:** Led development of 15+ IoT products from prototype to mass production
-- **HyperLabel Role:** Hardware design, manufacturing relationships, operations
+- **TIP Role:** Hardware design, manufacturing relationships, operations
 - **Unique Value:** Lives in Shenzhen, 10+ year relationships with EMS vendors and component suppliers
 - **LinkedIn:** [linkedin.com/in/andrii-tkachuk]
 
@@ -398,7 +398,7 @@ Awareness → Interest → Trial → Adoption → Expansion
 - **Experience:** 6 years in product management and software development
 - **Previous Role:** Product Lead at fintech startup (B2B SaaS payments platform, scaled to $2M ARR)
 - **Technical Skills:** Full-stack development (Next.js, TypeScript, PostgreSQL)
-- **HyperLabel Role:** Platform development, business strategy, investor relations, user research
+- **TIP Role:** Platform development, business strategy, investor relations, user research
 - **Education:** MBA candidate (part-time); CS degree
 - **LinkedIn:** [linkedin.com/in/denyschumak]
 
@@ -422,19 +422,19 @@ Awareness → Interest → Trial → Adoption → Expansion
 
 | Advisor | Area | Relationship | Contribution |
 |---------|------|--------------|--------------|
-| **[Name TBD]** | Manufacturing | Informal (active) | 20+ year Foxconn veteran; supply chain optimization |
-| **[Name TBD]** | Logistics | Informal (active) | Former DHL APAC operations; market introductions |
+| Manufacturing Advisor | Manufacturing | Informal (active) | 20+ year Foxconn veteran; supply chain optimization. Name withheld pending formal agreement. |
+| Logistics Advisor | Logistics | Informal (active) | Former DHL APAC operations; market introductions. Name withheld pending formal agreement. |
 | **Seeking** | B2B SaaS growth | — | GTM playbook, metrics benchmarking |
 | **Seeking** | Fundraising | — | Series A preparation, investor introductions |
 
-*Formal advisory agreements to be established post-seed close.*
+*Advisor names available under NDA. Formal advisory agreements to be established post-seed close.*
 
 ### 8.4 Team Gaps & Mitigation
 
 | Gap | Risk | Mitigation |
 |-----|------|------------|
 | No dedicated sales hire Y1 | Slower customer acquisition | Founder-led sales; hire Q3 if traction exceeds plan |
-| Denys part-time initially | Platform development slower | Core MVP complete; maintenance mode until full-time |
+| Denys part-time initially | Platform development slower | MVP live and production-ready; priority features scoped for post-funding sprint. Transitioning to full-time upon seed close. |
 | No US presence | US market entry slower | UK warehouse first; US warehouse Year 2 |
 
 ---
@@ -516,29 +516,46 @@ Most valuable beyond capital:
 
 ### A. Product Screenshots
 
-*[Link to demo or screenshots]*
+**Live Platform:** [tip.live](https://tip.live) — contact denys@tip.live for a guided demo
+
+Key screens available:
+- Dashboard with active shipment overview
+- Real-time tracking map with route history
+- Public tracking page (shareable link, no login required)
+- Label purchase flow (Stripe checkout)
+- Admin panel for inventory and order management
 
 ### B. Customer Testimonials
 
-*[To be added after pilot customers]*
+*To be added after pilot customers complete first shipments (expected Q1-Q2 2026).*
 
 ### C. Technical Architecture
 
-*[Reference: SPEC.md Section 6]*
+| Layer | Technology | Purpose |
+|-------|------------|---------|
+| **Frontend** | Next.js 16, React 19, Tailwind CSS | Web platform |
+| **Backend** | Next.js API Routes, Prisma ORM | Server logic, data access |
+| **Database** | PostgreSQL | Shipments, locations, users, orders |
+| **Auth** | Clerk | User management, SSO |
+| **Payments** | Stripe | Checkout, webhooks |
+| **Maps** | Google Maps API | Route visualization |
+| **Email** | Resend + React Email | Transactional notifications |
+| **Hosting** | Vercel | Auto-scaling, edge CDN |
+| **Device Comms** | REST API (TLS) | Label → server location reports |
 
 ### D. Full Financial Model
 
-*[Reference: FINANCIAL-MODEL.md]*
+See [FINANCIAL-MODEL.md](FINANCIAL-MODEL.md) for complete 3-year projections including monthly targets, sensitivity analysis, and break-even analysis.
 
 ---
 
 **Contact:**
 
-Andrii Tkachuk — andrii@hyperlabel.io  
-Denys Chumak — denys@hyperlabel.io
+Andrii Tkachuk — andrii@tip.live  
+Denys Chumak — denys@tip.live
 
-**Website:** hyperlabel.io
+**Website:** tip.live
 
 ---
 
-*Last Updated: January 2026*
+*Last Updated: February 2026*

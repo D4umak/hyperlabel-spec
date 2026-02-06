@@ -1,16 +1,16 @@
-# HyperLabel — Investor Deck
+# TIP — Investor Deck
 
-**Seed Round | January 2026**
+**Seed Round | Q1 2026**
 
 ---
 
 ## Slide 1: Title
 
-# HyperLabel
+# TIP
 
 ### Track Any Cargo, Anywhere
 
-**$20 GPS Labels for the $20B Cargo Visibility Market**
+**$20 GPS Labels for the $18B Cargo Visibility Market**
 
 *Seed Round: $250K*
 
@@ -21,7 +21,7 @@
 ### $15B Lost Annually to Cargo Blind Spots
 
 **The Pain:**
-- 70% of SMB shipments have no real-time tracking
+- 68% of SMB shippers report limited or no visibility during international transit (Freightos SMB Survey 2024)
 - Cargo goes "dark" during flights, ocean transit, and remote areas
 - Current solutions cost $100-500 per device
 
@@ -59,7 +59,7 @@ Buy → Peel & Stick → Track Anywhere → Confirm Delivery
 
 **3. Track everywhere** — Real-time map, alerts, shareable link
 
-*[Demo video / Screenshot of tracking page]*
+**Live Demo:** [tip.live](https://tip.live) — request access for a guided walkthrough
 
 ---
 
@@ -98,8 +98,10 @@ Buy → Peel & Stick → Track Anywhere → Confirm Delivery
 
 **Unit Economics (Year 3):**
 - CAC: $88
-- LTV: $750+ (with repeat purchases)
-- LTV:CAC: **8.5x**
+- LTV: $350 (single-order) / $750+ (with repeat purchases*)
+- LTV:CAC: **4.0x** (single-order) / **8.5x** (with repeat*)
+
+*\*Conservative repeat assumption: 1.5 orders/customer/year, 2-year lifespan*
 
 ---
 
@@ -110,10 +112,10 @@ Buy → Peel & Stick → Track Anywhere → Confirm Delivery
 | Milestone | Status |
 |-----------|--------|
 | ✅ Working hardware | Production-ready prototype |
-| ✅ Platform MVP | Live at hyperlabel.io |
+| ✅ Platform MVP | Live at tip.live |
 | ✅ Global connectivity | Onomondo eSIM (180+ countries) |
 | ✅ Payments | Stripe integrated |
-| 🎯 First pilots | Q1 2026 |
+| 🔄 First pilots | Feb-Mar 2026 |
 | 🎯 50 labels sold | Q2 2026 |
 
 ---
@@ -134,7 +136,7 @@ Buy → Peel & Stick → Track Anywhere → Confirm Delivery
     ────────────────────┼────────────────────
     COMPLEX             │            SIMPLE
                         │
-     Sensos ●           │        ★ HyperLabel
+     Sensos ●           │        ★ TIP
        €50              │            $22
                         │        ● Reelables
                         │            $20
@@ -172,15 +174,17 @@ Buy → Peel & Stick → Track Anywhere → Confirm Delivery
 
 ## Slide 10: Financial Projections
 
-### Path to $2.5M Revenue
+### Path to $2.55M Revenue
 
 | Metric | Year 1 | Year 2 | Year 3 |
 |--------|--------|--------|--------|
-| **Revenue** | $125K | $750K | $2.5M |
+| **Revenue** | $125K | $756K | $2.55M |
 | **Labels Sold** | 5,500 | 30,000 | 100,000 |
 | **Customers** | 150 | 800 | 2,500 |
 | **Gross Margin** | 47% | 62% | 69% |
 | **Net Income** | $(113K) | $65K | $830K |
+
+**Y1→Y2 growth drivers:** 4x paid acquisition budget ($60K vs $15K), repeat orders from Y1 base (40% retention), first case studies accelerating sales cycles
 
 **Break-even:** Q4 2026 (monthly), 2027 (annual)
 
@@ -196,11 +200,11 @@ Buy → Peel & Stick → Track Anywhere → Confirm Delivery
 - 15+ IoT products shipped to production
 - **Key asset:** 10+ year supplier relationships, lives in Shenzhen
 
-**Denys Chumak — Product & Platform** (Part-time → Full-time)
+**Denys Chumak — Product & Platform** (Part-time → Full-time upon seed close)
 - 6 years product management + engineering
 - Previous: Product Lead at fintech startup ($2M ARR)
-- Built HyperLabel platform (Next.js, PostgreSQL)
-- MBA candidate; leads business development
+- Built TIP platform end-to-end (Next.js, PostgreSQL) — MVP live and production-ready
+- MBA candidate; leads business development and investor relations
 
 **Why This Team:**
 - Hardware + software in-house (no outsourcing risk)
@@ -267,10 +271,10 @@ Buy → Peel & Stick → Track Anywhere → Confirm Delivery
 
 ### Contact
 
-**Andrii Tkachuk** — andrii@hyperlabel.io  
-**Denys Chumak** — denys@hyperlabel.io
+**Andrii Tkachuk** — andrii@tip.live  
+**Denys Chumak** — denys@tip.live
 
-**Website:** hyperlabel.io  
+**Website:** tip.live  
 **Demo:** Available upon request
 
 ---
@@ -323,7 +327,7 @@ Buy → Peel & Stick → Track Anywhere → Confirm Delivery
 
 ## A4: Competitor Comparison
 
-| Feature | HyperLabel | Tive | Roambee | Reelables |
+| Feature | TIP | Tive | Roambee | Reelables |
 |---------|------------|------|---------|-----------|
 | Price | $20-25 | $150+ | $200+ | $15-25 |
 | Form factor | 3.5mm | Bulky | Bulky | Thin |
@@ -338,11 +342,11 @@ Buy → Peel & Stick → Track Anywhere → Confirm Delivery
 
 **Reelables** is our most direct competitor. Here's our honest take:
 
-| Factor | Reelables | HyperLabel | Winner |
+| Factor | Reelables | TIP | Winner |
 |--------|-----------|------------|--------|
 | Price | $15-25 | $20-25 | Tie (comparable) |
-| Battery | 30-45 days | 60+ days | **HyperLabel** |
-| Coverage | ~100 countries | 180+ countries | **HyperLabel** |
+| Battery | 30-45 days | 60+ days | **TIP** |
+| Coverage | ~100 countries | 180+ countries | **TIP** |
 | Focus | US domestic | China→EU/US international | **Different markets** |
 | Funding | Seed stage | Seed stage | Tie |
 
@@ -406,4 +410,4 @@ Q4 2026: Scale
 
 ---
 
-*HyperLabel — Track Any Cargo, Anywhere*
+*TIP — Track Any Cargo, Anywhere*

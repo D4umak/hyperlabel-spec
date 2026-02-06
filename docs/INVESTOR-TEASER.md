@@ -1,4 +1,4 @@
-# HyperLabel — Investor Teaser
+# TIP — Investor Teaser
 
 **GPS Tracking Labels for the $18B Cargo Visibility Market**
 
@@ -10,15 +10,18 @@
 
 **The result:** SMB shippers have limited visibility into their cargo—especially during flights, ocean transit, and handoffs between carriers. A 2023 Gartner survey found **47% of supply chain leaders** cite real-time visibility as their top investment priority.²
 
+> "I ship $50K worth of electronics from Shenzhen to London. My forwarder gives me updates every 3-4 days. If something goes wrong, I find out too late."
+> — Electronics trader, 15 years experience
+
 *¹ BSI & TT Club Cargo Theft Report 2023; ² Gartner Supply Chain Survey 2023*
 
 ---
 
 ## Our Solution
 
-**HyperLabel** is a disposable GPS tracking label that costs **$20-25**, works in **180+ countries**, and requires **zero technical setup**.
+**TIP** is a disposable GPS tracking label that costs **$20-25**, works in **180+ countries**, and requires **zero technical setup**.
 
-| Feature | HyperLabel | Traditional Trackers |
+| Feature | TIP | Traditional Trackers |
 |---------|------------|---------------------|
 | **Price** | $20-25 (disposable) | $100-500 (reusable) |
 | **Form Factor** | 10×15cm, 3.5mm thin | Bulky devices |
@@ -37,7 +40,7 @@
 | **TAM** | $18B | Global cargo tracking market (MarketsandMarkets 2024) |
 | **SAM** | $1.8B | SMB + mid-market segment (est. 10% of TAM) |
 | **SOM (Year 1)** | $125K | 5,500 labels × $22.73 ASP |
-| **SOM (Year 3)** | $2.5M | 100,000 labels with expanded geography |
+| **SOM (Year 3)** | $2.55M | 100,000 labels with expanded geography |
 | **Growth Rate** | 11.8% CAGR | Cargo tracking CAGR 2024-2030 (MarketsandMarkets) |
 
 **Initial Target:** SMB businesses shipping high-value goods from China to UK/EU/US—a trade corridor generating 40%+ of global e-commerce cross-border volume.³
@@ -103,23 +106,23 @@
 - 12 years in electronics manufacturing, based in Shenzhen
 - Founded UTEC (2018) — hardware dev company, 8 employees, profitable
 - Led development of 15+ IoT products from prototype to mass production
-- Built HyperLabel device: concept → working prototype in 8 months
+- Built TIP device: concept → working prototype in 8 months
 
-**Denys Chumak** — Product & Platform (Part-time → Full-time post-funding)
+**Denys Chumak** — Product & Platform (Part-time → Full-time upon seed close)
 - 6 years in product management and software development
 - Previously: Product Lead at fintech startup (B2B SaaS, $2M ARR)
-- Built HyperLabel tracking platform end-to-end (Next.js, PostgreSQL)
+- Built TIP tracking platform end-to-end — MVP live and production-ready
 - MBA candidate, experienced in investor relations
 
-**Advisory (Informal):**
-- Manufacturing advisor: 20+ year veteran of Foxconn supply chain
-- Logistics advisor: Former DHL operations director (APAC)
+**Advisory (Informal, active):**
+- Manufacturing advisor: 20+ year veteran of Foxconn supply chain (name available under NDA)
+- Logistics advisor: Former DHL operations director, APAC (name available under NDA)
 
 ---
 
 ## The Ask
 
-**Raising:** $250K seed round (SAFE, standard terms)
+**Raising:** $250K seed round (SAFE, standard terms, $1.5-2.5M pre-money valuation)
 
 **Use of Funds:**
 | Category | Amount | Purpose |
@@ -141,10 +144,10 @@
 
 ## Contact
 
-**Email:** andrii@hyperlabel.io | denys@hyperlabel.io  
-**Website:** hyperlabel.io  
+**Email:** andrii@tip.live | denys@tip.live  
+**Website:** tip.live  
 **Demo:** Live platform available — request access
 
 ---
 
-*HyperLabel — Track Any Cargo, Anywhere*
+*TIP — Track Any Cargo, Anywhere*

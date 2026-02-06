@@ -1,0 +1,1949 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TIP — Investor Materials Review</title>
+    <meta name="robots" content="noindex, nofollow">
+    <style>
+        :root {
+            --bg: #ffffff;
+            --bg-card: #f8f9fa;
+            --bg-nav: #1a1a2e;
+            --text: #1a1a2e;
+            --text-muted: #6b7280;
+            --text-nav: #e0e0e0;
+            --accent: #2563eb;
+            --accent-hover: #1d4ed8;
+            --border: #e5e7eb;
+            --border-section: #d1d5db;
+            --green: #059669;
+            --orange: #d97706;
+            --red: #dc2626;
+            --shadow: 0 1px 3px rgba(0,0,0,0.1);
+            --shadow-lg: 0 4px 15px rgba(0,0,0,0.1);
+            --comment-bg: #f0f7ff;
+        }
+
+        [data-theme="dark"] {
+            --bg: #0f172a;
+            --bg-card: #1e293b;
+            --bg-nav: #0b1120;
+            --text: #e2e8f0;
+            --text-muted: #94a3b8;
+            --text-nav: #cbd5e1;
+            --accent: #3b82f6;
+            --accent-hover: #60a5fa;
+            --border: #334155;
+            --border-section: #475569;
+            --green: #34d399;
+            --orange: #fbbf24;
+            --red: #f87171;
+            --shadow: 0 1px 3px rgba(0,0,0,0.3);
+            --shadow-lg: 0 4px 15px rgba(0,0,0,0.3);
+            --comment-bg: #1e3a5f;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: var(--bg-nav);
+            color: var(--text-nav);
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .nav-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 24px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .nav-brand {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-brand span {
+            background: var(--accent);
+            padding: 2px 10px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-controls {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .theme-toggle {
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            color: #fff;
+            padding: 6px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: all 0.2s;
+        }
+
+        .theme-toggle:hover {
+            background: rgba(255,255,255,0.2);
+        }
+
+        .nav-tabs {
+            display: flex;
+            overflow-x: auto;
+            padding: 0 24px;
+        }
+
+        .nav-tab {
+            padding: 10px 20px;
+            color: var(--text-nav);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            white-space: nowrap;
+            border-bottom: 3px solid transparent;
+            transition: all 0.2s;
+            cursor: pointer;
+        }
+
+        .nav-tab:hover {
+            color: #fff;
+            background: rgba(255,255,255,0.05);
+        }
+
+        .nav-tab.active {
+            color: #fff;
+            border-bottom-color: var(--accent);
+        }
+
+        /* Main content */
+        main {
+            margin-top: 100px;
+            max-width: 960px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 32px 24px 80px;
+        }
+
+        /* Document sections */
+        .doc-section {
+            display: none;
+        }
+
+        .doc-section.active {
+            display: block;
+        }
+
+        .doc-header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 24px;
+            border-bottom: 2px solid var(--border);
+        }
+
+        .doc-header h1 {
+            font-size: 2rem;
+            margin-bottom: 8px;
+        }
+
+        .doc-header .subtitle {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        /* Slide cards */
+        .slide {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            margin-bottom: 32px;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+        }
+
+        .slide-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 24px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-hover));
+            color: #fff;
+        }
+
+        .slide-number {
+            font-size: 0.8rem;
+            font-weight: 700;
+            background: rgba(255,255,255,0.2);
+            padding: 2px 10px;
+            border-radius: 12px;
+        }
+
+        .slide-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+        }
+
+        .slide-content {
+            padding: 24px;
+        }
+
+        .slide-content h3 {
+            font-size: 1.1rem;
+            margin: 20px 0 10px;
+            color: var(--accent);
+        }
+
+        .slide-content h3:first-child {
+            margin-top: 0;
+        }
+
+        .slide-content p {
+            margin-bottom: 12px;
+        }
+
+        .slide-content ul, .slide-content ol {
+            margin: 8px 0 16px 20px;
+        }
+
+        .slide-content li {
+            margin-bottom: 4px;
+        }
+
+        .slide-content strong {
+            color: var(--text);
+        }
+
+        .slide-content em {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 12px 0 20px;
+            font-size: 0.9rem;
+        }
+
+        th {
+            background: var(--accent);
+            color: #fff;
+            padding: 10px 14px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.85rem;
+        }
+
+        td {
+            padding: 10px 14px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        tr:nth-child(even) td {
+            background: rgba(0,0,0,0.02);
+        }
+
+        [data-theme="dark"] tr:nth-child(even) td {
+            background: rgba(255,255,255,0.02);
+        }
+
+        /* Blockquotes */
+        blockquote {
+            border-left: 4px solid var(--accent);
+            background: var(--comment-bg);
+            padding: 16px 20px;
+            margin: 12px 0;
+            border-radius: 0 8px 8px 0;
+            font-style: italic;
+        }
+
+        blockquote cite, blockquote .attribution {
+            display: block;
+            margin-top: 8px;
+            font-style: normal;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* Code blocks / ASCII art */
+        pre {
+            background: var(--bg-nav);
+            color: #e0e0e0;
+            padding: 16px 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-size: 0.8rem;
+            line-height: 1.5;
+            margin: 12px 0;
+        }
+
+        code {
+            background: rgba(0,0,0,0.06);
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-size: 0.85em;
+        }
+
+        [data-theme="dark"] code {
+            background: rgba(255,255,255,0.1);
+        }
+
+        pre code {
+            background: none;
+            padding: 0;
+        }
+
+        /* Comment section */
+        .comment-section {
+            border-top: 1px solid var(--border);
+            padding: 16px 24px;
+        }
+
+        .comment-toggle {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: none;
+            border: 1px solid var(--border);
+            padding: 8px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            transition: all 0.2s;
+            width: 100%;
+            justify-content: center;
+        }
+
+        .comment-toggle:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+            background: var(--comment-bg);
+        }
+
+        .comment-toggle.has-comments {
+            border-color: var(--green);
+            color: var(--green);
+        }
+
+        .giscus-container {
+            display: none;
+            margin-top: 16px;
+        }
+
+        .giscus-container.visible {
+            display: block;
+        }
+
+        /* Progress indicator */
+        .progress-bar {
+            position: fixed;
+            top: 97px;
+            left: 0;
+            height: 3px;
+            background: var(--accent);
+            z-index: 999;
+            transition: width 0.3s;
+        }
+
+        /* Status badges */
+        .badge {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .badge-green { background: rgba(5,150,105,0.1); color: var(--green); }
+        .badge-orange { background: rgba(217,119,6,0.1); color: var(--orange); }
+
+        /* Highlight markers */
+        .metric-highlight {
+            background: linear-gradient(135deg, rgba(37,99,235,0.05), rgba(37,99,235,0.1));
+            border: 1px solid rgba(37,99,235,0.2);
+            border-radius: 8px;
+            padding: 12px 16px;
+            margin: 8px 0;
+        }
+
+        /* Table of contents for longer docs */
+        .toc {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 32px;
+        }
+
+        .toc h3 {
+            margin-bottom: 12px;
+            font-size: 1rem;
+        }
+
+        .toc ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .toc li {
+            padding: 4px 0;
+        }
+
+        .toc a {
+            color: var(--accent);
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .toc a:hover {
+            text-decoration: underline;
+        }
+
+        /* Instructions banner */
+        .instructions {
+            background: var(--comment-bg);
+            border: 1px solid var(--accent);
+            border-radius: 10px;
+            padding: 20px 24px;
+            margin-bottom: 32px;
+        }
+
+        .instructions h3 {
+            color: var(--accent);
+            margin-bottom: 8px;
+            font-size: 1rem;
+        }
+
+        .instructions ol {
+            margin: 8px 0 0 20px;
+            font-size: 0.9rem;
+        }
+
+        .instructions li {
+            margin-bottom: 4px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            main { margin-top: 90px; padding: 16px 12px 60px; }
+            .nav-top { padding: 8px 16px; }
+            .nav-tabs { padding: 0 8px; }
+            .nav-tab { padding: 8px 14px; font-size: 0.85rem; }
+            .slide-content { padding: 16px; }
+            .doc-header h1 { font-size: 1.5rem; }
+            table { font-size: 0.8rem; }
+            th, td { padding: 6px 8px; }
+        }
+
+        /* Print styles */
+        @media print {
+            nav, .comment-section, .progress-bar, .instructions, .theme-toggle { display: none !important; }
+            main { margin-top: 0; }
+            .slide { break-inside: avoid; }
+        }
+
+        /* Animation */
+        .slide {
+            animation: fadeIn 0.3s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="nav-top">
+        <div class="nav-brand">
+            TIP <span>Investor Review</span>
+        </div>
+        <div class="nav-controls">
+            <button class="theme-toggle" onclick="toggleTheme()">🌙 Dark</button>
+        </div>
+    </div>
+    <div class="nav-tabs">
+        <a class="nav-tab active" data-tab="deck">📊 Pitch Deck</a>
+        <a class="nav-tab" data-tab="teaser">📄 Teaser</a>
+        <a class="nav-tab" data-tab="business">📋 Business Plan</a>
+        <a class="nav-tab" data-tab="financial">💰 Financial Model</a>
+    </div>
+</nav>
+
+<div class="progress-bar" id="progressBar"></div>
+
+<main>
+
+    <!-- INSTRUCTIONS -->
+    <div class="instructions" id="instructions">
+        <h3>📝 How to Leave Comments</h3>
+        <ol>
+            <li>Click the <strong>"💬 Leave a comment"</strong> button below any slide or section</li>
+            <li>Sign in with your <strong>GitHub account</strong> (click "Sign in with GitHub")</li>
+            <li>Write your feedback — suggestions, questions, or changes needed</li>
+            <li>Each comment is linked to the specific section, so Denys can read & address each one</li>
+        </ol>
+        <p style="margin-top:8px; font-size:0.85rem; color:var(--text-muted);">
+            Comments are stored in <a href="https://github.com/D4umak/hyperlabel-spec/discussions" target="_blank" style="color:var(--accent)">GitHub Discussions</a> — fully searchable and editable.
+        </p>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- PITCH DECK -->
+    <!-- ========================================== -->
+    <div class="doc-section active" id="section-deck">
+        <div class="doc-header">
+            <h1>📊 Investor Pitch Deck</h1>
+            <div class="subtitle">TIP — Track Any Cargo, Anywhere | Seed Round Q1 2026</div>
+        </div>
+
+        <!-- Slide 1: Title -->
+        <div class="slide" id="deck-slide-1">
+            <div class="slide-header">
+                <span class="slide-title">Title Slide</span>
+                <span class="slide-number">Slide 1 / 15</span>
+            </div>
+            <div class="slide-content" style="text-align:center; padding: 40px;">
+                <h1 style="font-size: 2.5rem; margin-bottom: 12px;">TIP</h1>
+                <h3 style="color: var(--text); font-weight: 400; font-size: 1.3rem;">Track Any Cargo, Anywhere</h3>
+                <p style="margin-top: 16px;"><strong>$20 GPS Labels for the $18B Cargo Visibility Market</strong></p>
+                <p style="color: var(--text-muted);">Seed Round: $250K</p>
+            </div>
+            <div class="comment-section">
+                <button class="comment-toggle" onclick="toggleComments(this, 'deck-slide-1-title')">💬 Leave a comment on this slide</button>
+                <div class="giscus-container" data-term="deck-slide-1-title"></div>
+            </div>
+        </div>
+
+        <!-- Slide 2: The Problem -->
+        <div class="slide" id="deck-slide-2">
+            <div class="slide-header">
+                <span class="slide-title">The Problem</span>
+                <span class="slide-number">Slide 2 / 15</span>
+            </div>
+            <div class="slide-content">
+                <h3>$15B Lost Annually to Cargo Blind Spots</h3>
+                <p><strong>The Pain:</strong></p>
+                <ul>
+                    <li>68% of SMB shippers report limited or no visibility during international transit <em>(Freightos SMB Survey 2024)</em></li>
+                    <li>Cargo goes "dark" during flights, ocean transit, and remote areas</li>
+                    <li>Current solutions cost $100-500 per device</li>
+                </ul>
+                <blockquote>
+                    "I ship $50K worth of electronics from China. My forwarder updates me every 3-4 days. If something goes wrong, I find out too late."
+                    <span class="attribution">— Amazon FBA Seller</span>
+                </blockquote>
+            </div>
+            <div class="comment-section">
+                <button class="comment-toggle" onclick="toggleComments(this, 'deck-slide-2-problem')">💬 Leave a comment on this slide</button>
+                <div class="giscus-container" data-term="deck-slide-2-problem"></div>
+            </div>
+        </div>
+
+        <!-- Slide 3: The Solution -->
+        <div class="slide" id="deck-slide-3">
+            <div class="slide-header">
+                <span class="slide-title">The Solution</span>
+                <span class="slide-number">Slide 3 / 15</span>
+            </div>
+            <div class="slide-content">
+                <h3>A $20 GPS Label That Just Works</h3>
+                <table>
+                    <tr><th>Before</th><th>After</th></tr>
+                    <tr><td>$200+ tracker</td><td>$22 label</td></tr>
+                    <tr><td>Bulky device</td><td>3.5mm thin</td></tr>
+                    <tr><td>Complex setup</td><td>Scan, peel, stick</td></tr>
+                    <tr><td>Carrier-dependent</td><td>180+ countries</td></tr>
+                </table>
+                <p><strong>How it works:</strong></p>
+                <pre><code>Buy → Peel & Stick → Track Anywhere → Confirm Delivery</code></pre>
+            </div>
+            <div class="comment-section">
+                <button class="comment-toggle" onclick="toggleComments(this, 'deck-slide-3-solution')">💬 Leave a comment on this slide</button>
+                <div class="giscus-container" data-term="deck-slide-3-solution"></div>
+            </div>
+        </div>
+
+        <!-- Slide 4: Product Demo -->
+        <div class="slide" id="deck-slide-4">
+            <div class="slide-header">
+                <span class="slide-title">Product Demo</span>
+                <span class="slide-number">Slide 4 / 15</span>
+            </div>
+            <div class="slide-content">
+                <h3>Simple as 1-2-3</h3>
+                <p><strong>1. Order labels online</strong> — Ships to you in 3-5 days</p>
+                <p><strong>2. Scan QR & attach</strong> — Activates instantly, no app needed</p>
+                <p><strong>3. Track everywhere</strong> — Real-time map, alerts, shareable link</p>
+                <div class="metric-highlight" style="margin-top: 16px;">
+                    <strong>Live Demo:</strong> <a href="https://tip.live" target="_blank" style="color:var(--accent)">tip.live</a> — request access for a guided walkthrough
+                </div>
+            </div>
+            <div class="comment-section">
+                <button class="comment-toggle" onclick="toggleComments(this, 'deck-slide-4-demo')">💬 Leave a comment on this slide</button>
+                <div class="giscus-container" data-term="deck-slide-4-demo"></div>
+            </div>
+        </div>
+
+        <!-- Slide 5: Market Opportunity -->
+        <div class="slide" id="deck-slide-5">
+            <div class="slide-header">
+                <span class="slide-title">Market Opportunity</span>
+                <span class="slide-number">Slide 5 / 15</span>
+            </div>
+            <div class="slide-content">
+                <h3>$18B Market, Underserved SMB Segment</h3>
+                <table>
+                    <tr><th>Metric</th><th>Value</th><th>Source</th></tr>
+                    <tr><td><strong>TAM</strong></td><td>$18B</td><td>MarketsandMarkets 2024</td></tr>
+                    <tr><td><strong>SAM</strong></td><td>$1.8B</td><td>SMB segment (10% of TAM)</td></tr>
+                    <tr><td><strong>SOM Year 1</strong></td><td>$125K</td><td>5,500 labels sold</td></tr>
+                    <tr><td><strong>SOM Year 3</strong></td><td>$2.55M</td><td>100,000 labels</td></tr>
+                </table>
+                <p><strong>Why Now:</strong></p>
+                <ul>
+                    <li>eSIM costs down 60-70% since 2020 (GSMA)</li>
+                    <li>LTE-M coverage: 180+ countries</li>
+                    <li>47% of supply chain leaders prioritize visibility (Gartner 2023)</li>
+                </ul>
+            </div>
+            <div class="comment-section">
+                <button class="comment-toggle" onclick="toggleComments(this, 'deck-slide-5-market')">💬 Leave a comment on this slide</button>
+                <div class="giscus-container" data-term="deck-slide-5-market"></div>
+            </div>
+        </div>
+
+        <!-- Slide 6: Business Model -->
+        <div class="slide" id="deck-slide-6">
+            <div class="slide-header">
+                <span class="slide-title">Business Model</span>
+                <span class="slide-number">Slide 6 / 15</span>
+            </div>
+            <div class="slide-content">
+                <h3>Hardware Sales with Expanding Margins</h3>
+                <table>
+                    <tr><th>Metric</th><th>Year 1</th><th>Year 3</th></tr>
+                    <tr><td>ASP</td><td>$22.73</td><td>$25.54</td></tr>
+                    <tr><td>COGS/label</td><td>$12.00</td><td>$7.80</td></tr>
+                    <tr><td><strong>Gross Margin</strong></td><td><strong>47%</strong></td><td><strong>69%</strong></td></tr>
+                </table>
+                <p><strong>Margin improvement drivers:</strong></p>
+                <ul>
+                    <li>Manufacturing volume: 5.5K → 100K labels</li>
+                    <li>eSIM tiered pricing</li>
+                    <li>Shipping negotiation</li>
+                </ul>
+                <div class="metric-highlight">
+                    <strong>Unit Economics (Year 3):</strong> CAC: $88 | LTV: $350 (single-order) / $750+ (repeat) | LTV:CAC: <strong>4.0x</strong> / <strong>8.5x</strong>
+                </div>
+                <p><em>*Conservative repeat assumption: 1.5 orders/customer/year, 2-year lifespan</em></p>
+            </div>
+            <div class="comment-section">
+                <button class="comment-toggle" onclick="toggleComments(this, 'deck-slide-6-model')">💬 Leave a comment on this slide</button>
+                <div class="giscus-container" data-term="deck-slide-6-model"></div>
+            </div>
+        </div>
+
+        <!-- Slide 7: Traction -->
+        <div class="slide" id="deck-slide-7">
+            <div class="slide-header">
+                <span class="slide-title">Traction</span>
+                <span class="slide-number">Slide 7 / 15</span>
+            </div>
+            <div class="slide-content">
+                <h3>Ready to Launch</h3>
+                <table>
+                    <tr><th>Milestone</th><th>Status</th></tr>
+                    <tr><td>✅ Working hardware</td><td>Production-ready prototype</td></tr>
+                    <tr><td>✅ Platform MVP</td><td>Live at tip.live</td></tr>
+                    <tr><td>✅ Global connectivity</td><td>Onomondo eSIM (180+ countries)</td></tr>
+                    <tr><td>✅ Payments</td><td>Stripe integrated</td></tr>
+                    <tr><td>🔄 First pilots</td><td>Feb-Mar 2026</td></tr>
+                    <tr><td>🎯 50 labels sold</td><td>Q2 2026</td></tr>
+                </table>
+            </div>
+            <div class="comment-section">
+                <button class="comment-toggle" onclick="toggleComments(this, 'deck-slide-7-traction')">💬 Leave a comment on this slide</button>
+                <div class="giscus-container" data-term="deck-slide-7-traction"></div>
+            </div>
+        </div>
+
+        <!-- Slide 8: Competitive Landscape -->
+        <div class="slide" id="deck-slide-8">
+            <div class="slide-header">
+                <span class="slide-title">Competitive Landscape</span>
+                <span class="slide-number">Slide 8 / 15</span>
+            </div>
+            <div class="slide-content">
+                <h3>Low Price + Consumer Simplicity</h3>
+                <pre><code>                    HIGH PRICE
+                        │
+     Sensitech ●        │        ● Controlant
+        $300            │            $400
+                        │
+     Roambee ●          │        ● Tive
+        $200            │          $150
+                        │
+    ────────────────────┼────────────────────
+    COMPLEX             │            SIMPLE
+                        │
+     Sensos ●           │        ★ TIP
+       €50              │            $22
+                        │        ● Reelables
+                        │            $20
+                    LOW PRICE</code></pre>
+                <p><strong>Direct Competitor: Reelables</strong> — same price, but:</p>
+                <ul>
+                    <li>We have 180+ country coverage vs ~100</li>
+                    <li>We have 60-day battery vs 30-45 days</li>
+                    <li>We focus on China→EU/US (different market)</li>
+                </ul>
+                <p><strong>Our Edge:</strong> Best coverage + battery for international shipments</p>
+            </div>
+            <div class="comment-section">
+                <button class="comment-toggle" onclick="toggleComments(this, 'deck-slide-8-competition')">💬 Leave a comment on this slide</button>
+                <div class="giscus-container" data-term="deck-slide-8-competition"></div>
+            </div>
+        </div>
+
+        <!-- Slide 9: Go-to-Market -->
+        <div class="slide" id="deck-slide-9">
+            <div class="slide-header">
+                <span class="slide-title">Go-to-Market</span>
+                <span class="slide-number">Slide 9 / 15</span>
+            </div>
+            <div class="slide-content">
+                <h3>Founder-Led → Scalable Channels</h3>
+                <p><strong>Phase 1 (Months 1-6):</strong></p>
+                <ul>
+                    <li>Founder network (China manufacturing)</li>
+                    <li>Amazon seller communities</li>
+                    <li>LinkedIn outreach</li>
+                    <li>Content/SEO</li>
+                </ul>
+                <p><strong>Phase 2 (Months 7-18):</strong></p>
+                <ul>
+                    <li>Paid acquisition (Google, LinkedIn)</li>
+                    <li>Freight forwarder partnerships</li>
+                    <li>API integrations</li>
+                    <li>Trade shows</li>
+                </ul>
+                <p><strong>Target:</strong> 150 customers, $125K revenue in Year 1</p>
+            </div>
+            <div class="comment-section">
+                <button class="comment-toggle" onclick="toggleComments(this, 'deck-slide-9-gtm')">💬 Leave a comment on this slide</button>
+                <div class="giscus-container" data-term="deck-slide-9-gtm"></div>
+            </div>
+        </div>
+
+        <!-- Slide 10: Financial Projections -->
+        <div class="slide" id="deck-slide-10">
+            <div class="slide-header">
+                <span class="slide-title">Financial Projections</span>
+                <span class="slide-number">Slide 10 / 15</span>
+            </div>
+            <div class="slide-content">
+                <h3>Path to $2.55M Revenue</h3>
+                <table>
+                    <tr><th>Metric</th><th>Year 1</th><th>Year 2</th><th>Year 3</th></tr>
+                    <tr><td><strong>Revenue</strong></td><td>$125K</td><td>$756K</td><td>$2.55M</td></tr>
+                    <tr><td><strong>Labels Sold</strong></td><td>5,500</td><td>30,000</td><td>100,000</td></tr>
+                    <tr><td><strong>Customers</strong></td><td>150</td><td>800</td><td>2,500</td></tr>
+                    <tr><td><strong>Gross Margin</strong></td><td>47%</td><td>62%</td><td>69%</td></tr>
+                    <tr><td><strong>Net Income</strong></td><td>$(113K)</td><td>$65K</td><td>$830K</td></tr>
+                </table>
+                <div class="metric-highlight">
+                    <strong>Y1→Y2 growth drivers:</strong> 4x paid acquisition budget ($60K vs $15K), repeat orders from Y1 base (40% retention), first case studies accelerating sales cycles
+                </div>
+                <p><strong>Break-even:</strong> Q4 2026 (monthly), 2027 (annual)</p>
+            </div>
+            <div class="comment-section">
+                <button class="comment-toggle" onclick="toggleComments(this, 'deck-slide-10-financials')">💬 Leave a comment on this slide</button>
+                <div class="giscus-container" data-term="deck-slide-10-financials"></div>
+            </div>
+        </div>
+
+        <!-- Slide 11: Team -->
+        <div class="slide" id="deck-slide-11">
+            <div class="slide-header">
+                <span class="slide-title">Team</span>
+                <span class="slide-number">Slide 11 / 15</span>
+            </div>
+            <div class="slide-content">
+                <h3>Hardware + Software Founders</h3>
+                <p><strong>Andrii Tkachuk — CEO & Hardware</strong> (Full-time, Shenzhen)</p>
+                <ul>
+                    <li>12 years electronics manufacturing in China</li>
+                    <li>Founded UTEC (2018): hardware dev company, 8 employees, profitable</li>
+                    <li>15+ IoT products shipped to production</li>
+                    <li><strong>Key asset:</strong> 10+ year supplier relationships, lives in Shenzhen</li>
+                </ul>
+                <p><strong>Denys Chumak — Product & Platform</strong> (Part-time → Full-time upon seed close)</p>
+                <ul>
+                    <li>6 years product management + engineering</li>
+                    <li>Previous: Product Lead at fintech startup ($2M ARR)</li>
+                    <li>Built TIP platform end-to-end (Next.js, PostgreSQL) — MVP live and production-ready</li>
+                    <li>MBA candidate; leads business development and investor relations</li>
+                </ul>
+                <p><strong>Why This Team:</strong></p>
+                <ul>
+                    <li>Hardware + software in-house (no outsourcing risk)</li>
+                    <li>CEO on the ground in manufacturing hub</li>
+                    <li>Proven ability to ship: prototype → platform in 8 months</li>
+                </ul>
+            </div>
+            <div class="comment-section">
+                <button class="comment-toggle" onclick="toggleComments(this, 'deck-slide-11-team')">💬 Leave a comment on this slide</button>
+                <div class="giscus-container" data-term="deck-slide-11-team"></div>
+            </div>
+        </div>
+
+        <!-- Slide 12: The Ask -->
+        <div class="slide" id="deck-slide-12">
+            <div class="slide-header">
+                <span class="slide-title">The Ask</span>
+                <span class="slide-number">Slide 12 / 15</span>
+            </div>
+            <div class="slide-content">
+                <h3>$250K Seed Round</h3>
+                <table>
+                    <tr><th>Category</th><th>Amount</th><th>%</th></tr>
+                    <tr><td>Manufacturing</td><td>$100K</td><td>40%</td></tr>
+                    <tr><td>Engineering</td><td>$75K</td><td>30%</td></tr>
+                    <tr><td>Sales & Marketing</td><td>$50K</td><td>20%</td></tr>
+                    <tr><td>Operations</td><td>$25K</td><td>10%</td></tr>
+                </table>
+                <p><strong>Milestones:</strong></p>
+                <ul>
+                    <li>5,500 labels sold</li>
+                    <li>150 paying customers</li>
+                    <li>$125K revenue</li>
+                    <li>Series A ready in 12-18 months</li>
+                </ul>
+            </div>
+            <div class="comment-section">
+                <button class="comment-toggle" onclick="toggleComments(this, 'deck-slide-12-ask')">💬 Leave a comment on this slide</button>
+                <div class="giscus-container" data-term="deck-slide-12-ask"></div>
+            </div>
+        </div>
+
+        <!-- Slide 13: Why Invest Now -->
+        <div class="slide" id="deck-slide-13">
+            <div class="slide-header">
+                <span class="slide-title">Why Invest Now</span>
+                <span class="slide-number">Slide 13 / 15</span>
+            </div>
+            <div class="slide-content">
+                <h3>Timing is Perfect</h3>
+                <ol>
+                    <li><strong>Hardware ready</strong> — No R&D risk, ready to manufacture</li>
+                    <li><strong>Platform live</strong> — Customers can order today</li>
+                    <li><strong>Market timing</strong> — eSIM costs down, LTE-M coverage up</li>
+                    <li><strong>First-mover</strong> — No dominant player in disposable tracking</li>
+                    <li><strong>Scalable model</strong> — 70%+ gross margin at scale</li>
+                </ol>
+                <p><strong>Risk Mitigation:</strong></p>
+                <ul>
+                    <li>Working prototype (de-risked hardware)</li>
+                    <li>Founder network for first customers</li>
+                    <li>Low burn, 12+ months runway</li>
+                </ul>
+            </div>
+            <div class="comment-section">
+                <button class="comment-toggle" onclick="toggleComments(this, 'deck-slide-13-why-now')">💬 Leave a comment on this slide</button>
+                <div class="giscus-container" data-term="deck-slide-13-why-now"></div>
+            </div>
+        </div>
+
+        <!-- Slide 14: Vision -->
+        <div class="slide" id="deck-slide-14">
+            <div class="slide-header">
+                <span class="slide-title">Vision</span>
+                <span class="slide-number">Slide 14 / 15</span>
+            </div>
+            <div class="slide-content">
+                <h3>The Future of Cargo Visibility</h3>
+                <p><strong>Year 1:</strong> Disposable GPS labels for SMB shippers</p>
+                <p><strong>Year 2:</strong> Premium subscriptions, enterprise API</p>
+                <p><strong>Year 3:</strong> Predictive alerts, delay/deviation detection</p>
+                <p><strong>Year 5:</strong> Standard tracking solution for global logistics</p>
+                <blockquote>"Every package should be as trackable as a rideshare"</blockquote>
+            </div>
+            <div class="comment-section">
+                <button class="comment-toggle" onclick="toggleComments(this, 'deck-slide-14-vision')">💬 Leave a comment on this slide</button>
+                <div class="giscus-container" data-term="deck-slide-14-vision"></div>
+            </div>
+        </div>
+
+        <!-- Slide 15: Contact -->
+        <div class="slide" id="deck-slide-15">
+            <div class="slide-header">
+                <span class="slide-title">Let's Talk</span>
+                <span class="slide-number">Slide 15 / 15</span>
+            </div>
+            <div class="slide-content" style="text-align:center; padding:32px;">
+                <h3 style="color: var(--text);">Contact</h3>
+                <p><strong>Andrii Tkachuk</strong> — <a href="mailto:andrii@tip.live" style="color:var(--accent)">andrii@tip.live</a></p>
+                <p><strong>Denys Chumak</strong> — <a href="mailto:denys@tip.live" style="color:var(--accent)">denys@tip.live</a></p>
+                <p style="margin-top:12px;"><strong>Website:</strong> <a href="https://tip.live" style="color:var(--accent)">tip.live</a></p>
+                <p><strong>Demo:</strong> Available upon request</p>
+            </div>
+            <div class="comment-section">
+                <button class="comment-toggle" onclick="toggleComments(this, 'deck-slide-15-contact')">💬 Leave a comment on this slide</button>
+                <div class="giscus-container" data-term="deck-slide-15-contact"></div>
+            </div>
+        </div>
+
+        <!-- Appendix Slides -->
+        <div class="slide" id="deck-appendix">
+            <div class="slide-header" style="background: linear-gradient(135deg, #6b7280, #4b5563);">
+                <span class="slide-title">Appendix Slides (A1–A7)</span>
+                <span class="slide-number">Appendix</span>
+            </div>
+            <div class="slide-content">
+                <h3>A1: Product Specs</h3>
+                <table>
+                    <tr><th>Spec</th><th>Value</th></tr>
+                    <tr><td>Dimensions</td><td>10×15cm × 3.5mm</td></tr>
+                    <tr><td>Weight</td><td>45g</td></tr>
+                    <tr><td>Battery</td><td>60+ days</td></tr>
+                    <tr><td>Connectivity</td><td>LTE-M (global)</td></tr>
+                    <tr><td>GPS accuracy</td><td>&lt;10m</td></tr>
+                    <tr><td>Update frequency</td><td>Configurable (15min-6hr)</td></tr>
+                    <tr><td>Offline storage</td><td>1,000+ data points</td></tr>
+                </table>
+
+                <h3>A2: Technology Stack</h3>
+                <table>
+                    <tr><th>Layer</th><th>Technology</th></tr>
+                    <tr><td>Hardware</td><td>Custom PCB, Quectel modem, u-blox GPS</td></tr>
+                    <tr><td>Connectivity</td><td>Onomondo eSIM</td></tr>
+                    <tr><td>Backend</td><td>Next.js, PostgreSQL, Prisma</td></tr>
+                    <tr><td>Auth</td><td>Clerk</td></tr>
+                    <tr><td>Payments</td><td>Stripe</td></tr>
+                    <tr><td>Hosting</td><td>Vercel / GCP</td></tr>
+                </table>
+
+                <h3>A3: Unit Economics Detail</h3>
+                <table>
+                    <tr><th>Component</th><th>Year 1</th><th>Year 3</th></tr>
+                    <tr><td>Hardware</td><td>$7.00</td><td>$4.50</td></tr>
+                    <tr><td>eSIM</td><td>$2.00</td><td>$1.50</td></tr>
+                    <tr><td>Shipping</td><td>$2.50</td><td>$1.50</td></tr>
+                    <tr><td>Packaging</td><td>$0.50</td><td>$0.30</td></tr>
+                    <tr><td><strong>COGS</strong></td><td><strong>$12.00</strong></td><td><strong>$7.80</strong></td></tr>
+                    <tr><td>ASP</td><td>$22.73</td><td>$25.00</td></tr>
+                    <tr><td><strong>Gross Profit</strong></td><td><strong>$10.73</strong></td><td><strong>$17.20</strong></td></tr>
+                    <tr><td><strong>Margin</strong></td><td><strong>47%</strong></td><td><strong>69%</strong></td></tr>
+                </table>
+
+                <h3>A4: Competitor Comparison</h3>
+                <table>
+                    <tr><th>Feature</th><th>TIP</th><th>Tive</th><th>Roambee</th><th>Reelables</th></tr>
+                    <tr><td>Price</td><td>$20-25</td><td>$150+</td><td>$200+</td><td>$15-25</td></tr>
+                    <tr><td>Form factor</td><td>3.5mm</td><td>Bulky</td><td>Bulky</td><td>Thin</td></tr>
+                    <tr><td>Battery</td><td>60+ days</td><td>30-90</td><td>90+</td><td>30-45</td></tr>
+                    <tr><td>Coverage</td><td>180+ countries</td><td>150+</td><td>150+</td><td>~100</td></tr>
+                    <tr><td>Setup</td><td>QR scan</td><td>Enterprise</td><td>Enterprise</td><td>QR scan</td></tr>
+                    <tr><td>Target</td><td>SMB (international)</td><td>Enterprise</td><td>Enterprise</td><td>SMB (US domestic)</td></tr>
+                </table>
+
+                <h3>A4b: Why We Win vs Reelables</h3>
+                <table>
+                    <tr><th>Factor</th><th>Reelables</th><th>TIP</th><th>Winner</th></tr>
+                    <tr><td>Price</td><td>$15-25</td><td>$20-25</td><td>Tie</td></tr>
+                    <tr><td>Battery</td><td>30-45 days</td><td>60+ days</td><td><strong>TIP</strong></td></tr>
+                    <tr><td>Coverage</td><td>~100 countries</td><td>180+ countries</td><td><strong>TIP</strong></td></tr>
+                    <tr><td>Focus</td><td>US domestic</td><td>China→EU/US</td><td><strong>Different markets</strong></td></tr>
+                </table>
+                <p><strong>Bottom line:</strong> We're not claiming to be better than Reelables everywhere. We're claiming to be better for <em>international shipments from China</em>.</p>
+
+                <h3>A5: Customer Segments</h3>
+                <table>
+                    <tr><th>Segment</th><th>Pain Level</th><th>Volume/Mo</th><th>Willingness to Pay</th></tr>
+                    <tr><td>Amazon FBA</td><td>High</td><td>10-100</td><td>$20-30</td></tr>
+                    <tr><td>E-commerce brands</td><td>High</td><td>50-500</td><td>$25-35</td></tr>
+                    <tr><td>Art/antiques</td><td>Very High</td><td>5-20</td><td>$30-50</td></tr>
+                    <tr><td>Electronics traders</td><td>High</td><td>20-200</td><td>$20-30</td></tr>
+                    <tr><td>Freight forwarders</td><td>Medium</td><td>100-1000</td><td>$15-20</td></tr>
+                </table>
+
+                <h3>A7: Milestones Timeline</h3>
+                <pre><code>Q1 2026: MVP Launch
+├── Platform live
+├── First 10 customers
+└── Seed round close
+
+Q2 2026: Traction
+├── 50 customers
+├── 2,000 labels sold
+└── First case studies
+
+Q3 2026: Growth
+├── 100 customers
+├── Break-even monthly
+└── Partnership pilots
+
+Q4 2026: Scale
+├── 150 customers
+├── $15K MRR
+└── Series A prep</code></pre>
+            </div>
+            <div class="comment-section">
+                <button class="comment-toggle" onclick="toggleComments(this, 'deck-appendix')">💬 Leave a comment on appendix slides</button>
+                <div class="giscus-container" data-term="deck-appendix"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- INVESTOR TEASER -->
+    <!-- ========================================== -->
+    <div class="doc-section" id="section-teaser">
+        <div class="doc-header">
+            <h1>📄 Investor Teaser</h1>
+            <div class="subtitle">GPS Tracking Labels for the $18B Cargo Visibility Market</div>
+        </div>
+
+        <div class="slide" id="teaser-problem">
+            <div class="slide-header" style="background: linear-gradient(135deg, #059669, #047857);">
+                <span class="slide-title">The Problem</span>
+                <span class="slide-number">Section 1</span>
+            </div>
+            <div class="slide-content">
+                <p><strong>$15-25 billion</strong> is lost annually to cargo theft, delays, and misrouted shipments globally.¹ Yet most tracking solutions cost $100-500 per device, require complex setup, and lock customers into carrier-specific platforms.</p>
+                <p><strong>The result:</strong> SMB shippers have limited visibility into their cargo—especially during flights, ocean transit, and handoffs between carriers. A 2023 Gartner survey found <strong>47% of supply chain leaders</strong> cite real-time visibility as their top investment priority.²</p>
+                <blockquote>
+                    "I ship $50K worth of electronics from Shenzhen to London. My forwarder gives me updates every 3-4 days. If something goes wrong, I find out too late."
+                    <span class="attribution">— Electronics trader, 15 years experience</span>
+                </blockquote>
+                <p><em>¹ BSI & TT Club Cargo Theft Report 2023; ² Gartner Supply Chain Survey 2023</em></p>
+            </div>
+            <div class="comment-section">
+                <button class="comment-toggle" onclick="toggleComments(this, 'teaser-problem')">💬 Leave a comment</button>
+                <div class="giscus-container" data-term="teaser-problem"></div>
+            </div>
+        </div>
+
+        <div class="slide" id="teaser-solution">
+            <div class="slide-header" style="background: linear-gradient(135deg, #059669, #047857);">
+                <span class="slide-title">Our Solution</span>
+                <span class="slide-number">Section 2</span>
+            </div>
+            <div class="slide-content">
+                <p><strong>TIP</strong> is a disposable GPS tracking label that costs <strong>$20-25</strong>, works in <strong>180+ countries</strong>, and requires <strong>zero technical setup</strong>.</p>
+                <table>
+                    <tr><th>Feature</th><th>TIP</th><th>Traditional Trackers</th></tr>
+                    <tr><td>Price</td><td>$20-25 (disposable)</td><td>$100-500 (reusable)</td></tr>
+                    <tr><td>Form Factor</td><td>10×15cm, 3.5mm thin</td><td>Bulky devices</td></tr>
+                    <tr><td>Setup</td><td>Scan QR, peel, stick</td><td>Complex onboarding</td></tr>
+                    <tr><td>Coverage</td><td>180+ countries</td><td>Carrier-dependent</td></tr>
+                    <tr><td>Battery</td><td>60+ days</td><td>Varies</td></tr>
+                </table>
+            </div>
+            <div class="comment-section">
+                <button class="comment-toggle" onclick="toggleComments(this, 'teaser-solution')">💬 Leave a comment</button>
+                <div class="giscus-container" data-term="teaser-solution"></div>
+            </div>
+        </div>
+
+        <div class="slide" id="teaser-market">
+            <div class="slide-header" style="background: linear-gradient(135deg, #059669, #047857);">
+                <span class="slide-title">Market Opportunity</span>
+                <span class="slide-number">Section 3</span>
+            </div>
+            <div class="slide-content">
+                <table>
+                    <tr><th>Metric</th><th>Value</th><th>Source</th></tr>
+                    <tr><td><strong>TAM</strong></td><td>$18B</td><td>MarketsandMarkets 2024</td></tr>
+                    <tr><td><strong>SAM</strong></td><td>$1.8B</td><td>SMB segment (10%)</td></tr>
+                    <tr><td><strong>SOM Year 1</strong></td><td>$125K</td><td>5,500 labels</td></tr>
+                    <tr><td><strong>SOM Year 3</strong></td><td>$2.55M</td><td>100,000 labels</td></tr>
+                    <tr><td><strong>Growth</strong></td><td>11.8% CAGR</td><td>MarketsandMarkets</td></tr>
+                </table>
+                <p><strong>Initial Target:</strong> SMB businesses shipping high-value goods from China to UK/EU/US—a trade corridor generating 40%+ of global e-commerce cross-border volume.</p>
+            </div>
+            <div class="comment-section">
+                <button class="comment-toggle" onclick="toggleComments(this, 'teaser-market')">💬 Leave a comment</button>
+                <div class="giscus-container" data-term="teaser-market"></div>
+            </div>
+        </div>
+
+        <div class="slide" id="teaser-traction">
+            <div class="slide-header" style="background: linear-gradient(135deg, #059669, #047857);">
+                <span class="slide-title">Traction & Business Model</span>
+                <span class="slide-number">Section 4-5</span>
+            </div>
+            <div class="slide-content">
+                <h3>Traction</h3>
+                <table>
+                    <tr><th>Status</th><th>Achievement</th></tr>
+                    <tr><td>✅</td><td>Working hardware prototype (production-ready, tested)</td></tr>
+                    <tr><td>✅</td><td>Live tracking platform (MVP complete, deployed)</td></tr>
+                    <tr><td>✅</td><td>eSIM connectivity contract signed (Onomondo, 180+ countries)</td></tr>
+                    <tr><td>✅</td><td>Payments integrated (Stripe)</td></tr>
+                    <tr><td>🔄</td><td>First 5 pilot customers onboarding (Q1 2026)</td></tr>
+                </table>
+                <h3>Business Model</h3>
+                <table>
+                    <tr><th>Pack</th><th>Price</th><th>COGS</th><th>Gross Margin</th></tr>
+                    <tr><td>1 label</td><td>$25</td><td>$12</td><td>52%</td></tr>
+                    <tr><td>5-pack</td><td>$110 ($22/ea)</td><td>$60</td><td>45%</td></tr>
+                    <tr><td>10-pack</td><td>$200 ($20/ea)</td><td>$120</td><td>40%</td></tr>
+                    <tr><td><strong>At Scale (Year 3)</strong></td><td>$25</td><td>$7.80</td><td><strong>69%</strong></td></tr>
+                </table>
+            </div>
+            <div class="comment-section">
+                <button class="comment-toggle" onclick="toggleComments(this, 'teaser-traction-model')">💬 Leave a comment</button>
+                <div class="giscus-container" data-term="teaser-traction-model"></div>
+            </div>
+        </div>
+
+        <div class="slide" id="teaser-competition">
+            <div class="slide-header" style="background: linear-gradient(135deg, #059669, #047857);">
+                <span class="slide-title">Competitive Landscape</span>
+                <span class="slide-number">Section 6</span>
+            </div>
+            <div class="slide-content">
+                <table>
+                    <tr><th>Competitor</th><th>Price</th><th>Target</th><th>Our Advantage</th></tr>
+                    <tr><td><strong>Tive</strong></td><td>$150-300</td><td>Enterprise</td><td>85% cheaper, simpler setup</td></tr>
+                    <tr><td><strong>Roambee</strong></td><td>$200-400</td><td>Enterprise</td><td>No contracts, no IT integration</td></tr>
+                    <tr><td><strong>Reelables</strong></td><td>$15-25</td><td>SMB</td><td>180+ countries vs ~100, 60-day battery vs 30-45</td></tr>
+                    <tr><td><strong>Sensos</strong></td><td>€30-80</td><td>Mid-market</td><td>Lower price, disposable</td></tr>
+                </table>
+                <p><strong>Defensible Advantages:</strong></p>
+                <ol>
+                    <li>Proprietary 3.5mm form factor with 60+ day battery</li>
+                    <li>CEO based in Shenzhen with 10+ year supplier relationships</li>
+                    <li>Direct access to China export ecosystem via founder network</li>
+                    <li>$7.80 COGS at scale vs estimated $10+ for competitors</li>
+                </ol>
+            </div>
+            <div class="comment-section">
+                <button class="comment-toggle" onclick="toggleComments(this, 'teaser-competition')">💬 Leave a comment</button>
+                <div class="giscus-container" data-term="teaser-competition"></div>
+            </div>
+        </div>
+
+        <div class="slide" id="teaser-team-ask">
+            <div class="slide-header" style="background: linear-gradient(135deg, #059669, #047857);">
+                <span class="slide-title">Team & The Ask</span>
+                <span class="slide-number">Section 7-8</span>
+            </div>
+            <div class="slide-content">
+                <h3>Team</h3>
+                <p><strong>Andrii Tkachuk</strong> — CEO & Hardware Lead (Full-time, Shenzhen)</p>
+                <p>12 years electronics manufacturing • Founded UTEC (2018) • 15+ IoT products to production</p>
+                <p><strong>Denys Chumak</strong> — Product & Platform (Part-time → Full-time upon seed close)</p>
+                <p>6 years product management & dev • Previous: Product Lead at fintech ($2M ARR) • Built TIP platform — MVP live and production-ready</p>
+                <h3>The Ask</h3>
+                <div class="metric-highlight">
+                    <strong>Raising:</strong> $250K seed round (SAFE, standard terms, $1.5-2.5M pre-money valuation)
+                </div>
+                <table>
+                    <tr><th>Category</th><th>Amount</th><th>Purpose</th></tr>
+                    <tr><td>Manufacturing</td><td>$100K (40%)</td><td>8,000 labels (2 batches)</td></tr>
+                    <tr><td>Engineering</td><td>$75K (30%)</td><td>Platform features, mobile app</td></tr>
+                    <tr><td>Sales & Marketing</td><td>$50K (20%)</td><td>Customer acquisition</td></tr>
+                    <tr><td>Operations</td><td>$25K (10%)</td><td>Legal, compliance</td></tr>
+                </table>
+                <p><strong>Series A Trigger (Month 18):</strong> $50K MRR, 30K labels/year run-rate</p>
+            </div>
+            <div class="comment-section">
+                <button class="comment-toggle" onclick="toggleComments(this, 'teaser-team-ask')">💬 Leave a comment</button>
+                <div class="giscus-container" data-term="teaser-team-ask"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- BUSINESS PLAN -->
+    <!-- ========================================== -->
+    <div class="doc-section" id="section-business">
+        <div class="doc-header">
+            <h1>📋 Business Plan</h1>
+            <div class="subtitle">Track Any Cargo, Anywhere — Full Business Plan</div>
+        </div>
+
+        <div class="toc">
+            <h3>Table of Contents</h3>
+            <ul>
+                <li><a href="#" onclick="scrollToSlide('bp-exec')">Executive Summary</a></li>
+                <li><a href="#" onclick="scrollToSlide('bp-problem')">1. The Problem</a></li>
+                <li><a href="#" onclick="scrollToSlide('bp-solution')">2. The Solution</a></li>
+                <li><a href="#" onclick="scrollToSlide('bp-market')">3. Market Analysis</a></li>
+                <li><a href="#" onclick="scrollToSlide('bp-competition')">4. Competitive Analysis</a></li>
+                <li><a href="#" onclick="scrollToSlide('bp-gtm')">5. Go-to-Market</a></li>
+                <li><a href="#" onclick="scrollToSlide('bp-operations')">6. Operations</a></li>
+                <li><a href="#" onclick="scrollToSlide('bp-financials')">7. Financial Summary</a></li>
+                <li><a href="#" onclick="scrollToSlide('bp-team')">8. Team</a></li>
+                <li><a href="#" onclick="scrollToSlide('bp-risk')">9. Risk Analysis</a></li>
+                <li><a href="#" onclick="scrollToSlide('bp-milestones')">10. Milestones & Metrics</a></li>
+                <li><a href="#" onclick="scrollToSlide('bp-ask')">11. The Ask</a></li>
+            </ul>
+        </div>
+
+        <div class="slide" id="bp-exec">
+            <div class="slide-header" style="background: linear-gradient(135deg, #7c3aed, #6d28d9);">
+                <span class="slide-title">Executive Summary</span>
+            </div>
+            <div class="slide-content">
+                <p><strong>TIP</strong> is a disposable GPS tracking label that provides real-time cargo visibility for $20-25 per shipment. Unlike traditional trackers costing $100-500, TIP is thin (3.5mm), works in 180+ countries, and requires no technical setup.</p>
+                <p><strong>Market Opportunity:</strong> $18B cargo tracking market (MarketsandMarkets 2024), with growing SMB segment underserved by enterprise solutions.</p>
+                <p><strong>Business Model:</strong> Direct-to-business label sales with expanding margins (47% → 69% over 3 years).</p>
+                <p><strong>Traction:</strong> Production-ready hardware, live platform, ready for first customer pilots.</p>
+                <p><strong>Funding:</strong> Seeking $250K seed for manufacturing, first 150 customers, $125K Year 1 revenue.</p>
+            </div>
+            <div class="comment-section">
+                <button class="comment-toggle" onclick="toggleComments(this, 'bp-exec-summary')">💬 Leave a comment</button>
+                <div class="giscus-container" data-term="bp-exec-summary"></div>
+            </div>
+        </div>
+
+        <div class="slide" id="bp-problem">
+            <div class="slide-header" style="background: linear-gradient(135deg, #7c3aed, #6d28d9);">
+                <span class="slide-title">1. The Problem</span>
+            </div>
+            <div class="slide-content">
+                <h3>Cargo Visibility Gap</h3>
+                <table>
+                    <tr><th>Problem</th><th>Impact</th><th>Current Solutions Fall Short</th></tr>
+                    <tr><td><strong>Black Holes</strong></td><td>Cargo goes dark during flights & ocean</td><td>Trackers lose connectivity</td></tr>
+                    <tr><td><strong>Cost Barrier</strong></td><td>$100-500+ per device</td><td>Not economical for SMBs</td></tr>
+                    <tr><td><strong>Complexity</strong></td><td>Enterprise IT integration</td><td>Overkill for 10-100 items/year</td></tr>
+                </table>
+                <blockquote>
+                    "I ship $50K worth of electronics from Shenzhen to London. The forwarder gives me updates every 3-4 days."
+                    <span class="attribution">— Electronics trader, 15 years experience</span>
+                </blockquote>
+                <p><strong>Quantified Pain:</strong></p>
+                <ul>
+                    <li><strong>$15-25B</strong> lost annually to cargo theft and delays (BSI & TT Club 2023)</li>
+                    <li><strong>47%</strong> of supply chain leaders cite visibility as top priority (Gartner 2023)</li>
+                    <li><strong>68%</strong> of SMB shippers report "limited or no visibility" (Freightos 2024)</li>
+                </ul>
+            </div>
+            <div class="comment-section">
+                <button class="comment-toggle" onclick="toggleComments(this, 'bp-problem-section')">💬 Leave a comment</button>
+                <div class="giscus-container" data-term="bp-problem-section"></div>
+            </div>
+        </div>
+
+        <div class="slide" id="bp-solution">
+            <div class="slide-header" style="background: linear-gradient(135deg, #7c3aed, #6d28d9);">
+                <span class="slide-title">2. The Solution</span>
+            </div>
+            <div class="slide-content">
+                <h3>Product Overview</h3>
+                <ul>
+                    <li>Costs <strong>$20-25</strong> (vs. $100-500 for competitors)</li>
+                    <li>Works in <strong>180+ countries</strong> (including flights & ocean)</li>
+                    <li>Requires <strong>zero setup</strong> (scan QR code, peel, stick, track)</li>
+                    <li>Lasts <strong>60+ days</strong></li>
+                </ul>
+                <h3>Key Features</h3>
+                <table>
+                    <tr><th>Feature</th><th>Benefit</th></tr>
+                    <tr><td>Ultra-thin design (3.5mm)</td><td>Fits on any package</td></tr>
+                    <tr><td>Global eSIM (Onomondo)</td><td>180+ countries automatically</td></tr>
+                    <tr><td>Offline storage</td><td>Captures location without signal</td></tr>
+                    <tr><td>Shareable links</td><td>Consignee tracks without account</td></tr>
+                    <tr><td>Delivery confirmation</td><td>Automatic geofence detection</td></tr>
+                    <tr><td>Low battery alerts</td><td>Proactive notifications</td></tr>
+                </table>
+                <h3>Technology Stack</h3>
+                <table>
+                    <tr><th>Layer</th><th>Technology</th></tr>
+                    <tr><td>Hardware</td><td>Custom PCB, LTE-M modem, GPS</td></tr>
+                    <tr><td>Connectivity</td><td>Onomondo eSIM</td></tr>
+                    <tr><td>Platform</td><td>Next.js, PostgreSQL, Clerk, Stripe</td></tr>
+                    <tr><td>Hosting</td><td>Vercel / GCP</td></tr>
+                </table>
+            </div>
+            <div class="comment-section">
+                <button class="comment-toggle" onclick="toggleComments(this, 'bp-solution-section')">💬 Leave a comment</button>
+                <div class="giscus-container" data-term="bp-solution-section"></div>
+            </div>
+        </div>
+
+        <div class="slide" id="bp-market">
+            <div class="slide-header" style="background: linear-gradient(135deg, #7c3aed, #6d28d9);">
+                <span class="slide-title">3. Market Analysis</span>
+            </div>
+            <div class="slide-content">
+                <h3>Market Size</h3>
+                <table>
+                    <tr><th>Segment</th><th>Size</th><th>Source</th></tr>
+                    <tr><td><strong>TAM</strong></td><td>$18B</td><td>MarketsandMarkets 2024</td></tr>
+                    <tr><td><strong>SAM</strong></td><td>$1.8B</td><td>SMB segment (10%)</td></tr>
+                    <tr><td><strong>SOM Year 1</strong></td><td>$125K</td><td>Bottom-up targets</td></tr>
+                    <tr><td><strong>SOM Year 3</strong></td><td>$2.55M</td><td>Bottom-up projection</td></tr>
+                </table>
+                <h3>Market Trends</h3>
+                <table>
+                    <tr><th>Trend</th><th>Data</th><th>Source</th></tr>
+                    <tr><td>eSIM cost reduction</td><td>60-70% decline since 2020</td><td>GSMA 2024</td></tr>
+                    <tr><td>LTE-M/NB-IoT coverage</td><td>180+ countries</td><td>Onomondo</td></tr>
+                    <tr><td>Visibility priority</td><td>47% of leaders</td><td>Gartner 2023</td></tr>
+                    <tr><td>Cross-border e-commerce</td><td>14.5% YoY growth</td><td>Statista 2024</td></tr>
+                </table>
+                <h3>Target Customers</h3>
+                <table>
+                    <tr><th>Segment</th><th>Size</th><th>Pain Level</th><th>Volume</th></tr>
+                    <tr><td>Amazon FBA sellers</td><td>2M+ globally</td><td>High</td><td>10-100/month</td></tr>
+                    <tr><td>E-commerce brands</td><td>100K+</td><td>High</td><td>50-500/month</td></tr>
+                    <tr><td>Art & antiques</td><td>50K+</td><td>Very High</td><td>5-20/month</td></tr>
+                    <tr><td>Electronics traders</td><td>200K+</td><td>High</td><td>20-200/month</td></tr>
+                </table>
+            </div>
+            <div class="comment-section">
+                <button class="comment-toggle" onclick="toggleComments(this, 'bp-market-section')">💬 Leave a comment</button>
+                <div class="giscus-container" data-term="bp-market-section"></div>
+            </div>
+        </div>
+
+        <div class="slide" id="bp-competition">
+            <div class="slide-header" style="background: linear-gradient(135deg, #7c3aed, #6d28d9);">
+                <span class="slide-title">4. Competitive Analysis</span>
+            </div>
+            <div class="slide-content">
+                <table>
+                    <tr><th>Competitor</th><th>Price</th><th>Target</th><th>Weakness vs TIP</th></tr>
+                    <tr><td>Tive</td><td>$150-300</td><td>Enterprise</td><td>Too expensive for SMB</td></tr>
+                    <tr><td>Roambee</td><td>$200-400</td><td>Enterprise</td><td>Complex, long contracts</td></tr>
+                    <tr><td>Reelables</td><td>$15-25</td><td>SMB</td><td>~100 countries, 30-45 day battery</td></tr>
+                </table>
+                <h3>Competitive Moat (Honest Assessment)</h3>
+                <table>
+                    <tr><th>Advantage</th><th>Defensibility</th><th>Timeline</th></tr>
+                    <tr><td>Hardware design (3.5mm, 60-day)</td><td>Medium</td><td>Patent filed Jan 2026</td></tr>
+                    <tr><td>Manufacturing relationships</td><td>High</td><td>3-5 years to replicate</td></tr>
+                    <tr><td>China export network</td><td>High</td><td>Trust-based</td></tr>
+                    <tr><td>Unit economics ($7.80 COGS)</td><td>Medium</td><td>Achievable by funded competitor</td></tr>
+                </table>
+                <p><strong>What's NOT a Moat:</strong> Software platform, Onomondo relationship, brand</p>
+                <p><em>We are building a business on execution speed and founder advantages, not defensible technology.</em></p>
+            </div>
+            <div class="comment-section">
+                <button class="comment-toggle" onclick="toggleComments(this, 'bp-competition-section')">💬 Leave a comment</button>
+                <div class="giscus-container" data-term="bp-competition-section"></div>
+            </div>
+        </div>
+
+        <div class="slide" id="bp-gtm">
+            <div class="slide-header" style="background: linear-gradient(135deg, #7c3aed, #6d28d9);">
+                <span class="slide-title">5. Go-to-Market Strategy</span>
+            </div>
+            <div class="slide-content">
+                <h3>Phase 1: Founder-Led (Months 1-6)</h3>
+                <p><strong>Target:</strong> 150 customers, 5,500 labels, $125K revenue</p>
+                <table>
+                    <tr><th>Channel</th><th>Tactic</th><th>Expected Customers</th></tr>
+                    <tr><td>Founder network</td><td>Andrii's contacts</td><td>30-40</td></tr>
+                    <tr><td>Amazon communities</td><td>Reddit, Facebook, forums</td><td>40-50</td></tr>
+                    <tr><td>LinkedIn</td><td>Targeted messaging</td><td>30-40</td></tr>
+                    <tr><td>Content/SEO</td><td>Blog, YouTube</td><td>20-30</td></tr>
+                    <tr><td>Referrals</td><td>Word-of-mouth</td><td>10-20</td></tr>
+                </table>
+                <h3>Phase 2: Scalable (Months 7-18)</h3>
+                <table>
+                    <tr><th>Channel</th><th>Investment</th><th>Expected ROI</th></tr>
+                    <tr><td>Google Ads</td><td>$30K</td><td>3-4x</td></tr>
+                    <tr><td>Trade shows</td><td>$15K</td><td>Relationship-building</td></tr>
+                    <tr><td>Partnerships</td><td>BD effort</td><td>Revenue share</td></tr>
+                </table>
+                <h3>Pricing</h3>
+                <table>
+                    <tr><th>Pack</th><th>Price</th><th>Target</th></tr>
+                    <tr><td>1 label</td><td>$25</td><td>Trial</td></tr>
+                    <tr><td>5-pack</td><td>$110 ($22/ea)</td><td>Regular</td></tr>
+                    <tr><td>10-pack</td><td>$200 ($20/ea)</td><td>Volume</td></tr>
+                    <tr><td>Enterprise</td><td>Custom</td><td>100+/month</td></tr>
+                </table>
+            </div>
+            <div class="comment-section">
+                <button class="comment-toggle" onclick="toggleComments(this, 'bp-gtm-section')">💬 Leave a comment</button>
+                <div class="giscus-container" data-term="bp-gtm-section"></div>
+            </div>
+        </div>
+
+        <div class="slide" id="bp-operations">
+            <div class="slide-header" style="background: linear-gradient(135deg, #7c3aed, #6d28d9);">
+                <span class="slide-title">6. Operations Plan</span>
+            </div>
+            <div class="slide-content">
+                <h3>Manufacturing</h3>
+                <table>
+                    <tr><th>Phase</th><th>Volume</th><th>Lead Time</th><th>Cost/Unit</th></tr>
+                    <tr><td>Pilot</td><td>1,000</td><td>90 days</td><td>$8.00</td></tr>
+                    <tr><td>Year 1</td><td>8,000</td><td>60 days</td><td>$7.00</td></tr>
+                    <tr><td>Year 2</td><td>40,000</td><td>45 days</td><td>$5.50</td></tr>
+                    <tr><td>Year 3</td><td>120,000</td><td>30 days</td><td>$4.50</td></tr>
+                </table>
+                <h3>Fulfillment</h3>
+                <table>
+                    <tr><th>Market</th><th>Fulfillment</th><th>Ship Time</th></tr>
+                    <tr><td>UK/EU</td><td>UK warehouse</td><td>2-5 days</td></tr>
+                    <tr><td>US</td><td>Direct from UK (initially)</td><td>5-10 days</td></tr>
+                    <tr><td>China</td><td>Direct ship</td><td>7-14 days</td></tr>
+                </table>
+                <p><em>Year 2: Add US warehouse for faster delivery</em></p>
+            </div>
+            <div class="comment-section">
+                <button class="comment-toggle" onclick="toggleComments(this, 'bp-operations-section')">💬 Leave a comment</button>
+                <div class="giscus-container" data-term="bp-operations-section"></div>
+            </div>
+        </div>
+
+        <div class="slide" id="bp-financials">
+            <div class="slide-header" style="background: linear-gradient(135deg, #7c3aed, #6d28d9);">
+                <span class="slide-title">7. Financial Summary</span>
+            </div>
+            <div class="slide-content">
+                <table>
+                    <tr><th>Year</th><th>Labels</th><th>Revenue</th><th>Gross Margin</th></tr>
+                    <tr><td>2026</td><td>5,500</td><td>$125K</td><td>47%</td></tr>
+                    <tr><td>2027</td><td>30,000</td><td>$750K</td><td>62%</td></tr>
+                    <tr><td>2028</td><td>100,000</td><td>$2.55M</td><td>69%</td></tr>
+                </table>
+                <h3>Path to Profitability</h3>
+                <table>
+                    <tr><th>Milestone</th><th>Timeline</th><th>Status</th></tr>
+                    <tr><td>First sale</td><td>Q1 2026</td><td>✅ Ready</td></tr>
+                    <tr><td>Break-even (monthly)</td><td>Q4 2026</td><td>🎯 Target</td></tr>
+                    <tr><td>Cash flow positive</td><td>Q3 2027</td><td>🎯 Target</td></tr>
+                    <tr><td>Profitable (annual)</td><td>2028</td><td>🎯 Target</td></tr>
+                </table>
+            </div>
+            <div class="comment-section">
+                <button class="comment-toggle" onclick="toggleComments(this, 'bp-financials-section')">💬 Leave a comment</button>
+                <div class="giscus-container" data-term="bp-financials-section"></div>
+            </div>
+        </div>
+
+        <div class="slide" id="bp-team">
+            <div class="slide-header" style="background: linear-gradient(135deg, #7c3aed, #6d28d9);">
+                <span class="slide-title">8. Team</span>
+            </div>
+            <div class="slide-content">
+                <h3>Founders</h3>
+                <p><strong>Andrii Tkachuk — CEO & Hardware Lead</strong> (Full-time, Shenzhen)</p>
+                <ul>
+                    <li>12 years electronics manufacturing</li>
+                    <li>Founded UTEC (2018) — 8 employees, profitable since 2020</li>
+                    <li>15+ IoT products from prototype to mass production</li>
+                    <li>10+ year supplier relationships in Shenzhen</li>
+                </ul>
+                <p><strong>Denys Chumak — Product & Platform</strong> (Part-time → Full-time post-funding)</p>
+                <ul>
+                    <li>6 years product management + software dev</li>
+                    <li>Product Lead at fintech startup ($2M ARR)</li>
+                    <li>Built TIP platform end-to-end — MVP live and production-ready</li>
+                    <li>MBA candidate; leads business development & investor relations</li>
+                </ul>
+                <h3>Advisors</h3>
+                <table>
+                    <tr><th>Area</th><th>Background</th><th>Status</th></tr>
+                    <tr><td>Manufacturing</td><td>20+ year Foxconn veteran</td><td>Informal (active), name under NDA</td></tr>
+                    <tr><td>Logistics</td><td>Former DHL APAC operations</td><td>Informal (active), name under NDA</td></tr>
+                    <tr><td>B2B SaaS Growth</td><td>—</td><td>Seeking</td></tr>
+                    <tr><td>Fundraising</td><td>—</td><td>Seeking</td></tr>
+                </table>
+                <h3>Hiring Plan</h3>
+                <table>
+                    <tr><th>Role</th><th>Timeline</th><th>Salary Range</th></tr>
+                    <tr><td>Customer Success</td><td>Q2 2026</td><td>$35-45K</td></tr>
+                    <tr><td>Sales Lead</td><td>Q3 2026</td><td>$50-70K + commission</td></tr>
+                    <tr><td>Full-Stack Engineer</td><td>Q4 2026</td><td>$60-80K</td></tr>
+                    <tr><td>Marketing Manager</td><td>Q1 2027</td><td>$50-65K</td></tr>
+                </table>
+            </div>
+            <div class="comment-section">
+                <button class="comment-toggle" onclick="toggleComments(this, 'bp-team-section')">💬 Leave a comment</button>
+                <div class="giscus-container" data-term="bp-team-section"></div>
+            </div>
+        </div>
+
+        <div class="slide" id="bp-risk">
+            <div class="slide-header" style="background: linear-gradient(135deg, #7c3aed, #6d28d9);">
+                <span class="slide-title">9. Risk Analysis</span>
+            </div>
+            <div class="slide-content">
+                <table>
+                    <tr><th>Risk</th><th>Probability</th><th>Impact</th><th>Mitigation</th></tr>
+                    <tr><td>Hardware defects</td><td>Medium</td><td>High</td><td>QA, warranty reserve, batch testing</td></tr>
+                    <tr><td>Slow adoption</td><td>Medium</td><td>High</td><td>Pilots, case studies, referrals</td></tr>
+                    <tr><td>Competitor entry</td><td>Medium</td><td>Medium</td><td>Speed to market, relationships, IP</td></tr>
+                    <tr><td>Supply chain</td><td>Low</td><td>High</td><td>Multiple suppliers, inventory buffer</td></tr>
+                    <tr><td>Connectivity</td><td>Low</td><td>Medium</td><td>Multi-carrier eSIM, offline storage</td></tr>
+                </table>
+            </div>
+            <div class="comment-section">
+                <button class="comment-toggle" onclick="toggleComments(this, 'bp-risk-section')">💬 Leave a comment</button>
+                <div class="giscus-container" data-term="bp-risk-section"></div>
+            </div>
+        </div>
+
+        <div class="slide" id="bp-milestones">
+            <div class="slide-header" style="background: linear-gradient(135deg, #7c3aed, #6d28d9);">
+                <span class="slide-title">10. Milestones & KPIs</span>
+            </div>
+            <div class="slide-content">
+                <table>
+                    <tr><th>Quarter</th><th>Milestone</th><th>Success Metric</th></tr>
+                    <tr><td>Q1 2026</td><td>MVP launch</td><td>Platform live, 10 customers</td></tr>
+                    <tr><td>Q2 2026</td><td>Traction</td><td>50 customers, 2,000 labels</td></tr>
+                    <tr><td>Q3 2026</td><td>Growth</td><td>100 customers, break-even monthly</td></tr>
+                    <tr><td>Q4 2026</td><td>Scale prep</td><td>150 customers, Series A process</td></tr>
+                </table>
+                <h3>KPIs</h3>
+                <table>
+                    <tr><th>KPI</th><th>Q1 Target</th><th>Q4 Target</th></tr>
+                    <tr><td>Labels sold (cum.)</td><td>500</td><td>5,500</td></tr>
+                    <tr><td>Active customers</td><td>25</td><td>150</td></tr>
+                    <tr><td>Monthly revenue</td><td>$5K</td><td>$15K</td></tr>
+                    <tr><td>CAC</td><td>&lt;$150</td><td>&lt;$100</td></tr>
+                    <tr><td>NPS</td><td>30+</td><td>40+</td></tr>
+                </table>
+            </div>
+            <div class="comment-section">
+                <button class="comment-toggle" onclick="toggleComments(this, 'bp-milestones-section')">💬 Leave a comment</button>
+                <div class="giscus-container" data-term="bp-milestones-section"></div>
+            </div>
+        </div>
+
+        <div class="slide" id="bp-ask">
+            <div class="slide-header" style="background: linear-gradient(135deg, #7c3aed, #6d28d9);">
+                <span class="slide-title">11. The Ask</span>
+            </div>
+            <div class="slide-content">
+                <div class="metric-highlight" style="text-align:center;">
+                    <h3 style="color:var(--text);">Raising: $250,000 Seed Round</h3>
+                    <p>Convertible note or SAFE, standard seed terms</p>
+                </div>
+                <table>
+                    <tr><th>Category</th><th>Amount</th><th>%</th><th>Purpose</th></tr>
+                    <tr><td>Manufacturing</td><td>$100,000</td><td>40%</td><td>8,000 labels (2 batches)</td></tr>
+                    <tr><td>Engineering</td><td>$75,000</td><td>30%</td><td>Platform scale, mobile app</td></tr>
+                    <tr><td>Sales & Marketing</td><td>$50,000</td><td>20%</td><td>Customer acquisition</td></tr>
+                    <tr><td>Operations</td><td>$25,000</td><td>10%</td><td>Legal, insurance, admin</td></tr>
+                </table>
+                <p><strong>Most valuable beyond capital:</strong></p>
+                <ol>
+                    <li>Logistics industry connections</li>
+                    <li>B2B SaaS expertise</li>
+                    <li>Manufacturing experience</li>
+                </ol>
+            </div>
+            <div class="comment-section">
+                <button class="comment-toggle" onclick="toggleComments(this, 'bp-ask-section')">💬 Leave a comment</button>
+                <div class="giscus-container" data-term="bp-ask-section"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- FINANCIAL MODEL -->
+    <!-- ========================================== -->
+    <div class="doc-section" id="section-financial">
+        <div class="doc-header">
+            <h1>💰 Financial Model</h1>
+            <div class="subtitle">3-Year Projections (2026-2028)</div>
+        </div>
+
+        <div class="slide" id="fm-summary">
+            <div class="slide-header" style="background: linear-gradient(135deg, #d97706, #b45309);">
+                <span class="slide-title">Executive Summary</span>
+            </div>
+            <div class="slide-content">
+                <table>
+                    <tr><th>Metric</th><th>Year 1</th><th>Year 2</th><th>Year 3</th></tr>
+                    <tr><td><strong>Revenue</strong></td><td>$125K</td><td>$756K</td><td>$2.55M</td></tr>
+                    <tr><td><strong>Labels Sold</strong></td><td>5,500</td><td>30,000</td><td>100,000</td></tr>
+                    <tr><td><strong>Gross Margin</strong></td><td>47%</td><td>62%</td><td>69%</td></tr>
+                    <tr><td><strong>Net Income</strong></td><td>$(113K)</td><td>$65K</td><td>$830K</td></tr>
+                    <tr><td><strong>Customers</strong></td><td>150</td><td>800</td><td>2,500</td></tr>
+                </table>
+                <p><em>All projections use conservative assumptions. See Section 7 for sensitivity analysis.</em></p>
+            </div>
+            <div class="comment-section">
+                <button class="comment-toggle" onclick="toggleComments(this, 'fm-summary')">💬 Leave a comment</button>
+                <div class="giscus-container" data-term="fm-summary"></div>
+            </div>
+        </div>
+
+        <div class="slide" id="fm-revenue">
+            <div class="slide-header" style="background: linear-gradient(135deg, #d97706, #b45309);">
+                <span class="slide-title">1. Revenue Projections</span>
+            </div>
+            <div class="slide-content">
+                <h3>Label Sales (Primary)</h3>
+                <table>
+                    <tr><th>Year</th><th>Labels</th><th>ASP</th><th>Revenue</th></tr>
+                    <tr><td>2026</td><td>5,500</td><td>$22.73</td><td>$125,000</td></tr>
+                    <tr><td>2027</td><td>30,000</td><td>$25.00</td><td>$750,000</td></tr>
+                    <tr><td>2028</td><td>100,000</td><td>$25.00</td><td>$2,500,000</td></tr>
+                </table>
+                <h3>Subscription Revenue (Year 2+)</h3>
+                <table>
+                    <tr><th>Year</th><th>Subscribers</th><th>MRR</th><th>ARR</th></tr>
+                    <tr><td>2026</td><td>0</td><td>$0</td><td>$0</td></tr>
+                    <tr><td>2027</td><td>50</td><td>$500</td><td>$6,000</td></tr>
+                    <tr><td>2028</td><td>300</td><td>$4,500</td><td>$54,000</td></tr>
+                </table>
+                <h3>Total Revenue</h3>
+                <table>
+                    <tr><th>Year</th><th>Label Sales</th><th>Subscriptions</th><th>Total</th></tr>
+                    <tr><td>2026</td><td>$125,000</td><td>$0</td><td>$125,000</td></tr>
+                    <tr><td>2027</td><td>$750,000</td><td>$6,000</td><td>$756,000</td></tr>
+                    <tr><td>2028</td><td>$2,500,000</td><td>$54,000</td><td>$2,554,000</td></tr>
+                </table>
+            </div>
+            <div class="comment-section">
+                <button class="comment-toggle" onclick="toggleComments(this, 'fm-revenue')">💬 Leave a comment</button>
+                <div class="giscus-container" data-term="fm-revenue"></div>
+            </div>
+        </div>
+
+        <div class="slide" id="fm-costs">
+            <div class="slide-header" style="background: linear-gradient(135deg, #d97706, #b45309);">
+                <span class="slide-title">2. Cost Structure</span>
+            </div>
+            <div class="slide-content">
+                <h3>COGS Per Label</h3>
+                <table>
+                    <tr><th>Component</th><th>Year 1</th><th>Year 2</th><th>Year 3</th></tr>
+                    <tr><td>Hardware</td><td>$7.00</td><td>$5.50</td><td>$4.50</td></tr>
+                    <tr><td>eSIM</td><td>$2.00</td><td>$1.80</td><td>$1.50</td></tr>
+                    <tr><td>Shipping</td><td>$2.50</td><td>$2.00</td><td>$1.50</td></tr>
+                    <tr><td>Packaging</td><td>$0.50</td><td>$0.40</td><td>$0.30</td></tr>
+                    <tr><td><strong>Total COGS</strong></td><td><strong>$12.00</strong></td><td><strong>$9.70</strong></td><td><strong>$7.80</strong></td></tr>
+                </table>
+                <h3>Operating Expenses</h3>
+                <table>
+                    <tr><th>Category</th><th>Year 1</th><th>Year 2</th><th>Year 3</th></tr>
+                    <tr><td>Personnel</td><td>$120,000</td><td>$250,000</td><td>$450,000</td></tr>
+                    <tr><td>Infrastructure</td><td>$18,000</td><td>$36,000</td><td>$72,000</td></tr>
+                    <tr><td>Marketing</td><td>$15,000</td><td>$60,000</td><td>$150,000</td></tr>
+                    <tr><td>Operations</td><td>$12,000</td><td>$25,000</td><td>$45,000</td></tr>
+                    <tr><td><strong>Total OpEx</strong></td><td><strong>$165,000</strong></td><td><strong>$371,000</strong></td><td><strong>$717,000</strong></td></tr>
+                </table>
+            </div>
+            <div class="comment-section">
+                <button class="comment-toggle" onclick="toggleComments(this, 'fm-costs')">💬 Leave a comment</button>
+                <div class="giscus-container" data-term="fm-costs"></div>
+            </div>
+        </div>
+
+        <div class="slide" id="fm-unit-economics">
+            <div class="slide-header" style="background: linear-gradient(135deg, #d97706, #b45309);">
+                <span class="slide-title">3. Unit Economics</span>
+            </div>
+            <div class="slide-content">
+                <h3>Label Unit Economics</h3>
+                <table>
+                    <tr><th>Metric</th><th>Year 1</th><th>Year 2</th><th>Year 3</th></tr>
+                    <tr><td>ASP</td><td>$22.73</td><td>$25.00</td><td>$25.54</td></tr>
+                    <tr><td>COGS</td><td>$12.00</td><td>$9.70</td><td>$7.80</td></tr>
+                    <tr><td><strong>Gross Profit/Label</strong></td><td><strong>$10.73</strong></td><td><strong>$15.30</strong></td><td><strong>$17.74</strong></td></tr>
+                    <tr><td><strong>Gross Margin</strong></td><td><strong>47%</strong></td><td><strong>61%</strong></td><td><strong>69%</strong></td></tr>
+                </table>
+                <h3>Customer Acquisition</h3>
+                <table>
+                    <tr><th>Metric</th><th>Year 1</th><th>Year 2</th><th>Year 3</th></tr>
+                    <tr><td>Marketing Spend</td><td>$15,000</td><td>$60,000</td><td>$150,000</td></tr>
+                    <tr><td>New Customers</td><td>150</td><td>650</td><td>1,700</td></tr>
+                    <tr><td><strong>CAC</strong></td><td><strong>$100</strong></td><td><strong>$92</strong></td><td><strong>$88</strong></td></tr>
+                    <tr><td><strong>LTV:CAC</strong></td><td><strong>2.3x</strong></td><td><strong>3.3x</strong></td><td><strong>4.0x</strong></td></tr>
+                </table>
+                <h3>LTV with Repeat Purchases</h3>
+                <table>
+                    <tr><th>Metric</th><th>Conservative</th><th>Moderate</th><th>Optimistic</th></tr>
+                    <tr><td>Orders/customer/year</td><td>1.5</td><td>2.0</td><td>3.0</td></tr>
+                    <tr><td>Customer lifespan</td><td>2 years</td><td>3 years</td><td>4 years</td></tr>
+                    <tr><td><strong>3-Year LTV</strong></td><td><strong>$750</strong></td><td><strong>$1,500</strong></td><td><strong>$3,000</strong></td></tr>
+                    <tr><td><strong>LTV:CAC (Year 3)</strong></td><td><strong>8.5x</strong></td><td><strong>17x</strong></td><td><strong>34x</strong></td></tr>
+                </table>
+            </div>
+            <div class="comment-section">
+                <button class="comment-toggle" onclick="toggleComments(this, 'fm-unit-economics')">💬 Leave a comment</button>
+                <div class="giscus-container" data-term="fm-unit-economics"></div>
+            </div>
+        </div>
+
+        <div class="slide" id="fm-pnl">
+            <div class="slide-header" style="background: linear-gradient(135deg, #d97706, #b45309);">
+                <span class="slide-title">4. P&L Summary</span>
+            </div>
+            <div class="slide-content">
+                <table>
+                    <tr><th></th><th>Year 1</th><th>Year 2</th><th>Year 3</th></tr>
+                    <tr><td><strong>Revenue</strong></td><td>$125,000</td><td>$756,000</td><td>$2,554,000</td></tr>
+                    <tr><td>COGS</td><td>($66,000)</td><td>($291,000)</td><td>($780,000)</td></tr>
+                    <tr><td><strong>Gross Profit</strong></td><td><strong>$59,000</strong></td><td><strong>$465,000</strong></td><td><strong>$1,774,000</strong></td></tr>
+                    <tr><td>Operating Expenses</td><td>($165,000)</td><td>($371,000)</td><td>($717,000)</td></tr>
+                    <tr><td><strong>EBITDA</strong></td><td><strong>($106,000)</strong></td><td><strong>$94,000</strong></td><td><strong>$1,057,000</strong></td></tr>
+                    <tr><td>D&A + Interest</td><td>($7,000)</td><td>($13,000)</td><td>($19,000)</td></tr>
+                    <tr><td>Tax (20%)</td><td>$0</td><td>($16,200)</td><td>($207,600)</td></tr>
+                    <tr><td><strong>Net Income</strong></td><td><strong>($113,000)</strong></td><td><strong>$64,800</strong></td><td><strong>$830,400</strong></td></tr>
+                </table>
+            </div>
+            <div class="comment-section">
+                <button class="comment-toggle" onclick="toggleComments(this, 'fm-pnl')">💬 Leave a comment</button>
+                <div class="giscus-container" data-term="fm-pnl"></div>
+            </div>
+        </div>
+
+        <div class="slide" id="fm-cashflow">
+            <div class="slide-header" style="background: linear-gradient(135deg, #d97706, #b45309);">
+                <span class="slide-title">5. Cash Flow & Funding</span>
+            </div>
+            <div class="slide-content">
+                <table>
+                    <tr><th></th><th>Year 1</th><th>Year 2</th><th>Year 3</th></tr>
+                    <tr><td>Starting Cash</td><td>$250,000</td><td>$97,000</td><td>$161,800</td></tr>
+                    <tr><td>Net Income</td><td>($113,000)</td><td>$64,800</td><td>$830,400</td></tr>
+                    <tr><td>Working Capital</td><td>($40,000)</td><td>($60,000)</td><td>($100,000)</td></tr>
+                    <tr><td><strong>Ending Cash</strong></td><td><strong>$97,000</strong></td><td><strong>$161,800</strong></td><td><strong>$892,200</strong></td></tr>
+                </table>
+                <h3>Funding Rounds</h3>
+                <table>
+                    <tr><th>Round</th><th>Amount</th><th>Timing</th><th>Milestones</th></tr>
+                    <tr><td><strong>Seed</strong></td><td>$250K</td><td>Q1 2026</td><td>MVP launch, first 500 labels</td></tr>
+                    <tr><td>Bridge (optional)</td><td>$100K</td><td>Q4 2026</td><td>If runway &lt; 6 months</td></tr>
+                    <tr><td><strong>Series A</strong></td><td>$1-2M</td><td>Q2 2027</td><td>30K labels, $50K MRR</td></tr>
+                </table>
+            </div>
+            <div class="comment-section">
+                <button class="comment-toggle" onclick="toggleComments(this, 'fm-cashflow')">💬 Leave a comment</button>
+                <div class="giscus-container" data-term="fm-cashflow"></div>
+            </div>
+        </div>
+
+        <div class="slide" id="fm-monthly">
+            <div class="slide-header" style="background: linear-gradient(135deg, #d97706, #b45309);">
+                <span class="slide-title">6. Monthly Targets (Year 1)</span>
+            </div>
+            <div class="slide-content">
+                <table>
+                    <tr><th>Month</th><th>Labels</th><th>Customers</th><th>Revenue</th><th>Cumulative</th></tr>
+                    <tr><td>Jan</td><td>50</td><td>5</td><td>$1,135</td><td>$1,135</td></tr>
+                    <tr><td>Feb</td><td>100</td><td>8</td><td>$2,270</td><td>$3,405</td></tr>
+                    <tr><td>Mar</td><td>200</td><td>12</td><td>$4,540</td><td>$7,945</td></tr>
+                    <tr><td>Apr</td><td>300</td><td>15</td><td>$6,820</td><td>$14,765</td></tr>
+                    <tr><td>May</td><td>400</td><td>18</td><td>$9,090</td><td>$23,855</td></tr>
+                    <tr><td>Jun</td><td>500</td><td>20</td><td>$11,365</td><td>$35,220</td></tr>
+                    <tr><td>Jul</td><td>550</td><td>18</td><td>$12,500</td><td>$47,720</td></tr>
+                    <tr><td>Aug</td><td>600</td><td>15</td><td>$13,640</td><td>$61,360</td></tr>
+                    <tr><td>Sep</td><td>650</td><td>13</td><td>$14,770</td><td>$76,130</td></tr>
+                    <tr><td>Oct</td><td>700</td><td>10</td><td>$15,910</td><td>$92,040</td></tr>
+                    <tr><td>Nov</td><td>700</td><td>8</td><td>$15,910</td><td>$107,950</td></tr>
+                    <tr><td>Dec</td><td>750</td><td>8</td><td>$17,040</td><td>$124,990</td></tr>
+                </table>
+            </div>
+            <div class="comment-section">
+                <button class="comment-toggle" onclick="toggleComments(this, 'fm-monthly')">💬 Leave a comment</button>
+                <div class="giscus-container" data-term="fm-monthly"></div>
+            </div>
+        </div>
+
+        <div class="slide" id="fm-sensitivity">
+            <div class="slide-header" style="background: linear-gradient(135deg, #d97706, #b45309);">
+                <span class="slide-title">7. Sensitivity Analysis</span>
+            </div>
+            <div class="slide-content">
+                <h3>Revenue Scenarios (Year 3)</h3>
+                <table>
+                    <tr><th>Scenario</th><th>Labels</th><th>Revenue</th><th>Net Income</th></tr>
+                    <tr><td><strong>Bear</strong></td><td>50,000</td><td>$1.25M</td><td>($200K)</td></tr>
+                    <tr><td><strong>Base</strong></td><td>100,000</td><td>$2.55M</td><td>$830K</td></tr>
+                    <tr><td><strong>Bull</strong></td><td>200,000</td><td>$5.0M</td><td>$2.5M</td></tr>
+                </table>
+                <h3>Break-Even Analysis</h3>
+                <table>
+                    <tr><th>Metric</th><th>Value</th></tr>
+                    <tr><td>Fixed Costs (Monthly)</td><td>$13,750</td></tr>
+                    <tr><td>Contribution Margin</td><td>$15.30</td></tr>
+                    <tr><td><strong>Break-Even (Labels/Month)</strong></td><td><strong>900</strong></td></tr>
+                    <tr><td><strong>Break-Even (Annual Revenue)</strong></td><td><strong>$270,000</strong></td></tr>
+                </table>
+            </div>
+            <div class="comment-section">
+                <button class="comment-toggle" onclick="toggleComments(this, 'fm-sensitivity')">💬 Leave a comment</button>
+                <div class="giscus-container" data-term="fm-sensitivity"></div>
+            </div>
+        </div>
+
+        <div class="slide" id="fm-valuation">
+            <div class="slide-header" style="background: linear-gradient(135deg, #d97706, #b45309);">
+                <span class="slide-title">8. Valuation & Comparables</span>
+            </div>
+            <div class="slide-content">
+                <h3>Comparable Companies</h3>
+                <table>
+                    <tr><th>Company</th><th>Stage</th><th>Revenue</th><th>Valuation</th><th>Multiple</th></tr>
+                    <tr><td>Tive</td><td>Series B</td><td>~$20M</td><td>$150M</td><td>7.5x</td></tr>
+                    <tr><td>Roambee</td><td>Series C</td><td>~$30M</td><td>$200M</td><td>6.7x</td></tr>
+                    <tr><td>Sensos</td><td>Seed</td><td>~$2M</td><td>$15M</td><td>7.5x</td></tr>
+                </table>
+                <h3>Implied Seed Valuation</h3>
+                <table>
+                    <tr><th>Method</th><th>Valuation</th></tr>
+                    <tr><td>Revenue Multiple (10x Year 2)</td><td>$7.5M</td></tr>
+                    <tr><td>Comparable Discount (80%)</td><td>$3M</td></tr>
+                    <tr><td><strong>Target Pre-Money</strong></td><td><strong>$1.5-2.5M</strong></td></tr>
+                    <tr><td>Seed Investment</td><td>$250K</td></tr>
+                    <tr><td><strong>Dilution</strong></td><td><strong>10-17%</strong></td></tr>
+                </table>
+            </div>
+            <div class="comment-section">
+                <button class="comment-toggle" onclick="toggleComments(this, 'fm-valuation')">💬 Leave a comment</button>
+                <div class="giscus-container" data-term="fm-valuation"></div>
+            </div>
+        </div>
+    </div>
+
+</main>
+
+<!-- Footer -->
+<footer style="text-align:center; padding: 20px; color: var(--text-muted); font-size: 0.85rem; border-top: 1px solid var(--border);">
+    <p>TIP Investor Materials • Confidential • February 2026</p>
+    <p style="margin-top:4px;">Comments powered by <a href="https://giscus.app" target="_blank" style="color:var(--accent);">giscus</a> via GitHub Discussions</p>
+</footer>
+
+<script>
+    // Tab navigation
+    const tabs = document.querySelectorAll('.nav-tab');
+    const sections = document.querySelectorAll('.doc-section');
+
+    tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            const target = tab.dataset.tab;
+
+            tabs.forEach(t => t.classList.remove('active'));
+            tab.classList.add('active');
+
+            sections.forEach(s => s.classList.remove('active'));
+            document.getElementById('section-' + target).classList.add('active');
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    });
+
+    // Theme toggle
+    function toggleTheme() {
+        const html = document.documentElement;
+        const btn = document.querySelector('.theme-toggle');
+        if (html.dataset.theme === 'light') {
+            html.dataset.theme = 'dark';
+            btn.textContent = '☀️ Light';
+            localStorage.setItem('theme', 'dark');
+        } else {
+            html.dataset.theme = 'light';
+            btn.textContent = '🌙 Dark';
+            localStorage.setItem('theme', 'light');
+        }
+        // Reload giscus frames with new theme
+        document.querySelectorAll('.giscus-container iframe').forEach(iframe => {
+            const src = iframe.src;
+            iframe.src = src.replace(
+                /theme=[^&]+/,
+                'theme=' + (html.dataset.theme === 'dark' ? 'dark' : 'light')
+            );
+        });
+    }
+
+    // Load saved theme
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+        document.documentElement.dataset.theme = 'dark';
+        document.querySelector('.theme-toggle').textContent = '☀️ Light';
+    }
+
+    // Comment toggle with giscus lazy loading
+    function toggleComments(button, term) {
+        const container = button.nextElementSibling;
+        const isVisible = container.classList.contains('visible');
+
+        if (isVisible) {
+            container.classList.remove('visible');
+            button.textContent = '💬 Leave a comment on this slide';
+        } else {
+            container.classList.add('visible');
+            button.textContent = '💬 Hide comments';
+
+            // Load giscus if not already loaded
+            if (!container.querySelector('.giscus')) {
+                const script = document.createElement('script');
+                script.src = 'https://giscus.app/client.js';
+                script.setAttribute('data-repo', 'D4umak/hyperlabel-spec');
+                script.setAttribute('data-repo-id', 'R_kgDOQ6rtLQ');
+                script.setAttribute('data-category', 'General');
+                script.setAttribute('data-category-id', 'DIC_kwDOQ6rtLc4C19cC');
+                script.setAttribute('data-mapping', 'specific');
+                script.setAttribute('data-term', term);
+                script.setAttribute('data-strict', '0');
+                script.setAttribute('data-reactions-enabled', '1');
+                script.setAttribute('data-emit-metadata', '0');
+                script.setAttribute('data-input-position', 'top');
+                script.setAttribute('data-theme', document.documentElement.dataset.theme === 'dark' ? 'dark' : 'light');
+                script.setAttribute('data-lang', 'en');
+                script.setAttribute('data-loading', 'lazy');
+                script.setAttribute('crossorigin', 'anonymous');
+                script.async = true;
+                container.appendChild(script);
+            }
+        }
+    }
+
+    // Scroll to slide helper (for TOC)
+    function scrollToSlide(id) {
+        const el = document.getElementById(id);
+        if (el) {
+            el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+        return false;
+    }
+
+    // Progress bar
+    window.addEventListener('scroll', () => {
+        const winScroll = document.documentElement.scrollTop;
+        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrolled = (winScroll / height) * 100;
+        document.getElementById('progressBar').style.width = scrolled + '%';
+    });
+</script>
+
+</body>
+</html>

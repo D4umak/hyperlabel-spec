@@ -1,4 +1,4 @@
-# HyperLabel — Financial Model
+# TIP — Financial Model
 
 **3-Year Projections (2026-2028)**
 
@@ -89,7 +89,7 @@
 | **Infrastructure** | $18,000 | $36,000 | $72,000 |
 | Cloud hosting (GCP) | $6,000 | $18,000 | $42,000 |
 | SaaS tools | $6,000 | $10,000 | $18,000 |
-| Payment processing (2.9%) | $3,600 | $22,000 | $74,000 |
+| Payment processing (~3%) | $3,750 | $22,700 | $76,600 |
 | Domain/SSL/misc | $2,400 | $4,000 | $6,000 |
 | **Marketing** | $15,000 | $60,000 | $150,000 |
 | Digital ads | $8,000 | $35,000 | $90,000 |
@@ -316,11 +316,11 @@
 
 | Role | Year 1 | Year 2 | Year 3 | Notes |
 |------|--------|--------|--------|-------|
-| Engineering | $80K (2 FTE) | $160K (3 FTE) | $280K (4 FTE) | $40K avg = part-time/contract; $70K avg FTE |
+| Engineering | $80K (2 FTE) | $160K (3 FTE) | $280K (4 FTE) | Y1: founders + part-time contractors at ~$40K avg; Y2+: FTEs at ~$70K avg |
 | Sales/Marketing | $30K (0.5 FTE) | $60K (1 FTE) | $120K (2 FTE) | Founder-led Y1, hired Y2+ |
 | Operations | $10K (0.5 FTE) | $30K (1 FTE) | $50K (1 FTE) | Part-time ops Y1 |
 
-*Note: Year 1 assumes founders + contractors. Year 2+ includes full-time hires.*
+*Note: Year 1 assumes founders contributing as part of their equity commitment plus part-time contractors. Salary costs increase from Year 2 as full-time hires replace contractor roles. Founder salaries begin at seed close.*
 
 ### Market Assumptions
 
@@ -354,6 +354,5 @@
 
 ---
 
-*Last Updated: January 2026*
+*Last Updated: February 2026*
 *Model Owner: Denys Chumak*
-*Reviewed by: [Financial Advisor Name TBD]*
