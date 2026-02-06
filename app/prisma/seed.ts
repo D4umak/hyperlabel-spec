@@ -58,9 +58,13 @@ async function main() {
 
   // Create a demo order with labels assigned
   const soldLabels = ['HL-002001', 'HL-002002', 'HL-002003']
-  
-  const order = await prisma.order.create({
-    data: {
+
+  const order = await prisma.order.upsert({
+    where: { stripePaymentId: 'demo_payment_001' },
+    update: {
+      status: 'DELIVERED',
+    },
+    create: {
       userId: demoUser.id,
       stripePaymentId: 'demo_payment_001',
       stripeSessionId: 'demo_session_001',
@@ -107,8 +111,14 @@ async function main() {
     },
   })
 
-  const shipment1 = await prisma.shipment.create({
-    data: {
+  const shipment1 = await prisma.shipment.upsert({
+    where: { shareCode: 'DEMO001' },
+    update: {
+      status: 'IN_TRANSIT',
+      deliveredAt: null,
+      labelId: activeLabel.id,
+    },
+    create: {
       name: 'Electronics from Shenzhen',
       userId: demoUser.id,
       labelId: activeLabel.id,
@@ -122,6 +132,11 @@ async function main() {
       destinationLat: 51.5074,
       destinationLng: -0.1278,
     },
+  })
+
+  // Clear existing location events for this shipment, then re-create
+  await prisma.locationEvent.deleteMany({
+    where: { shipmentId: shipment1.id },
   })
 
   // Add location events for the shipment
@@ -160,8 +175,13 @@ async function main() {
     },
   })
 
-  await prisma.shipment.create({
-    data: {
+  await prisma.shipment.upsert({
+    where: { shareCode: 'DEMO002' },
+    update: {
+      status: 'DELIVERED',
+      deliveredAt: new Date(Date.now() - 2 * 24 * 60 * 60 * 1000),
+    },
+    create: {
       name: 'Manufacturing Parts',
       userId: demoUser.id,
       labelId: deliveredLabel.id,
