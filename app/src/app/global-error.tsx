@@ -22,8 +22,8 @@ export default function GlobalError({
         <div className="flex min-h-screen flex-col items-center justify-center bg-background px-4">
           <div className="mx-auto max-w-md text-center">
             <div className="mb-6 flex justify-center">
-              <div className="rounded-full bg-red-100 p-4">
-                <AlertTriangle className="h-12 w-12 text-red-600" />
+              <div className="rounded-full bg-red-100 dark:bg-red-900/30 p-4">
+                <AlertTriangle className="h-12 w-12 text-red-600 dark:text-red-400" />
               </div>
             </div>
             <h1 className="mb-2 text-2xl font-bold">Something went wrong</h1>

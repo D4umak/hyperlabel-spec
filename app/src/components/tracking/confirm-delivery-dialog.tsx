@@ -77,8 +77,8 @@ export function ConfirmDeliveryDialog({
       <AlertDialogContent className="sm:max-w-md">
         {isConfirmed ? (
           <div className="flex flex-col items-center py-6 text-center">
-            <div className="flex h-16 w-16 items-center justify-center rounded-full bg-green-100">
-              <CheckCircle className="h-10 w-10 text-green-600" />
+            <div className="flex h-16 w-16 items-center justify-center rounded-full bg-green-100 dark:bg-green-900/30">
+              <CheckCircle className="h-10 w-10 text-green-600 dark:text-green-400" />
             </div>
             <h3 className="mt-4 text-xl font-semibold">Delivery Confirmed!</h3>
             <p className="mt-2 text-muted-foreground">

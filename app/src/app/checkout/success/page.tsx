@@ -44,11 +44,11 @@ export default async function CheckoutSuccessPage({ searchParams }: PageProps) {
   }
 
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center bg-gray-50 p-4">
+    <div className="flex min-h-screen flex-col items-center justify-center bg-muted p-4">
       <Card className="max-w-md text-center">
         <CardHeader>
-          <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-green-100">
-            <CheckCircle className="h-10 w-10 text-green-600" />
+          <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-green-100 dark:bg-green-900/30">
+            <CheckCircle className="h-10 w-10 text-green-600 dark:text-green-400" />
           </div>
           <CardTitle className="text-2xl">Order Confirmed!</CardTitle>
           <CardDescription>
@@ -72,9 +72,9 @@ export default async function CheckoutSuccessPage({ searchParams }: PageProps) {
           </div>
 
           {sessionError && (
-            <div className="flex items-start gap-2 rounded-lg bg-yellow-50 p-3 text-left text-sm">
-              <AlertTriangle className="mt-0.5 h-4 w-4 shrink-0 text-yellow-600" />
-              <p className="text-yellow-800">
+            <div className="flex items-start gap-2 rounded-lg bg-yellow-50 dark:bg-yellow-900/20 p-3 text-left text-sm">
+              <AlertTriangle className="mt-0.5 h-4 w-4 shrink-0 text-yellow-600 dark:text-yellow-400" />
+              <p className="text-yellow-800 dark:text-yellow-200">
                 We couldn&apos;t load your order details, but don&apos;t worry—your payment was successful. 
                 Check your email for confirmation.
               </p>

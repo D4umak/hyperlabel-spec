@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import { ClerkProvider } from '@clerk/nextjs'
+import { ThemeProvider } from '@/components/theme-provider'
 import { Toaster } from '@/components/ui/sonner'
 import './globals.css'
 
@@ -79,8 +80,10 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${inter.variable} font-sans antialiased`}>
-        <ConditionalClerkProvider>{children}</ConditionalClerkProvider>
-        <Toaster position="top-right" />
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+          <ConditionalClerkProvider>{children}</ConditionalClerkProvider>
+          <Toaster position="top-right" />
+        </ThemeProvider>
       </body>
     </html>
   )

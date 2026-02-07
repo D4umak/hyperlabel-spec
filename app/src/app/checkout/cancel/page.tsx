@@ -11,10 +11,10 @@ export const metadata: Metadata = {
 
 export default function CheckoutCancelPage() {
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center bg-gray-50 p-4">
+    <div className="flex min-h-screen flex-col items-center justify-center bg-muted p-4">
       <Card className="max-w-md text-center">
         <CardHeader>
-          <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-gray-100">
+          <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-muted">
             <XCircle className="h-10 w-10 text-muted-foreground" />
           </div>
           <CardTitle className="text-2xl">Checkout Cancelled</CardTitle>

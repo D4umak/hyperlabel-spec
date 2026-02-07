@@ -188,7 +188,7 @@ export function BuyLabelsForm() {
               <ul className="mt-3 space-y-1">
                 {pack.features.map((f) => (
                   <li key={f} className="flex items-start gap-1.5 text-xs text-muted-foreground">
-                    <Check className="mt-0.5 h-3 w-3 shrink-0 text-green-600" />
+                    <Check className="mt-0.5 h-3 w-3 shrink-0 text-green-600 dark:text-green-400" />
                     {f}
                   </li>
                 ))}
@@ -309,7 +309,7 @@ export function BuyLabelsForm() {
           </div>
           <div className="flex justify-between">
             <span className="text-muted-foreground">Shipping</span>
-            <span className="font-medium text-green-600">Free</span>
+            <span className="font-medium text-green-600 dark:text-green-400">Free</span>
           </div>
           <div className="border-t pt-2 flex justify-between">
             <span className="font-semibold">Total</span>

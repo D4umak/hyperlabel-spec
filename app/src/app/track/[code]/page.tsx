@@ -64,7 +64,7 @@ export default async function PublicTrackingPage({ params }: PageProps) {
   // Check if sharing is enabled
   if (!shipment.shareEnabled) {
     return (
-      <div className="flex min-h-screen flex-col items-center justify-center bg-gray-50 p-4">
+      <div className="flex min-h-screen flex-col items-center justify-center bg-muted p-4">
         <Card className="max-w-md">
           <CardHeader className="text-center">
             <Package className="mx-auto h-12 w-12 text-muted-foreground" />
@@ -88,9 +88,9 @@ export default async function PublicTrackingPage({ params }: PageProps) {
   const latestLocation = shipment.locations[0]
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-muted">
       {/* Header */}
-      <header className="border-b bg-white">
+      <header className="border-b bg-card">
         <div className="container mx-auto flex h-16 items-center justify-between px-4">
           <Link href="/" className="flex items-center gap-2">
             <Package className="h-6 w-6 text-primary" />
@@ -113,7 +113,7 @@ export default async function PublicTrackingPage({ params }: PageProps) {
             </p>
           </div>
           {latestLocation && (
-            <div className="flex items-center gap-1.5 rounded-full border bg-white px-3 py-1.5 text-sm text-muted-foreground shadow-sm">
+            <div className="flex items-center gap-1.5 rounded-full border bg-card px-3 py-1.5 text-sm text-muted-foreground shadow-sm">
               <Clock className="h-3.5 w-3.5" />
               <span>
                 Updated {formatDistanceToNow(new Date(latestLocation.recordedAt), { addSuffix: true })}
@@ -178,19 +178,19 @@ export default async function PublicTrackingPage({ params }: PageProps) {
                   <div
                     className={`flex h-10 w-10 items-center justify-center rounded-full ${
                       shipment.status === 'DELIVERED'
-                        ? 'bg-green-100'
+                        ? 'bg-green-100 dark:bg-green-900/30'
                         : shipment.status === 'IN_TRANSIT'
-                          ? 'bg-blue-100'
-                          : 'bg-gray-100'
+                          ? 'bg-blue-100 dark:bg-blue-900/30'
+                          : 'bg-muted'
                     }`}
                   >
                     <StatusIcon
                       className={`h-5 w-5 ${
                         shipment.status === 'DELIVERED'
-                          ? 'text-green-600'
+                          ? 'text-green-600 dark:text-green-400'
                           : shipment.status === 'IN_TRANSIT'
-                            ? 'text-blue-600'
-                            : 'text-gray-600'
+                            ? 'text-blue-600 dark:text-blue-400'
+                            : 'text-muted-foreground'
                       }`}
                     />
                   </div>
@@ -304,7 +304,7 @@ export default async function PublicTrackingPage({ params }: PageProps) {
       </main>
 
       {/* Footer */}
-      <footer className="mt-12 border-t bg-white py-6">
+      <footer className="mt-12 border-t bg-card py-6">
         <div className="container mx-auto px-4 text-center text-sm text-muted-foreground">
           <p>Powered by TIP Cargo Tracking</p>
           <p className="mt-1">

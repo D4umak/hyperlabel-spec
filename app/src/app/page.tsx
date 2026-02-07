@@ -22,6 +22,7 @@ import {
 } from 'lucide-react'
 import { LandingFAQ } from '@/components/landing/landing-faq'
 import { MobileNav } from '@/components/landing/mobile-nav'
+import { ThemeToggle } from '@/components/theme-toggle'
 import { isClerkConfigured } from '@/lib/clerk-config'
 import type { Metadata } from 'next'
 
@@ -46,9 +47,9 @@ export default async function HomePage() {
   }
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-background">
       {/* Header */}
-      <header className="sticky top-0 z-50 border-b bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/80">
+      <header className="sticky top-0 z-50 border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80">
         <div className="container mx-auto flex h-16 items-center justify-between px-4">
           <Link href="/" className="flex items-center gap-2">
             <Package className="h-8 w-8 text-primary" />
@@ -87,13 +88,14 @@ export default async function HomePage() {
             <Button asChild className="hidden sm:inline-flex">
               <Link href="/sign-up">Get Started</Link>
             </Button>
+            <ThemeToggle />
             <MobileNav />
           </div>
         </div>
       </header>
 
       {/* Hero */}
-      <section className="relative overflow-hidden border-b bg-gradient-to-b from-gray-50 to-white py-20 md:py-28">
+      <section className="relative overflow-hidden border-b bg-gradient-to-b from-muted to-background py-20 md:py-28">
         <div className="container mx-auto px-4 text-center">
           <h1 className="mx-auto max-w-4xl text-4xl font-bold tracking-tight text-foreground md:text-5xl lg:text-6xl">
             Door-to-Door Cargo Tracking
@@ -183,14 +185,14 @@ export default async function HomePage() {
       </section>
 
       {/* Features — 6 cards */}
-      <section id="features" className="scroll-mt-20 bg-gray-50 py-20 md:py-24">
+      <section id="features" className="scroll-mt-20 bg-muted py-20 md:py-24">
         <div className="container mx-auto px-4">
           <h2 className="text-center text-3xl font-bold md:text-4xl">Why TIP?</h2>
           <p className="mx-auto mt-3 max-w-xl text-center text-muted-foreground">
             Built for reliability and ease of use.
           </p>
           <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            <div className="rounded-xl border bg-white p-6 shadow-sm transition-shadow hover:shadow-md">
+            <div className="rounded-xl border bg-card p-6 shadow-sm transition-shadow hover:shadow-md">
               <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10">
                 <Battery className="h-6 w-6 text-primary" />
               </div>
@@ -199,7 +201,7 @@ export default async function HomePage() {
                 Long-lasting battery so your shipment stays visible for the whole journey.
               </p>
             </div>
-            <div className="rounded-xl border bg-white p-6 shadow-sm transition-shadow hover:shadow-md">
+            <div className="rounded-xl border bg-card p-6 shadow-sm transition-shadow hover:shadow-md">
               <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10">
                 <Globe className="h-6 w-6 text-primary" />
               </div>
@@ -208,7 +210,7 @@ export default async function HomePage() {
                 Cellular coverage in most countries—track on land, sea, and air.
               </p>
             </div>
-            <div className="rounded-xl border bg-white p-6 shadow-sm transition-shadow hover:shadow-md">
+            <div className="rounded-xl border bg-card p-6 shadow-sm transition-shadow hover:shadow-md">
               <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10">
                 <HardDrive className="h-6 w-6 text-primary" />
               </div>
@@ -217,7 +219,7 @@ export default async function HomePage() {
                 Labels store location data when out of coverage and sync when back online.
               </p>
             </div>
-            <div className="rounded-xl border bg-white p-6 shadow-sm transition-shadow hover:shadow-md">
+            <div className="rounded-xl border bg-card p-6 shadow-sm transition-shadow hover:shadow-md">
               <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10">
                 <MapPin className="h-6 w-6 text-primary" />
               </div>
@@ -226,7 +228,7 @@ export default async function HomePage() {
                 Live position on a map with configurable update frequency.
               </p>
             </div>
-            <div className="rounded-xl border bg-white p-6 shadow-sm transition-shadow hover:shadow-md">
+            <div className="rounded-xl border bg-card p-6 shadow-sm transition-shadow hover:shadow-md">
               <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10">
                 <Share2 className="h-6 w-6 text-primary" />
               </div>
@@ -235,7 +237,7 @@ export default async function HomePage() {
                 Send a public tracking link to your consignee—no account required to view.
               </p>
             </div>
-            <div className="rounded-xl border bg-white p-6 shadow-sm transition-shadow hover:shadow-md">
+            <div className="rounded-xl border bg-card p-6 shadow-sm transition-shadow hover:shadow-md">
               <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10">
                 <Bell className="h-6 w-6 text-primary" />
               </div>
@@ -256,7 +258,7 @@ export default async function HomePage() {
             Any business that ships valuable cargo and needs visibility from origin to destination.
           </p>
           <div className="mx-auto mt-16 grid max-w-4xl gap-8 md:grid-cols-2">
-            <div className="flex gap-4 rounded-xl border bg-white p-6 shadow-sm">
+            <div className="flex gap-4 rounded-xl border bg-card p-6 shadow-sm">
               <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-primary/10">
                 <Cpu className="h-6 w-6 text-primary" />
               </div>
@@ -267,7 +269,7 @@ export default async function HomePage() {
                 </p>
               </div>
             </div>
-            <div className="flex gap-4 rounded-xl border bg-white p-6 shadow-sm">
+            <div className="flex gap-4 rounded-xl border bg-card p-6 shadow-sm">
               <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-primary/10">
                 <Pill className="h-6 w-6 text-primary" />
               </div>
@@ -278,7 +280,7 @@ export default async function HomePage() {
                 </p>
               </div>
             </div>
-            <div className="flex gap-4 rounded-xl border bg-white p-6 shadow-sm">
+            <div className="flex gap-4 rounded-xl border bg-card p-6 shadow-sm">
               <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-primary/10">
                 <Palette className="h-6 w-6 text-primary" />
               </div>
@@ -289,7 +291,7 @@ export default async function HomePage() {
                 </p>
               </div>
             </div>
-            <div className="flex gap-4 rounded-xl border bg-white p-6 shadow-sm">
+            <div className="flex gap-4 rounded-xl border bg-card p-6 shadow-sm">
               <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-primary/10">
                 <Plane className="h-6 w-6 text-primary" />
               </div>
@@ -312,7 +314,7 @@ export default async function HomePage() {
             One-time purchase — no subscription, no hidden fees. Every label includes the same features.
           </p>
           <div className="mx-auto mt-16 grid max-w-4xl gap-8 md:grid-cols-3">
-            <div className="rounded-xl border bg-white p-6 shadow-sm">
+            <div className="rounded-xl border bg-card p-6 shadow-sm">
               <h3 className="text-lg font-semibold">1 Label</h3>
               <p className="mt-1 text-sm text-muted-foreground">Single label</p>
               <div className="mt-4">
@@ -328,7 +330,7 @@ export default async function HomePage() {
                 <Link href="/sign-up">Buy 1 Label</Link>
               </Button>
             </div>
-            <div className="rounded-xl border-2 border-primary bg-white p-6 shadow-sm">
+            <div className="rounded-xl border-2 border-primary bg-card p-6 shadow-sm">
               <div className="mb-2 text-xs font-medium uppercase tracking-wide text-primary">
                 Best Value
               </div>
@@ -345,7 +347,7 @@ export default async function HomePage() {
                 <Link href="/sign-up">Buy 5 Labels</Link>
               </Button>
             </div>
-            <div className="rounded-xl border bg-white p-6 shadow-sm">
+            <div className="rounded-xl border bg-card p-6 shadow-sm">
               <h3 className="text-lg font-semibold">10 Labels</h3>
               <p className="mt-1 text-sm text-muted-foreground">$20 per label</p>
               <div className="mt-4">
@@ -365,7 +367,7 @@ export default async function HomePage() {
       </section>
 
       {/* FAQ */}
-      <section id="faq" className="scroll-mt-20 bg-gray-50 py-20 md:py-24">
+      <section id="faq" className="scroll-mt-20 bg-muted py-20 md:py-24">
         <div className="container mx-auto px-4">
           <h2 className="text-center text-3xl font-bold md:text-4xl">Frequently Asked Questions</h2>
           <p className="mx-auto mt-3 max-w-xl text-center text-muted-foreground">
@@ -387,7 +389,7 @@ export default async function HomePage() {
           <div className="mt-8 flex flex-wrap items-center justify-center gap-6">
             <a
               href="mailto:support@tip.live"
-              className="inline-flex items-center gap-2 rounded-lg border bg-white px-4 py-3 text-sm font-medium transition-colors hover:bg-gray-50"
+              className="inline-flex items-center gap-2 rounded-lg border bg-card px-4 py-3 text-sm font-medium transition-colors hover:bg-accent"
             >
               <Mail className="h-4 w-4" />
               support@tip.live

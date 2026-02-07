@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button'
 import { redirect } from 'next/navigation'
 import { isClerkConfigured } from '@/lib/clerk-config'
 import { MobileSidebar } from '@/components/dashboard/mobile-sidebar'
+import { ThemeToggle } from '@/components/theme-toggle'
 
 const navigation = [
   { name: 'Dashboard', href: '/dashboard', icon: LayoutDashboard },
@@ -31,11 +32,11 @@ export default async function DashboardLayout({ children }: { children: React.Re
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-muted">
       {/* Sidebar - Desktop */}
-      <aside className="fixed inset-y-0 left-0 z-50 hidden w-64 border-r border-gray-200 bg-white lg:block">
+      <aside className="fixed inset-y-0 left-0 z-50 hidden w-64 border-r border-border bg-card lg:block">
         {/* Logo */}
-        <div className="flex h-16 items-center gap-2 border-b border-gray-200 px-6">
+        <div className="flex h-16 items-center gap-2 border-b border-border px-6">
           <Package className="h-8 w-8 text-primary" />
           <span className="text-xl font-bold">TIP</span>
         </div>
@@ -46,7 +47,7 @@ export default async function DashboardLayout({ children }: { children: React.Re
             <Link
               key={item.name}
               href={item.href}
-              className="flex items-center gap-3 rounded-lg px-3 py-2 text-gray-700 transition-colors hover:bg-gray-100 hover:text-gray-900"
+              className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground"
             >
               <item.icon className="h-5 w-5" />
               {item.name}
@@ -55,7 +56,7 @@ export default async function DashboardLayout({ children }: { children: React.Re
         </nav>
 
         {/* Buy Labels CTA */}
-        <div className="absolute bottom-0 left-0 right-0 border-t border-gray-200 p-4">
+        <div className="absolute bottom-0 left-0 right-0 border-t border-border p-4">
           <Button asChild className="w-full">
             <Link href="/buy">Buy Labels</Link>
           </Button>
@@ -65,7 +66,7 @@ export default async function DashboardLayout({ children }: { children: React.Re
       {/* Main content */}
       <div className="lg:pl-64">
         {/* Top bar */}
-        <header className="sticky top-0 z-40 flex h-16 items-center justify-between border-b border-gray-200 bg-white px-4 lg:px-6">
+        <header className="sticky top-0 z-40 flex h-16 items-center justify-between border-b border-border bg-card px-4 lg:px-6">
           {/* Mobile menu button */}
           <MobileSidebar />
 
@@ -82,19 +83,22 @@ export default async function DashboardLayout({ children }: { children: React.Re
             </p>
           </div>
 
-          {/* User button - only render if Clerk is configured */}
-          {clerkEnabled ? (
-            <UserButton
-              afterSignOutUrl="/"
-              appearance={{
-                elements: {
-                  avatarBox: 'h-9 w-9',
-                },
-              }}
-            />
-          ) : (
-            <div className="h-9 w-9 rounded-full bg-primary/10" />
-          )}
+          {/* Theme toggle + User button */}
+          <div className="flex items-center gap-2">
+            <ThemeToggle />
+            {clerkEnabled ? (
+              <UserButton
+                afterSignOutUrl="/"
+                appearance={{
+                  elements: {
+                    avatarBox: 'h-9 w-9',
+                  },
+                }}
+              />
+            ) : (
+              <div className="h-9 w-9 rounded-full bg-primary/10" />
+            )}
+          </div>
         </header>
 
         {/* Page content */}

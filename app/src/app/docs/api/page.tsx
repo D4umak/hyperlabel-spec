@@ -460,10 +460,10 @@ const endpoints: EndpointCategory[] = [
 ]
 
 const methodColors: Record<string, string> = {
-  GET: 'bg-green-500/20 text-green-700',
-  POST: 'bg-blue-500/20 text-blue-700',
-  PATCH: 'bg-yellow-500/20 text-yellow-700',
-  DELETE: 'bg-red-500/20 text-red-700',
+  GET: 'bg-green-500/20 text-green-700 dark:text-green-400',
+  POST: 'bg-blue-500/20 text-blue-700 dark:text-blue-400',
+  PATCH: 'bg-yellow-500/20 text-yellow-700 dark:text-yellow-400',
+  DELETE: 'bg-red-500/20 text-red-700 dark:text-red-400',
 }
 
 export default function ApiDocsPage() {

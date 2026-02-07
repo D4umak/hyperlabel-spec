@@ -63,7 +63,7 @@ export function PublicTimeline({ locations }: PublicTimelineProps) {
                   {locationNames[location.id] || `${location.latitude.toFixed(4)}, ${location.longitude.toFixed(4)}`}
                 </span>
                 {location.isOfflineSync && (
-                  <span className="rounded bg-yellow-100 px-1.5 py-0.5 text-xs text-yellow-800">
+                  <span className="rounded bg-yellow-100 dark:bg-yellow-900/30 px-1.5 py-0.5 text-xs text-yellow-800 dark:text-yellow-200">
                     Synced
                   </span>
                 )}

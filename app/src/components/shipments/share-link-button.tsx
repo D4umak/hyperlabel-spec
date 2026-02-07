@@ -62,7 +62,7 @@ export function ShareLinkButton({ shareCode, trackingUrl, className }: ShareLink
               <Input value={trackingUrl} readOnly className="font-mono text-sm" />
               <Button variant="outline" size="icon" onClick={copyToClipboard} aria-label="Copy tracking link">
                 {copied ? (
-                  <Check className="h-4 w-4 text-green-600" />
+                  <Check className="h-4 w-4 text-green-600 dark:text-green-400" />
                 ) : (
                   <Copy className="h-4 w-4" />
                 )}

@@ -43,7 +43,7 @@ export default function BuyLabelsPage() {
           <div className="grid gap-3 sm:grid-cols-2">
             {features.map((feature) => (
               <div key={feature} className="flex items-center gap-2">
-                <Check className="h-4 w-4 text-green-600" />
+                <Check className="h-4 w-4 text-green-600 dark:text-green-400" />
                 <span className="text-sm">{feature}</span>
               </div>
             ))}
